@@ -1,0 +1,18 @@
+[filter "media"]
+  clean = git-media-clean %f
+  smudge = git-media-smudge %f
+[user]
+  name = joeytall
+  email = joeytall.liu@gmail.com
+[credential]
+  helper = osxkeychain
+[init]
+  templatedir = /Users/joeytall/.git-template
+[core]
+  editor = /usr/bin/vim
+  excludesfile = /Users/joeytall/.gitignore_global
+[alias]
+  lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+[branch]
+  autosetuprebase = always
+

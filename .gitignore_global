@@ -1,0 +1,15 @@
+.ruby-*
+.env
+tags
+vendor/bundle
+public/assets
+.bundle
+.pt
+spec/raketask/coverage
+spec/support/_*
+.DS_Store
+coverage/_*
+.ruby-version
+log/
+logs/
+coverage/
