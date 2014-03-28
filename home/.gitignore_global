@@ -13,3 +13,4 @@ coverage/_*
 log/
 logs/
 coverage/
+.vim/bundle/

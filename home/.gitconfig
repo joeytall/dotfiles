@@ -7,10 +7,10 @@
 [credential]
   helper = osxkeychain
 [init]
-  templatedir = /Users/joeytall/.git-template
+  templatedir = ~/.git-template
 [core]
   editor = /usr/bin/vim
-  excludesfile = /Users/joeytall/.gitignore_global
+  excludesfile = ~/.gitignore_global
 [alias]
   lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
 [branch]
