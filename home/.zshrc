@@ -20,6 +20,7 @@ fi
 alias l='ls -la'
 alias se="vim ~/.zshrc"
 alias ss="source ~/.zshrc"
+alias vundle="vim +PluginInstall +qall"
 
 # Github
 alias gfo='git fetch origin'
