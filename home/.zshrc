@@ -25,6 +25,7 @@ alias vundle="vim +PluginInstall +qall"
 # Github
 alias gfo='git fetch origin'
 alias ptg='git push origin HEAD:refs/for/master'
+alias pom='git push origin master'
 alias gts="git status"
 alias gta="git add"
 alias gtaa='git add --all'
