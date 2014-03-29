@@ -1,0 +1,10 @@
+home/.vim/swap/*
+home/.vim/bundle/*
+!home/.vim/bundle/vundle
+
+home/.mpd/*
+!home/.mpd/mpd.conf
+
+home/.mpdcron/mpdcron.pid
+
+home/.ncmpcpp/error.log
