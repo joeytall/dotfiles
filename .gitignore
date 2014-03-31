@@ -1,6 +1,7 @@
 home/.vim/swap/*
 home/.vim/bundle/*
 !home/.vim/bundle/vundle
+!home /.ssh/config
 
 home/.mpd/*
 !home/.mpd/mpd.conf
