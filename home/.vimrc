@@ -77,7 +77,12 @@ map <silent> <C-J> <C-W>j
 map <silent> <C-K> <C-W>k
 map <silent> <C-H> <C-W>h
 map <silent> <C-L> <C-W>l
+map <silent> <S-H> <C-W>H
+map <silent> <S-L> <C-W>L
 map <silent> <C-M> <C-W>_
+map <silent> <C-=> <C-W>=
+map <silent> <C-R> <C-W>R
+map <silent> <C-O> <C-W>O
 map <silent> <C-N> :silent noh<CR>
 map <silent> <C-T> :NERDTree <CR>
 map <silent> gb :Gblame<CR>
@@ -87,6 +92,15 @@ map <silent> gl :gitv<CR>
 map <silent> gs :Gstatus<CR>
 
 nmap <leader>p :!mkdir -p %:p:h<cr>
+
+"Auto Format gg=G"
+map <F1> mzgg=G`z<CR>
+
+"Copy Entire File"
+map <F2> mzggyG`z<CR>
+
+"Copy Entire File"
+map <F3> mzggP`z<CR>
 
 "Expression mappings.
 cabbr <expr> %% expand('%:p:h')
