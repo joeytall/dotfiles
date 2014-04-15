@@ -5,6 +5,7 @@ tmp/
 vendor/
 spec/
 spec/fixtures
+coverage/
 *.sql
 *.tags*
 *.gemtags*

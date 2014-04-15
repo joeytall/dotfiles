@@ -81,8 +81,7 @@ map <silent> <S-H> <C-W>H
 map <silent> <S-L> <C-W>L
 map <silent> <C-M> <C-W>_
 map <silent> <C-=> <C-W>=
-map <silent> <C-R> <C-W>R
-map <silent> <C-O> <C-W>O
+map <silent> <+> <C-W><S-=>
 map <silent> <C-N> :silent noh<CR>
 map <silent> <C-T> :NERDTree <CR>
 map <silent> gb :Gblame<CR>
