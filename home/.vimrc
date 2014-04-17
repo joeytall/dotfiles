@@ -23,6 +23,7 @@ Bundle 'tpope/vim-eunuch'
 Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-markdown'
 Bundle 'bitc/vim-bad-whitespace'
+Bundle 'kien/ctrlp.vim'
 
 set nocp
 set nu
@@ -45,14 +46,27 @@ set laststatus=2
 set encoding=utf-8
 set clipboard=unnamedplus
 
+set runtimepath^=~/.vim/bundle/ctrlp.vim
+
 set backupdir=~/.vim/backup
 set dir=~/.vim/swap
 set undodir=~/.vim/undo
 set cursorcolumn
 set mouse=a
 
+set wildmode=longest,list
+set wildmenu
+
 filetype plugin indent on
 
+"from Jared"
+let g:ctrlp_cmd = 'CtrlPMixed'
+let g:ctrlp_working_path_mode = '' " Stop messing with the path
+let g:ctrlp_match_window_bottom = 1
+let g:ctrlp_jump_to_buffer = 2 " Jump to tab AND buffer if already open
+let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git\|coverage\|vendor/bundle'
+
+let mapleader = ' '
 let g:airline_left_sep = ''
 let g:airline_left_alt_sep = ''
 let g:airline_right_sep = ''
@@ -114,3 +128,11 @@ noremap   <Down>   <NOP>
 noremap   <Left>   <NOP>
 noremap   <Right>  <NOP>
 Bundle 'rking/ag.vim'
+
+"ctrl p stuff from Jared"
+nmap <leader><leader> :CtrlP<cr>
+nmap <leader>fa :CtrlP app/assets<cr>
+nmap <leader>fc :CtrlP app/controllers<cr>
+nmap <leader>fm :CtrlP app/models<cr>
+nmap <leader>ft :CtrlPTag<cr>
+nmap <leader>fv :CtrlP app/views<cr>
