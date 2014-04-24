@@ -20,11 +20,13 @@ fi
 alias l='ls -la'
 alias se="vim ~/.zshrc"
 alias ss="source ~/.zshrc"
+alias vv="vim ~/.vimrc"
 alias vundle="vim +PluginInstall +qall"
 
 # Github
 alias gfo='git fetch origin'
 alias ptg='git push origin HEAD:refs/for/master'
+alias ptgmobile='git push origin HEAD:refs/for/mobile-specific-version'
 alias pom='git push origin master'
 alias gts="git status"
 alias gta="git add"
@@ -46,6 +48,7 @@ alias rb7="git rebase -i HEAD~7"
 alias rb8="git rebase -i HEAD~8"
 alias rb9="git rebase -i HEAD~9"
 alias rbo="git rebase -i origin/master"
+alias rbomobile="git rebase -i origin/mobile-specific-version"
 alias rbc="git rebase --continue"
 alias rba="git rebase --abort"
 alias track="git branch -u origin/master"
@@ -74,6 +77,7 @@ alias rails="bundle exec rails"
 alias console="bundle exec rails console"
 alias testconsole="RAILS_ENV=test console"
 alias guard="COVERAGE=true bundle exec guard"
+alias setup="bundle exec rake db:setup"
 alias migrate="bundle exec rake db:migrate"
 alias prepare="bundle exec rake db:test:prepare"
 alias server="bundle exec rails server"

@@ -44,7 +44,7 @@ set secure                          "disable unsafe commands in local .vimrc fil
 set t_Co=256                        "256 color support
 set laststatus=2
 set encoding=utf-8
-set clipboard=unnamedplus
+set clipboard=unnamed
 
 set runtimepath^=~/.vim/bundle/ctrlp.vim
 
@@ -118,6 +118,10 @@ map <F3> mzggP`z<CR>
 "Expression mappings.
 cabbr <expr> %% expand('%:p:h')
 
+"Copy to Clipboard"
+nmap <F4> :.w !pbcopy<CR><CR>
+vmap <F4> :w !pbcopy<CR><CR>
+
 "No arrow keys. :(
 inoremap  <Up>     <NOP>
 inoremap  <Down>   <NOP>
@@ -136,3 +140,6 @@ nmap <leader>fc :CtrlP app/controllers<cr>
 nmap <leader>fm :CtrlP app/models<cr>
 nmap <leader>ft :CtrlPTag<cr>
 nmap <leader>fv :CtrlP app/views<cr>
+
+"tidy stuff from DK"
+nmap =t :%! tidy -config ~/.tidyrc<CR>
