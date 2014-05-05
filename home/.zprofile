@@ -75,4 +75,4 @@ if [[ ! -d "$TMPPREFIX" ]]; then
   mkdir -p "$TMPPREFIX"
 fi
 
-chruby ruby-2.0.0-p353
+chruby ruby-2.1.0

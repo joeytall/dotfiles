@@ -23,10 +23,10 @@ alias ss="source ~/.zshrc"
 alias vv="vim ~/.vimrc"
 alias vundle="vim +PluginInstall +qall"
 
-# Github
+# Git Commands
 alias gfo='git fetch origin'
-alias ptg='git push origin HEAD:refs/for/master'
-alias ptgmobile='git push origin HEAD:refs/for/mobile-specific-version'
+#alias ptg='git push origin HEAD:refs/for/master'
+#alias ptgmobile='git push origin HEAD:refs/for/mobile-specific-version'
 alias pom='git push origin master'
 alias gts="git status"
 alias gta="git add"
@@ -37,6 +37,7 @@ alias ammend="git commit --amend"
 alias fixup="git commit -m 'fixup'"
 alias amend="git commit --amend"
 alias diff="git diff"
+alias clone="git clone"
 alias getapp="git clone joey@gerrit:"
 alias rb="git rebase -i"
 alias rb1="git rebase -i HEAD~1"
