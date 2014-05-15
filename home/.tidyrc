@@ -8,7 +8,7 @@ indent: yes
 logical-emphasis: yes
 markup: yes
 output-xhtml: yes
-show-body-only: yes
+show-body-only: no
 show-warnings: no
 sort-attributes: alpha
 tab-size: 2

@@ -24,6 +24,13 @@ Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-markdown'
 Bundle 'bitc/vim-bad-whitespace'
 Bundle 'kien/ctrlp.vim'
+Bundle 'tomtom/tlib_vim'
+Bundle 'MarcWeber/vim-addon-mw-utils'
+Bundle 'garbas/vim-snipmate'
+Bundle 'honza/vim-snippets'
+Bundle 'scrooloose/syntastic'
+Bundle 'Lokaltog/vim-easymotion'
+Bundle 'mattn/emmet-vim'
 
 set nocp
 set nu
@@ -106,21 +113,24 @@ map <silent> gs :Gstatus<CR>
 
 nmap <leader>p :!mkdir -p %:p:h<cr>
 
+"Expression mappings.
+cabbr <expr> %% expand('%:p:h')
+
 "Auto Format gg=G"
 map <F1> mzgg=G`z<CR>
 
 "Copy Entire File"
 map <F2> mzggyG`z<CR>
 
-"Copy Entire File"
+"Paste Entire File"
 map <F3> mzggP`z<CR>
-
-"Expression mappings.
-cabbr <expr> %% expand('%:p:h')
 
 "Copy to Clipboard"
 nmap <F4> :.w !pbcopy<CR><CR>
 vmap <F4> :w !pbcopy<CR><CR>
+
+"Paste mode"
+nmap <F5> :set paste!<CR><CR>
 
 "No arrow keys. :(
 inoremap  <Up>     <NOP>
@@ -143,3 +153,6 @@ nmap <leader>fv :CtrlP app/views<cr>
 
 "tidy stuff from DK"
 nmap =t :%! tidy -config ~/.tidyrc<CR>
+
+"EasyMotion Fixup"
+map <Leader> <Plug>(easymotion-prefix)

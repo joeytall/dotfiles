@@ -91,3 +91,6 @@ alias bi="bundle install --path vendor/bundle"
 alias bm="bundle exec rake db:migrate"
 alias rspec="bundle exec rspec"
 alias routes="bundle exec rake routes"
+
+# Open file in Chrome
+alias chrome="open -a 'Google Chrome'"
