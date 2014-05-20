@@ -22,6 +22,8 @@ alias se="vim ~/.zshrc"
 alias ss="source ~/.zshrc"
 alias vv="vim ~/.vimrc"
 alias vundle="vim +PluginInstall +qall"
+alias sshon="sudo systemsetup -setremotelogin on"
+alias sshoff="sudo systemsetup -setremotelogin off"
 
 # Git Commands
 alias gfo='git fetch origin'
