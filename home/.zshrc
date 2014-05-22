@@ -25,6 +25,10 @@ alias vundle="vim +PluginInstall +qall"
 alias sshon="sudo systemsetup -setremotelogin on"
 alias sshoff="sudo systemsetup -setremotelogin off"
 
+# Homesick Commands
+alias hscd="homesick cd"
+alias hslink="homesick symlink dotfiles"
+
 # Git Commands
 alias gfo='git fetch origin'
 #alias ptg='git push origin HEAD:refs/for/master'
@@ -96,3 +100,6 @@ alias routes="bundle exec rake routes"
 
 # Open file in Chrome
 alias chrome="open -a 'Google Chrome'"
+
+# CoffeeScript from coffee/ to js/
+alias coffeewatch="coffee -o js/ -cw coffee/*.coffee"
