@@ -101,3 +101,7 @@ alias chrome="open -a 'Google Chrome'"
 
 # CoffeeScript from coffee/ to js/
 alias coffeewatch="coffee -o js/ -cw coffee/*.coffee"
+
+# Directory Shortcut, only works in Tero
+alias azzier="cd /Volumes/Webwork/Production/Azzierdev"
+alias samplexml="cd /Volumes/Telerik/UI\ for\ ASP.NET\ AJAX\ Q1\ 2014/Live\ Demos/App_Data"

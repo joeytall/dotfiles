@@ -31,6 +31,7 @@ Bundle 'honza/vim-snippets'
 Bundle 'scrooloose/syntastic'
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'mattn/emmet-vim'
+Bundle 'jelera/vim-javascript-syntax'
 
 set nocp
 set nu
@@ -92,6 +93,8 @@ autocmd BufNewFile,BufRead *.mobile.erb set filetype=eruby
 autocmd BufNewFile,BufRead .pryrc set filetype=ruby
 autocmd BufNewFile,BufRead Gemfile set filetype=ruby
 autocmd BufNewFile,BufRead Gemfile.lock set filetype=ruby
+autocmd BufNewFile,BufRead *.aspx set filetype=javascript
+autocmd BufNewFile,BufRead *.asmx,*.ascx set filetype=aspnet
 
 "This maps ctrl+h and ctrl+l to moving between :vsplit windows
 map <silent> <C-J> <C-W>j
@@ -131,6 +134,10 @@ vmap <F4> :w !pbcopy<CR><CR>
 
 "Paste mode"
 nmap <F5> :set paste!<CR><CR>
+
+"Find javascript"
+nmap <F6> /javascript"><CR>mzV/script><CR>=`z<CR>
+
 
 "No arrow keys. :(
 inoremap  <Up>     <NOP>
