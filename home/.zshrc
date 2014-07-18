@@ -30,6 +30,7 @@ alias hscd="homesick cd"
 alias hslink="homesick symlink dotfiles"
 
 # Git Commands
+alias upstream='git branch -u origin/master'
 alias gfo='git fetch origin'
 #alias ptg='git push origin HEAD:refs/for/master'
 #alias ptgmobile='git push origin HEAD:refs/for/mobile-specific-version'
