@@ -94,7 +94,8 @@ autocmd BufNewFile,BufRead .pryrc set filetype=ruby
 autocmd BufNewFile,BufRead Gemfile set filetype=ruby
 autocmd BufNewFile,BufRead Gemfile.lock set filetype=ruby
 autocmd BufNewFile,BufRead *.aspx set filetype=javascript
-autocmd BufNewFile,BufRead *.asmx,*.ascx set filetype=aspnet
+autocmd BufNewFile,BufRead *.ascx set filetype=javascript
+autocmd BufNewFile,BufRead *.asmx set filetype=aspnet
 
 "This maps ctrl+h and ctrl+l to moving between :vsplit windows
 map <silent> <C-J> <C-W>j
