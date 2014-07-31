@@ -32,6 +32,7 @@ Bundle 'scrooloose/syntastic'
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'mattn/emmet-vim'
 Bundle 'jelera/vim-javascript-syntax'
+Bundle 'tomtom/tcomment_vim'
 
 set nocp
 set nu
@@ -72,7 +73,7 @@ let g:ctrlp_cmd = 'CtrlPMixed'
 let g:ctrlp_working_path_mode = '' " Stop messing with the path
 let g:ctrlp_match_window_bottom = 1
 let g:ctrlp_jump_to_buffer = 2 " Jump to tab AND buffer if already open
-let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git\|coverage\|vendor/bundle'
+let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git\|coverage\|vendor/bundle\|result\|build'
 
 let mapleader = ' '
 let g:airline_left_sep = ''
@@ -164,3 +165,5 @@ nmap =t :%! tidy -config ~/.tidyrc<CR>
 
 "EasyMotion Fixup"
 map <Leader> <Plug>(easymotion-prefix)
+
+map <C-K>c <c-_><c-_>
