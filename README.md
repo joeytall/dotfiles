@@ -27,3 +27,6 @@ GG
 
 4.then go back to To copy!
 
+###Things can't be vundle installed:
+
+1. JSHint: npm install -g jshint
