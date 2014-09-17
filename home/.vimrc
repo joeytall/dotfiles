@@ -22,6 +22,7 @@ Bundle 'tpope/vim-rails'
 Bundle 'tpope/vim-eunuch'
 Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-markdown'
+Bundle 'tpope/vim-pathogen'
 Bundle 'bitc/vim-bad-whitespace'
 Bundle 'kien/ctrlp.vim'
 Bundle 'tomtom/tlib_vim'
@@ -33,6 +34,8 @@ Bundle 'Lokaltog/vim-easymotion'
 Bundle 'mattn/emmet-vim'
 Bundle 'jelera/vim-javascript-syntax'
 Bundle 'tomtom/tcomment_vim'
+Bundle 'jshint/jshint'
+Bundle 'Shutnik/jshint2.vim'
 
 set nocp
 set nu
@@ -166,4 +169,10 @@ nmap =t :%! tidy -config ~/.tidyrc<CR>
 "EasyMotion Fixup"
 map <Leader> <Plug>(easymotion-prefix)
 
+"Comment Code"
 map <C-K>c <c-_><c-_>
+
+"jshint"
+let g:syntastic_javascript_checkers = ['jshint']
+
+execute pathogen#infect()
