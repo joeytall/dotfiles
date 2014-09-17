@@ -97,6 +97,15 @@ alias bm="bundle exec rake db:migrate"
 alias rspec="bundle exec rspec"
 alias routes="bundle exec rake routes"
 
+# InterfaceLift Downloader
+function downloadwallpaper() {
+  interfacelift-downloader 2560x1440 Pictures/background/interfaceLift/2560x1440
+  interfacelift-downloader 1920x1080 Pictures/background/interfaceLift/1920x1080
+  interfacelift-downloader 1200x1920 Pictures/background/interfaceLift/1200x1920
+  interfacelift-downloader 1280x800 Pictures/background/interfaceLift/1280x800
+}
+
+
 # Open file in Chrome
 alias chrome="open -a 'Google Chrome'"
 
