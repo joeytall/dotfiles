@@ -16,7 +16,7 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
 fi
 
 # Customize to your needs...
-# Shell Stuff
+# Shell Commands
 alias l='ls -la'
 alias se="vim ~/.zshrc"
 alias ss="source ~/.zshrc"
@@ -89,6 +89,8 @@ alias testconsole="RAILS_ENV=test console"
 alias guard="COVERAGE=true bundle exec guard"
 alias setup="bundle exec rake db:setup"
 alias migrate="bundle exec rake db:migrate"
+alias rollback="bundle exec rake db:rollback"
+alias migratestatus="bundle exec rake db:migrate:status"
 alias prepare="bundle exec rake db:test:prepare"
 alias server="bundle exec rails server"
 alias server5="bundle exec rails server -p 50000"
