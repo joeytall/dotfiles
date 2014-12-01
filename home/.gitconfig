@@ -21,3 +21,6 @@
 
 [rebase]
 	autosquash = true
+[github]
+	user = joeytall
+	token = f1a921e8da52a1001a5b7d9403a099f08a25624a

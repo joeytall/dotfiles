@@ -36,6 +36,8 @@ Bundle 'jelera/vim-javascript-syntax'
 Bundle 'tomtom/tcomment_vim'
 Bundle 'jshint/jshint'
 Bundle 'Shutnik/jshint2.vim'
+Bundle 'mattn/gist-vim'
+Bundle 'mattn/webapi-vim'
 
 set nocp
 set nu
@@ -176,3 +178,7 @@ map <C-K>c <c-_><c-_>
 let g:syntastic_javascript_checkers = ['jshint']
 
 execute pathogen#infect()
+
+"gist"
+let g:gist_clip_command = 'pbcopy'
+let g:gist_post_private = 1
