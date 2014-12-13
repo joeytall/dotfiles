@@ -36,6 +36,8 @@ Bundle 'jelera/vim-javascript-syntax'
 Bundle 'tomtom/tcomment_vim'
 Bundle 'jshint/jshint'
 Bundle 'Shutnik/jshint2.vim'
+Bundle 'mattn/gist-vim'
+Bundle 'mattn/webapi-vim'
 
 set nocp
 set nu
@@ -177,10 +179,13 @@ let g:syntastic_javascript_checkers = ['jshint']
 
 execute pathogen#infect()
 
-"font size"
-
+"font size for macvim"
 if has("gui_running")
   if has("gui_macvim")
     set guifont=Menlo\ Regular:h16
   endif
 endif
+
+"gist"
+let g:gist_clip_command = 'pbcopy'
+let g:gist_post_private = 1
