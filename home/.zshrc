@@ -94,6 +94,7 @@ alias migratestatus="bundle exec rake db:migrate:status"
 alias prepare="bundle exec rake db:test:prepare"
 alias server="bundle exec rails server"
 alias server5="bundle exec rails server -p 50000"
+alias generate="bundle exec rails generate"
 alias bi="bundle install --path vendor/bundle"
 alias bm="bundle exec rake db:migrate"
 alias rspec="bundle exec rspec"
@@ -107,6 +108,7 @@ function downloadwallpaper() {
   interfacelift-downloader 1280x800 Pictures/background/interfaceLift/1280x800
 }
 
+alias downloadwebsite="wget -r -p -U chrome"
 
 # Open file in Chrome
 alias chrome="open -a 'Google Chrome'"

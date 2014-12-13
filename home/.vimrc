@@ -176,3 +176,11 @@ map <C-K>c <c-_><c-_>
 let g:syntastic_javascript_checkers = ['jshint']
 
 execute pathogen#infect()
+
+"font size"
+
+if has("gui_running")
+  if has("gui_macvim")
+    set guifont=Menlo\ Regular:h16
+  endif
+endif
