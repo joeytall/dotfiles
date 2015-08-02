@@ -101,6 +101,11 @@ alias bm="bundle exec rake db:migrate"
 alias rspec="bundle exec rspec"
 alias routes="bundle exec rake routes"
 
+# Node JS
+alias ni="npm install"
+alias ns="npm start"
+alias nu="npm update"
+
 # InterfaceLift Downloader
 function downloadwallpaper() {
   interfacelift-downloader 2560x1440 Pictures/background/interfaceLift/2560x1440
