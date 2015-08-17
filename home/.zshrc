@@ -19,6 +19,8 @@ fi
 # Customize to your needs...
 # Shell Commands
 alias l='ls -la'
+alias desk='cd ~/Desktop'
+alias proj='cd ~/Projects'
 alias se="vim ~/.zshrc"
 alias ss="source ~/.zshrc"
 alias vv="vim ~/.vimrc"
