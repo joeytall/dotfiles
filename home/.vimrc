@@ -40,6 +40,7 @@ Bundle 'mattn/gist-vim'
 Bundle 'mattn/webapi-vim'
 Bundle 'elzr/vim-json'
 Bundle 'digitaltoad/vim-jade'
+Bundle 'cwood/vim-django'
 
 set nocp
 set nu
