@@ -43,6 +43,7 @@ Bundle 'digitaltoad/vim-jade'
 Bundle 'cwood/vim-django'
 Bundle 'gioele/vim-autoswap'
 Bundle 'gavinbeatty/dragvisuals.vim'
+Bundle 'rking/ag.vim'
 
 set nocp
 set nu
@@ -160,7 +161,6 @@ noremap   <Up>     <NOP>
 noremap   <Down>   <NOP>
 noremap   <Left>   <NOP>
 noremap   <Right>  <NOP>
-Bundle 'rking/ag.vim'
 
 "ctrl p stuff from Jared"
 nmap <leader><leader> :CtrlP<cr>
@@ -194,3 +194,10 @@ endif
 "gist"
 let g:gist_clip_command = 'pbcopy'
 let g:gist_post_private = 1
+
+"drag visual"
+vmap <expr> ˙ DVB_Drag('left')
+vmap <expr> ¬ DVB_Drag('right')
+vmap <expr> ∆ DVB_Drag('down')
+vmap <expr> ˚ DVB_Drag('up')
+
