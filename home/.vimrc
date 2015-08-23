@@ -41,6 +41,8 @@ Bundle 'mattn/webapi-vim'
 Bundle 'elzr/vim-json'
 Bundle 'digitaltoad/vim-jade'
 Bundle 'cwood/vim-django'
+Bundle 'gioele/vim-autoswap'
+Bundle 'gavinbeatty/dragvisuals.vim'
 
 set nocp
 set nu
