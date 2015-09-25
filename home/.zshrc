@@ -37,6 +37,10 @@ alias ssh90="ssh admin@172.16.92.90"
 alias hscd="homesick cd"
 alias hslink="homesick symlink dotfiles"
 
+# SVN commands
+alias sdi="svn diff --summarize"
+alias sup="svn update"
+
 # Git Commands
 alias upstream='git branch -u origin/master'
 alias gfo='git fetch origin'
