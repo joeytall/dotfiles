@@ -5,7 +5,6 @@
 #   Sorin Ionescu <sorin.ionescu@gmail.com>
 #
 # Source chruby and auto switch
-chruby 2.1.3
 if [ -n "$BASH_VERSION" ] || [ -n "$ZSH_VERSION" ]; then
   source /usr/local/share/chruby/chruby.sh
   source /usr/local/share/chruby/auto.sh
@@ -21,12 +20,18 @@ fi
 alias l='ls -la'
 alias desk='cd ~/Desktop'
 alias proj='cd ~/Projects'
+alias chrootdir='cd ~/Projects/fsa_chroot_env/'
+alias trunk='cd ~/Projects/fsa_chroot_env/fsa/workingTrunk'
+alias sandbox='cd ~/Projects/fsa_chroot_env/fsa/workingTrunk/web/sandbox'
+alias suspicious='cd ~/Projects/fsa_chroot_env/Storage/suspicious'
+alias fsadb='cd ~/Projects/fsa_chroot_env/drive0/private/db'
 alias se="vim ~/.zshrc"
 alias ss="source ~/.zshrc"
 alias vv="vim ~/.vimrc"
 alias vundle="vim +PluginInstall +qall"
 alias sshon="sudo systemsetup -setremotelogin on"
 alias sshoff="sudo systemsetup -setremotelogin off"
+alias ssh90="ssh admin@172.16.92.90"
 
 # Homesick Commands
 alias hscd="homesick cd"
@@ -107,6 +112,9 @@ alias routes="bundle exec rake routes"
 alias ni="npm install"
 alias ns="npm start"
 alias nu="npm update"
+
+# Ubuntu
+alias agi="sudo apt-get install"
 
 # InterfaceLift Downloader
 function downloadwallpaper() {

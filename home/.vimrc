@@ -40,10 +40,10 @@ Bundle 'mattn/gist-vim'
 Bundle 'mattn/webapi-vim'
 Bundle 'elzr/vim-json'
 Bundle 'digitaltoad/vim-jade'
-Bundle 'cwood/vim-django'
 Bundle 'gioele/vim-autoswap'
 Bundle 'gavinbeatty/dragvisuals.vim'
 Bundle 'rking/ag.vim'
+Bundle 'Valloric/YouCompleteMe'
 
 set nocp
 set nu
@@ -107,6 +107,7 @@ autocmd BufNewFile,BufRead Gemfile set filetype=ruby
 autocmd BufNewFile,BufRead Gemfile.lock set filetype=ruby
 autocmd BufNewFile,BufRead *.aspx set filetype=javascript
 autocmd BufNewFile,BufRead *.ascx set filetype=javascript
+autocmd BufNewFile,BufRead *.html set filetype=javascript
 autocmd BufNewFile,BufRead *.asmx set filetype=aspnet
 
 "This maps ctrl+h and ctrl+l to moving between :vsplit windows
