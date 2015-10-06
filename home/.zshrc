@@ -20,26 +20,31 @@ fi
 alias l='ls -la'
 alias desk='cd ~/Desktop'
 alias proj='cd ~/Projects'
-alias chrootdir='cd ~/Projects/fsa_chroot_env/'
+alias cdir='cd ~/Projects/fsa_chroot_env/'
 alias trunk='cd ~/Projects/fsa_chroot_env/fsa/workingTrunk'
+alias map='cd ~/Projects/fsa_chroot_env/fsa/mapTrunk'
 alias sandbox='cd ~/Projects/fsa_chroot_env/fsa/workingTrunk/web/sandbox'
 alias suspicious='cd ~/Projects/fsa_chroot_env/Storage/suspicious'
 alias fsadb='cd ~/Projects/fsa_chroot_env/drive0/private/db'
 alias se="vim ~/.zshrc"
 alias ss="source ~/.zshrc"
 alias vv="vim ~/.vimrc"
+alias vp="vim patch.diff"
 alias vundle="vim +PluginInstall +qall"
 alias sshon="sudo systemsetup -setremotelogin on"
 alias sshoff="sudo systemsetup -setremotelogin off"
 alias ssh90="ssh admin@172.16.92.90"
+alias ssh196="ssh andy@172.16.69.196"
+alias copydata="echo 'cd /drive0/private/db && cp FortiSandboxGUI.db /web/static/FortiSandboxGUI.db && sleep 4 && cd .. && tar zcvf /web/static/private.tgz db-install hc statistics/jobdata  statistics/rptstat && sleep 4 && cd /Storage && tar zcvf /web/static/s.tgz suspicious/$(date +20%y%m%d) quarantine/$(date +20%y%m%d)'"
 
 # Homesick Commands
-alias hscd="homesick cd"
+alias hscd="cd ~/.homesick/repos/dotfiles"
 alias hslink="homesick symlink dotfiles"
 
 # SVN commands
-alias sdi="svn diff --summarize"
+alias sdf="svn diff --summarize"
 alias sup="svn update"
+alias slo="svn log -l"
 
 # Git Commands
 alias upstream='git branch -u origin/master'
@@ -119,6 +124,7 @@ alias nu="npm update"
 
 # Ubuntu
 alias agi="sudo apt-get install"
+alias agup="sudo apt-get update"
 
 # InterfaceLift Downloader
 function downloadwallpaper() {

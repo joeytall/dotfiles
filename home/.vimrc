@@ -32,7 +32,7 @@ Bundle 'honza/vim-snippets'
 Bundle 'scrooloose/syntastic'
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'mattn/emmet-vim'
-Bundle 'jelera/vim-javascript-syntax'
+Bundle 'pangloss/vim-javascript'
 Bundle 'tomtom/tcomment_vim'
 Bundle 'jshint/jshint'
 Bundle 'Shutnik/jshint2.vim'
@@ -44,6 +44,8 @@ Bundle 'gioele/vim-autoswap'
 Bundle 'gavinbeatty/dragvisuals.vim'
 Bundle 'rking/ag.vim'
 Bundle 'Valloric/YouCompleteMe'
+Bundle 'juneedahamed/svnj.vim'
+Bundle 'majutsushi/tagbar'
 
 set nocp
 set nu
@@ -64,7 +66,7 @@ set secure                          "disable unsafe commands in local .vimrc fil
 set t_Co=256                        "256 color support
 set laststatus=2
 set encoding=utf-8
-set clipboard=unnamed
+set clipboard+=unnamed
 
 set runtimepath^=~/.vim/bundle/ctrlp.vim
 
@@ -107,7 +109,7 @@ autocmd BufNewFile,BufRead Gemfile set filetype=ruby
 autocmd BufNewFile,BufRead Gemfile.lock set filetype=ruby
 autocmd BufNewFile,BufRead *.aspx set filetype=javascript
 autocmd BufNewFile,BufRead *.ascx set filetype=javascript
-autocmd BufNewFile,BufRead *.html set filetype=javascript
+" autocmd BufNewFile,BufRead *.html set filetype=javascript
 autocmd BufNewFile,BufRead *.asmx set filetype=aspnet
 
 "This maps ctrl+h and ctrl+l to moving between :vsplit windows
@@ -133,24 +135,18 @@ nmap <leader>p :!mkdir -p %:p:h<cr>
 "Expression mappings.
 cabbr <expr> %% expand('%:p:h')
 
-"Auto Format gg=G"
-map <F1> mzgg=G`z<CR>
-
-"Copy Entire File"
-map <F2> mzggyG`z<CR>
-
-"Paste Entire File"
-map <F3> mzggP`z<CR>
-
-"Copy to Clipboard"
-nmap <F4> :.w !pbcopy<CR><CR>
-vmap <F4> :w !pbcopy<CR><CR>
+map <F1> :NERDTreeToggle<CR>
+map <F2> :TagbarToggle<CR>
+map <F3> :SVNBlame<CR>
+map <F4> :SVNLog<CR>
 
 "Paste mode"
-nmap <F5> :set paste!<CR><CR>
+nmap <F5> :set paste!<CR>
 
 "Find javascript"
 nmap <F6> /javascript"><CR>mzV/script><CR>=`z<CR>
+map <F7> gg=G''
+map <F8> :EraseBadWhitespace <CR>
 
 
 "No arrow keys. :(
@@ -202,3 +198,7 @@ vmap <expr> ¬ DVB_Drag('right')
 vmap <expr> ∆ DVB_Drag('down')
 vmap <expr> ˚ DVB_Drag('up')
 
+vmap <expr> <C-H> DVB_Drag('left')
+vmap <expr> <C-L> DVB_Drag('right')
+vmap <expr> <C-J> DVB_Drag('down')
+vmap <expr> <C-K> DVB_Drag('up')
