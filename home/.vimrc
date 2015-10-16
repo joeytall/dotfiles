@@ -23,6 +23,7 @@ Bundle 'tpope/vim-eunuch'
 Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-markdown'
 Bundle 'tpope/vim-pathogen'
+Bundle 'tpope/vim-sleuth'
 Bundle 'bitc/vim-bad-whitespace'
 Bundle 'kien/ctrlp.vim'
 Bundle 'tomtom/tlib_vim'
@@ -67,6 +68,7 @@ set t_Co=256                        "256 color support
 set laststatus=2
 set encoding=utf-8
 set clipboard+=unnamed
+set wrap
 
 set runtimepath^=~/.vim/bundle/ctrlp.vim
 
@@ -147,6 +149,8 @@ nmap <F5> :set paste!<CR>
 nmap <F6> /javascript"><CR>mzV/script><CR>=`z<CR>
 map <F7> gg=G''
 map <F8> :EraseBadWhitespace <CR>
+map <F10> :Ag <C-R><C-W> <C-R>=@% <CR><CR>
+map <F12> :Ag <C-R><C-W><CR>
 
 
 "No arrow keys. :(
@@ -161,6 +165,7 @@ noremap   <Right>  <NOP>
 
 "ctrl p stuff from Jared"
 nmap <leader><leader> :CtrlP<cr>
+nmap <leader>fb :CtrlPBuffer<cr>
 nmap <leader>fa :CtrlP app/assets<cr>
 nmap <leader>fc :CtrlP app/controllers<cr>
 nmap <leader>fm :CtrlP app/models<cr>
@@ -202,3 +207,12 @@ vmap <expr> <C-H> DVB_Drag('left')
 vmap <expr> <C-L> DVB_Drag('right')
 vmap <expr> <C-J> DVB_Drag('down')
 vmap <expr> <C-K> DVB_Drag('up')
+
+"vim tricks"
+nnoremap <Leader>w :w<CR>
+vmap <Leader>y "+y
+vmap <Leader>d "+d
+nmap <Leader>p "+p
+nmap <Leader>P "+P
+vmap <Leader>p "+p
+vmap <Leader>P "+P

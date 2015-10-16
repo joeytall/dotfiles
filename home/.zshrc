@@ -35,7 +35,13 @@ alias sshon="sudo systemsetup -setremotelogin on"
 alias sshoff="sudo systemsetup -setremotelogin off"
 alias ssh90="ssh admin@172.16.92.90"
 alias ssh196="ssh andy@172.16.69.196"
-alias copydata="echo 'cd /drive0/private/db && cp FortiSandboxGUI.db /web/static/FortiSandboxGUI.db && sleep 4 && cd .. && tar zcvf /web/static/private.tgz db-install hc statistics/jobdata  statistics/rptstat && sleep 4 && cd /Storage && tar zcvf /web/static/s.tgz suspicious/$(date +20%y%m%d) quarantine/$(date +20%y%m%d)'"
+alias copydata="echo 'cd /drive0/private/db && cp FortiSandboxGUI.db /web/static/FortiSandboxGUI.db && cd .. && tar zcvf /web/static/private.tgz db-install hc statistics/jobdata  statistics/rptstat && cd /Storage && tar zcvf /web/static/s.tgz suspicious/$(date +20%y%m%d) quarantine/$(date +20%y%m%d) &&  cd /web/static'"
+alias updatedata='echo "fsadb && /bin/rm FortiSandboxGUI.db && wget 172.16.69.196/static/FortiSandboxGUI.db && cd .. && wget 172.16.69.196/static/private.tgz && tar zxvf private.tgz && /bin/rm private.tgz && cdir && cd Storage/ && wget 172.16.69.196/static/s.tgz && tar zxvf s.tgz && /bin/rm s.tgz && cdir"'
+alias updatedataIP='read -p "From which server?" ip echo "fsadb && /bin/rm FortiSandboxGUI.db && wget 172.16.69.196/static/FortiSandboxGUI.db && cd .. && wget 172.16.69.196/static/private.tgz && tar zxvf private.tgz && /bin/rm private.tgz && cdir && cd Storage/ && wget 172.16.69.196/static/s.tgz && tar zxvf s.tgz && /bin/rm s.tgz && cdir"'
+function updatedataIP() {
+  read -p "From which server?" ip
+  echo "fsadb && /bin/rm FortiSandboxGUI.db && wget 172.16.69.196/static/FortiSandboxGUI.db && cd .. && wget 172.16.69.196/static/private.tgz && tar zxvf private.tgz && /bin/rm private.tgz && cdir && cd Storage/ && wget 172.16.69.196/static/s.tgz && tar zxvf s.tgz && /bin/rm s.tgz && cdir"
+}
 
 # Homesick Commands
 alias hscd="cd ~/.homesick/repos/dotfiles"
@@ -145,3 +151,16 @@ alias coffeewatch="coffee -o js/ -cw coffee/*.coffee"
 # Directory Shortcut, only works in Tero
 alias azzier="cd /Volumes/WebWork/Development/"
 alias samplexml="cd /Volumes/Telerik/UI\ for\ ASP.NET\ AJAX\ Q1\ 2014/Live\ Demos/App_Data"
+
+# Fancy Ctrl Z
+fancy-ctrl-z () {
+  if [[ $#BUFFER -eq 0 ]]; then
+    BUFFER="fg"
+    zle accept-line
+  else
+    zle push-input
+    zle clear-screen
+  fi
+}
+zle -N fancy-ctrl-z
+bindkey '^Z' fancy-ctrl-z

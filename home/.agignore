@@ -6,6 +6,7 @@ vendor/
 spec/
 spec/fixtures
 coverage/
+imgpc/
 *.sql
 *.tags*
 *.gemtags*
@@ -23,3 +24,4 @@ coverage/
 *.pdf
 *.md
 *.log
+*.db
