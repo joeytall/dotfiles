@@ -31,9 +31,8 @@ Bundle 'MarcWeber/vim-addon-mw-utils'
 Bundle 'garbas/vim-snipmate'
 Bundle 'honza/vim-snippets'
 Bundle 'scrooloose/syntastic'
-Bundle 'Lokaltog/vim-easymotion'
 Bundle 'mattn/emmet-vim'
-Bundle 'pangloss/vim-javascript'
+Bundle 'jelera/vim-javascript-syntax'
 Bundle 'tomtom/tcomment_vim'
 Bundle 'jshint/jshint'
 Bundle 'Shutnik/jshint2.vim'
@@ -95,9 +94,9 @@ let g:airline_left_sep = ''
 let g:airline_left_alt_sep = ''
 let g:airline_right_sep = ''
 let g:airline_right_alt_sep = ''
-let g:airline_fugitive_prefix = ' '
-let g:airline_readonly_symbol = ''
-let g:airline_linecolumn_prefix = ''
+" let g:airline_fugitive_prefix = ' '
+" let g:airline_readonly_symbol = ''
+" let g:airline_linecolumn_prefix = ''
 let g:airline_theme='jellybeans'
 let NERDTreeShowHidden=1
 
@@ -146,10 +145,10 @@ map <F4> :SVNLog<CR>
 nmap <F5> :set paste!<CR>
 
 "Find javascript"
-nmap <F6> /javascript"><CR>mzV/script><CR>=`z<CR>
+map <F6> /Index: <CR> zz
 map <F7> gg=G''
 map <F8> :EraseBadWhitespace <CR>
-map <F10> :Ag <C-R><C-W> <C-R>=@% <CR><CR>
+map <F11> :Ag <C-R><C-W> <C-R>=@% <CR><CR>
 map <F12> :Ag <C-R><C-W><CR>
 
 
@@ -165,7 +164,7 @@ noremap   <Right>  <NOP>
 
 "ctrl p stuff from Jared"
 nmap <leader><leader> :CtrlP<cr>
-nmap <leader>fb :CtrlPBuffer<cr>
+nmap <leader>b :CtrlPBuffer<cr>
 nmap <leader>fa :CtrlP app/assets<cr>
 nmap <leader>fc :CtrlP app/controllers<cr>
 nmap <leader>fm :CtrlP app/models<cr>
@@ -174,9 +173,6 @@ nmap <leader>fv :CtrlP app/views<cr>
 
 "tidy stuff from DK"
 nmap =t :%! tidy -config ~/.tidyrc<CR>
-
-"EasyMotion Fixup"
-map <Leader> <Plug>(easymotion-prefix)
 
 "Comment Code"
 map <C-K>c <c-_><c-_>
@@ -210,9 +206,19 @@ vmap <expr> <C-K> DVB_Drag('up')
 
 "vim tricks"
 nnoremap <Leader>w :w<CR>
+nnoremap <Leader>q :q<CR>
+nnoremap <Leader>wq :wq<CR>
 vmap <Leader>y "+y
 vmap <Leader>d "+d
 nmap <Leader>p "+p
 nmap <Leader>P "+P
 vmap <Leader>p "+p
 vmap <Leader>P "+P
+
+"relative number
+set number
+set relativenumber
+autocmd InsertEnter * :set norelativenumber
+autocmd InsertLeave * :set relativenumber
+autocmd BufLeave,FocusLost * :set norelativenumber
+autocmd BufEnter,FocusGained * :set relativenumber
