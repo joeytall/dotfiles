@@ -75,4 +75,4 @@ if [[ ! -d "$TMPPREFIX" ]]; then
   mkdir -p "$TMPPREFIX"
 fi
 
-chruby 2.1.1
+# chruby 2.1.1

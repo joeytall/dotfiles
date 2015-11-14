@@ -23,6 +23,7 @@ Bundle 'tpope/vim-eunuch'
 Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-markdown'
 Bundle 'tpope/vim-pathogen'
+Bundle 'tpope/vim-sleuth'
 Bundle 'bitc/vim-bad-whitespace'
 Bundle 'kien/ctrlp.vim'
 Bundle 'tomtom/tlib_vim'
@@ -30,7 +31,6 @@ Bundle 'MarcWeber/vim-addon-mw-utils'
 Bundle 'garbas/vim-snipmate'
 Bundle 'honza/vim-snippets'
 Bundle 'scrooloose/syntastic'
-Bundle 'Lokaltog/vim-easymotion'
 Bundle 'mattn/emmet-vim'
 Bundle 'jelera/vim-javascript-syntax'
 Bundle 'tomtom/tcomment_vim'
@@ -41,6 +41,12 @@ Bundle 'mattn/webapi-vim'
 Bundle 'elzr/vim-json'
 Bundle 'digitaltoad/vim-jade'
 Bundle 'moll/vim-node'
+Bundle 'gioele/vim-autoswap'
+Bundle 'gavinbeatty/dragvisuals.vim'
+Bundle 'rking/ag.vim'
+Bundle 'Valloric/YouCompleteMe'
+Bundle 'juneedahamed/svnj.vim'
+Bundle 'majutsushi/tagbar'
 
 set nocp
 set nu
@@ -61,7 +67,8 @@ set secure                          "disable unsafe commands in local .vimrc fil
 set t_Co=256                        "256 color support
 set laststatus=2
 set encoding=utf-8
-set clipboard=unnamed
+set clipboard+=unnamed
+set wrap
 
 set runtimepath^=~/.vim/bundle/ctrlp.vim
 
@@ -88,9 +95,9 @@ let g:airline_left_sep = ''
 let g:airline_left_alt_sep = ''
 let g:airline_right_sep = ''
 let g:airline_right_alt_sep = ''
-let g:airline_fugitive_prefix = ' '
-let g:airline_readonly_symbol = ''
-let g:airline_linecolumn_prefix = ''
+" let g:airline_fugitive_prefix = ' '
+" let g:airline_readonly_symbol = ''
+" let g:airline_linecolumn_prefix = ''
 let g:airline_theme='jellybeans'
 let NERDTreeShowHidden=1
 
@@ -104,6 +111,7 @@ autocmd BufNewFile,BufRead Gemfile set filetype=ruby
 autocmd BufNewFile,BufRead Gemfile.lock set filetype=ruby
 autocmd BufNewFile,BufRead *.aspx set filetype=javascript
 autocmd BufNewFile,BufRead *.ascx set filetype=javascript
+" autocmd BufNewFile,BufRead *.html set filetype=javascript
 autocmd BufNewFile,BufRead *.asmx set filetype=aspnet
 
 "This maps ctrl+h and ctrl+l to moving between :vsplit windows
@@ -129,24 +137,20 @@ nmap <leader>p :!mkdir -p %:p:h<cr>
 "Expression mappings.
 cabbr <expr> %% expand('%:p:h')
 
-"Auto Format gg=G"
-map <F1> mzgg=G`z<CR>
-
-"Copy Entire File"
-map <F2> mzggyG`z<CR>
-
-"Paste Entire File"
-map <F3> mzggP`z<CR>
-
-"Copy to Clipboard"
-nmap <F4> :.w !pbcopy<CR><CR>
-vmap <F4> :w !pbcopy<CR><CR>
+map <F1> :NERDTreeToggle<CR>
+map <F2> :TagbarToggle<CR>
+map <F3> :SVNBlame<CR>
+map <F4> :SVNLog<CR>
 
 "Paste mode"
-nmap <F5> :set paste!<CR><CR>
+nmap <F5> :set paste!<CR>
 
 "Find javascript"
-nmap <F6> /javascript"><CR>mzV/script><CR>=`z<CR>
+map <F6> /Index: <CR> zz
+map <F7> gg=G''
+map <F8> :EraseBadWhitespace <CR>
+map <F11> :Ag <C-R><C-W> <C-R>=@% <CR><CR>
+map <F12> :Ag <C-R><C-W><CR>
 
 
 "No arrow keys. :(
@@ -158,10 +162,10 @@ noremap   <Up>     <NOP>
 noremap   <Down>   <NOP>
 noremap   <Left>   <NOP>
 noremap   <Right>  <NOP>
-Bundle 'rking/ag.vim'
 
 "ctrl p stuff from Jared"
 nmap <leader><leader> :CtrlP<cr>
+nmap <leader>b :CtrlPBuffer<cr>
 nmap <leader>fa :CtrlP app/assets<cr>
 nmap <leader>fc :CtrlP app/controllers<cr>
 nmap <leader>fm :CtrlP app/models<cr>
@@ -170,9 +174,6 @@ nmap <leader>fv :CtrlP app/views<cr>
 
 "tidy stuff from DK"
 nmap =t :%! tidy -config ~/.tidyrc<CR>
-
-"EasyMotion Fixup"
-map <Leader> <Plug>(easymotion-prefix)
 
 "Comment Code"
 map <C-K>c <c-_><c-_>
@@ -192,3 +193,33 @@ endif
 "gist"
 let g:gist_clip_command = 'pbcopy'
 let g:gist_post_private = 1
+
+"drag visual"
+vmap <expr> ˙ DVB_Drag('left')
+vmap <expr> ¬ DVB_Drag('right')
+vmap <expr> ∆ DVB_Drag('down')
+vmap <expr> ˚ DVB_Drag('up')
+
+vmap <expr> <C-H> DVB_Drag('left')
+vmap <expr> <C-L> DVB_Drag('right')
+vmap <expr> <C-J> DVB_Drag('down')
+vmap <expr> <C-K> DVB_Drag('up')
+
+"vim tricks"
+nnoremap <Leader>w :w<CR>
+nnoremap <Leader>q :q<CR>
+nnoremap <Leader>wq :wq<CR>
+vmap <Leader>y "+y
+vmap <Leader>d "+d
+nmap <Leader>p "+p
+nmap <Leader>P "+P
+vmap <Leader>p "+p
+vmap <Leader>P "+P
+
+"relative number
+set number
+set relativenumber
+autocmd InsertEnter * :set norelativenumber
+autocmd InsertLeave * :set relativenumber
+autocmd BufLeave,FocusLost * :set norelativenumber
+autocmd BufEnter,FocusGained * :set relativenumber

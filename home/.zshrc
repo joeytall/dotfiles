@@ -5,7 +5,6 @@
 #   Sorin Ionescu <sorin.ionescu@gmail.com>
 #
 # Source chruby and auto switch
-chruby 2.1.3
 if [ -n "$BASH_VERSION" ] || [ -n "$ZSH_VERSION" ]; then
   source /usr/local/share/chruby/chruby.sh
   source /usr/local/share/chruby/auto.sh
@@ -19,16 +18,51 @@ fi
 # Customize to your needs...
 # Shell Commands
 alias l='ls -la'
+alias b='cd -'
+alias desk='cd ~/Desktop'
+alias proj='cd ~/Projects'
+alias cdir='cd ~/Projects/fsa_chroot_env/'
+alias trunk='cd ~/Projects/fsa_chroot_env/fsa/workingTrunk'
+alias map='cd ~/Projects/fsa_chroot_env/fsa/mapTrunk'
+alias os='cd ~/Projects/fsa_chroot_env/fsa/FortiOS'
+alias style='cd ~/Projects/fsa_chroot_env/fsa/styleTrunk'
+alias sandbox='cd ~/Projects/fsa_chroot_env/fsa/workingTrunk/web/sandbox'
+alias sus='cd ~/Projects/fsa_chroot_env/Storage/suspicious'
+alias fsadb='cd ~/Projects/fsa_chroot_env/drive0/private/db'
+alias pvt='cd ~/Projects/fsa_chroot_env/drive0/private'
 alias se="vim ~/.zshrc"
 alias ss="source ~/.zshrc"
 alias vv="vim ~/.vimrc"
+alias vp="vim patch.diff"
 alias vundle="vim +PluginInstall +qall"
 alias sshon="sudo systemsetup -setremotelogin on"
 alias sshoff="sudo systemsetup -setremotelogin off"
+alias ff="find . -name"
+alias fj="echo 'cd \'sandbox-jobs-move -p -j $1\''"
+
+# Fortinet Shortcuts
+alias ssh90="ssh admin@172.16.92.90"
+alias ssh196="ssh andy@172.16.69.196"
+alias dd="copydata && copydata | xclip"
+alias copydata="echo 'cd /drive0/private && tar zcvf /web/static/private.tgz db-install hc statistics/jobdata statistics/rptstat && cd /Storage && tar zcvf /web/static/s.tgz suspicious/$(date +20%y%m%d) &&  cd /web/static'"
+alias ud="updatedata && updatedata | xclip"
+alias updatedata='echo "pvt && wget 172.16.69.196/static/private.tgz && tar zxvf private.tgz && /bin/rm private.tgz && cd db && /bin/rm FortiSandboxGUI.db FortiSandboxDevice.db && cp ../db-install/FortiSandboxGUI.db . && cp ../db-install/FortiSandboxDevice.db . && cdir && cd Storage/ && wget 172.16.69.196/static/s.tgz && tar zxvf s.tgz && /bin/rm s.tgz && cdir"'
+function updatedataIP() {
+echo "pvt && wget $1/static/private.tgz && tar zxvf private.tgz && /bin/rm private.tgz && cd db && /bin/rm FortiSandboxGUI.db FortiSandboxDevice.db && cp ../db-install/FortiSandboxGUI.db . && cp ../db-install/FortiSandboxDevice.db . && cdir && cd Storage/ && wget $1/static/s.tgz && tar zxvf s.tgz && /bin/rm s.tgz && cdir"
+}
+alias ccc='echo "cd /fsa/workingTrunk && make clean && make && ./mkdevelop.sh" | xclip'
+alias sss='echo "/usr/webserver/httpd -k restart -f /usr/webserver/httpd.conf" | xclip'
+alias cdf='codiff && vp'
+
 
 # Homesick Commands
-alias hscd="homesick cd"
+alias hscd="cd ~/.homesick/repos/dotfiles"
 alias hslink="homesick symlink dotfiles"
+
+# SVN commands
+alias sdf="svn diff --summarize"
+alias sup="svn update"
+alias slo="svn log -l"
 
 # Git Commands
 alias upstream='git branch -u origin/master'
@@ -101,6 +135,15 @@ alias bm="bundle exec rake db:migrate"
 alias rspec="bundle exec rspec"
 alias routes="bundle exec rake routes"
 
+# Node JS
+alias ni="npm install"
+alias ns="npm start"
+alias nu="npm update"
+
+# Ubuntu
+alias agi="sudo apt-get install"
+alias agup="sudo apt-get update"
+
 # InterfaceLift Downloader
 function downloadwallpaper() {
   interfacelift-downloader 2560x1440 Pictures/background/interfaceLift/2560x1440
@@ -120,3 +163,16 @@ alias coffeewatch="coffee -o js/ -cw coffee/*.coffee"
 # Directory Shortcut, only works in Tero
 alias azzier="cd /Volumes/t119/Development/"
 alias samplexml="cd /Volumes/Telerik/UI\ for\ ASP.NET\ AJAX\ Q1\ 2014/Live\ Demos/App_Data"
+
+# Fancy Ctrl Z
+fancy-ctrl-z () {
+  if [[ $#BUFFER -eq 0 ]]; then
+    BUFFER="fg"
+    zle accept-line
+  else
+    zle push-input
+    zle clear-screen
+  fi
+}
+zle -N fancy-ctrl-z
+bindkey '^Z' fancy-ctrl-z
