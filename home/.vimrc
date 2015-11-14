@@ -39,6 +39,8 @@ Bundle 'Shutnik/jshint2.vim'
 Bundle 'mattn/gist-vim'
 Bundle 'mattn/webapi-vim'
 Bundle 'elzr/vim-json'
+Bundle 'digitaltoad/vim-jade'
+Bundle 'moll/vim-node'
 
 set nocp
 set nu
