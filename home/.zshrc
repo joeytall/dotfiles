@@ -17,7 +17,7 @@ fi
 
 # Customize to your needs...
 # Shell Commands
-alias l='ls -la'
+alias l='ls -lh'
 alias b='cd -'
 alias desk='cd ~/Desktop'
 alias proj='cd ~/Projects'
@@ -38,7 +38,6 @@ alias vundle="vim +PluginInstall +qall"
 alias sshon="sudo systemsetup -setremotelogin on"
 alias sshoff="sudo systemsetup -setremotelogin off"
 alias ff="find . -name"
-alias fj="echo 'cd \'sandbox-jobs-move -p -j $1\''"
 
 # Fortinet Shortcuts
 alias ssh90="ssh admin@172.16.92.90"
@@ -53,7 +52,9 @@ echo "pvt && wget $1/static/private.tgz && tar zxvf private.tgz && /bin/rm priva
 alias ccc='echo "cd /fsa/workingTrunk && make clean && make && ./mkdevelop.sh" | xclip'
 alias sss='echo "/usr/webserver/httpd -k restart -f /usr/webserver/httpd.conf" | xclip'
 alias cdf='codiff && vp'
-
+function findjob() {
+  echo "cd \`sandbox-jobs-move -p -j$1\`" | xclip
+}
 
 # Homesick Commands
 alias hscd="cd ~/.homesick/repos/dotfiles"
@@ -62,7 +63,8 @@ alias hslink="homesick symlink dotfiles"
 # SVN commands
 alias sdf="svn diff --summarize"
 alias sup="svn update"
-alias slo="svn log -l"
+alias sg="svn log -l 10| perl -l40pe 's/^-+/\n/'"
+alias sgl="svn log -l $1 | perl -l40pe 's/^-+/\n/'"
 
 # Git Commands
 alias upstream='git branch -u origin/master'
