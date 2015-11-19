@@ -41,11 +41,13 @@ alias ff="find . -name"
 
 # Fortinet Shortcuts
 alias ssh90="ssh admin@172.16.92.90"
-alias ssh196="ssh andy@172.16.69.196"
+alias ssh96="ssh andy@172.16.69.96"
 alias dd="copydata && copydata | xclip"
 alias copydata="echo 'cd /drive0/private && tar zcvf /web/static/private.tgz db-install hc statistics/jobdata statistics/rptstat && cd /Storage && tar zcvf /web/static/s.tgz suspicious/$(date +20%y%m%d) &&  cd /web/static'"
 alias ud="updatedata && updatedata | xclip"
-alias updatedata='echo "pvt && wget 172.16.69.196/static/private.tgz && tar zxvf private.tgz && /bin/rm private.tgz && cd db && /bin/rm FortiSandboxGUI.db FortiSandboxDevice.db && cp ../db-install/FortiSandboxGUI.db . && cp ../db-install/FortiSandboxDevice.db . && cdir && cd Storage/ && wget 172.16.69.196/static/s.tgz && tar zxvf s.tgz && /bin/rm s.tgz && cdir"'
+alias ud100="updatedata100 && updatedata100 | xclip"
+alias updatedata='echo "pvt && wget 172.16.69.96/static/private.tgz && tar zxvf private.tgz && /bin/rm private.tgz && cd db && /bin/rm FortiSandboxGUI.db FortiSandboxDevice.db && cp ../db-install/FortiSandboxGUI.db . && cp ../db-install/FortiSandboxDevice.db . && cdir && cd Storage/ && wget 172.16.69.96/static/s.tgz && tar zxvf s.tgz && /bin/rm s.tgz && cdir"'
+alias updatedata100='echo "pvt && wget 10.100.33.3/static/private.tgz && tar zxvf private.tgz && /bin/rm private.tgz && cd db && /bin/rm FortiSandboxGUI.db FortiSandboxDevice.db && cp ../db-install/FortiSandboxGUI.db . && cp ../db-install/FortiSandboxDevice.db . && cdir && cd Storage/ && wget 10.100.33.3/static/s.tgz && tar zxvf s.tgz && /bin/rm s.tgz && cdir"'
 function updatedataIP() {
 echo "pvt && wget $1/static/private.tgz && tar zxvf private.tgz && /bin/rm private.tgz && cd db && /bin/rm FortiSandboxGUI.db FortiSandboxDevice.db && cp ../db-install/FortiSandboxGUI.db . && cp ../db-install/FortiSandboxDevice.db . && cdir && cd Storage/ && wget $1/static/s.tgz && tar zxvf s.tgz && /bin/rm s.tgz && cdir"
 }

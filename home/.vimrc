@@ -50,6 +50,7 @@ Bundle 'rking/ag.vim'
 Bundle 'Valloric/YouCompleteMe'
 Bundle 'juneedahamed/svnj.vim'
 Bundle 'majutsushi/tagbar'
+Bundle 'ternjs/tern_for_vim'
 
 set nocp
 set nu
@@ -182,9 +183,19 @@ nmap =t :%! tidy -config ~/.tidyrc<CR>
 map <C-K>c <c-_><c-_>
 
 "jshint"
-let g:syntastic_javascript_checkers = ['jshint']
+let g:syntastic_javascript_checkers = ['']
+" let g:syntastic_javascript_checkers = ['jshint']
 
-execute pathogen#infect()
+"Syntastic
+" set statusline+=%#warningmsg#
+" set statusline+=%{SyntasticStatuslineFlag()}
+" set statusline+=%*
+
+" let g:syntastic_always_populate_loc_list = 1
+" let g:syntastic_auto_loc_list = 1
+" let g:syntastic_check_on_open = 1
+" let g:syntastic_check_on_wq = 1
+" execute pathogen#infect()
 
 "font size for macvim"
 if has("gui_running")
@@ -226,3 +237,11 @@ autocmd InsertEnter * :set norelativenumber
 autocmd InsertLeave * :set relativenumber
 autocmd BufLeave,FocusLost * :set norelativenumber
 autocmd BufEnter,FocusGained * :set relativenumber
+
+"DelimitMate
+imap <C-c> <CR><Esc>O
+
+"YCM
+let g:ycm_add_preview_to_completeopt=0
+let g:ycm_confirm_extra_conf=0
+set completeopt-=preview
