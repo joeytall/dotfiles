@@ -1,5 +1,3 @@
-set nocompatible                            "be Improved
-
 if empty(glob("~/.vim/autoload/plug.vim"))
    execute '!curl -fLo ~/.vim/autoload/plug.vim https://raw.github.com/junegunn/vim-plug/master/plug.vim'
 endif
@@ -21,6 +19,8 @@ function! Installjshint(info)
     !npm install -g jshint
   endif
 endfunction
+
+let g:python_host_prog='/usr/bin/python'
 
 call plug#begin('~/.vim/plugged')
 
