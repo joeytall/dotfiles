@@ -17,7 +17,8 @@ fi
 
 # Customize to your needs...
 # Shell Commands
-alias l='ls -lh'
+alias l='ls -la'
+alias h='ls -lh'
 alias b='cd -'
 alias desk='cd ~/Desktop'
 alias proj='cd ~/Projects'
@@ -34,7 +35,8 @@ alias se="vim ~/.zshrc"
 alias ss="source ~/.zshrc"
 alias vv="vim ~/.vimrc"
 alias vp="vim patch.diff"
-alias vundle="vim +PluginInstall +qall"
+# alias vundle="vim +PluginInstall +qall"
+alias vimplug="vim +PlugInstall +qall"
 alias sshon="sudo systemsetup -setremotelogin on"
 alias sshoff="sudo systemsetup -setremotelogin off"
 alias ff="find . -name"
@@ -42,6 +44,7 @@ alias ff="find . -name"
 # Fortinet Shortcuts
 alias ssh90="ssh admin@172.16.92.90"
 alias ssh96="ssh andy@172.16.69.96"
+alias ssh100="ssh fortinet@10.100.33.3"
 alias dd="copydata && copydata | xclip"
 alias copydata="echo 'cd /drive0/private && tar zcvf /web/static/private.tgz db-install hc statistics/jobdata statistics/rptstat && cd /Storage && tar zcvf /web/static/s.tgz suspicious/$(date +20%y%m%d) &&  cd /web/static'"
 alias ud="updatedata && updatedata | xclip"

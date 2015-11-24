@@ -1,56 +1,77 @@
 set nocompatible                            "be Improved
-filetype off
 
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+if empty(glob("~/.vim/autoload/plug.vim"))
+   execute '!curl -fLo ~/.vim/autoload/plug.vim https://raw.github.com/junegunn/vim-plug/master/plug.vim'
+endif
 
-Bundle 'gmarik/vundle'
-Bundle 'nanotech/jellybeans.vim'
-Bundle 'bling/vim-airline'
-Bundle 'kchmck/vim-coffee-script'
-Bundle 'csexton/trailertrash.vim'
-Bundle 'scrooloose/nerdtree'
-Bundle 'juvenn/mustache.vim'
-Bundle 'yaymukund/vim-rabl'
-Bundle 'int3/vim-extradite'
-Bundle 'sjl/splice.vim'
-Bundle 'tpope/vim-fugitive'
-Bundle 'tpope/vim-haml'
-Bundle 'tpope/vim-repeat'
-Bundle 'tpope/vim-endwise'
-Bundle 'tpope/vim-rails'
-Bundle 'tpope/vim-eunuch'
-Bundle 'tpope/vim-surround'
-Bundle 'tpope/vim-markdown'
-Bundle 'tpope/vim-pathogen'
-Bundle 'tpope/vim-sleuth'
-Bundle 'bitc/vim-bad-whitespace'
-Bundle 'kien/ctrlp.vim'
-Bundle 'tomtom/tlib_vim'
-Bundle 'MarcWeber/vim-addon-mw-utils'
-Bundle 'garbas/vim-snipmate'
-Bundle 'honza/vim-snippets'
-Bundle 'scrooloose/syntastic'
-Bundle 'mattn/emmet-vim'
-Bundle 'jelera/vim-javascript-syntax'
-Bundle 'pangloss/vim-javascript'
-Bundle 'nathanaelkane/vim-indent-guides'
-Bundle 'Raimondi/delimitMate'
-Bundle 'tomtom/tcomment_vim'
-Bundle 'jshint/jshint'
-Bundle 'Shutnik/jshint2.vim'
-Bundle 'mattn/gist-vim'
-Bundle 'mattn/webapi-vim'
-Bundle 'elzr/vim-json'
-Bundle 'digitaltoad/vim-jade'
-Bundle 'moll/vim-node'
-Bundle 'gioele/vim-autoswap'
-Bundle 'gavinbeatty/dragvisuals.vim'
-Bundle 'rking/ag.vim'
-Bundle 'Valloric/YouCompleteMe'
-Bundle 'juneedahamed/svnj.vim'
-Bundle 'majutsushi/tagbar'
-Bundle 'ternjs/tern_for_vim'
+function! BuildYCM(info)
+  if a:info.status == 'installed' || a:info.force
+    !./install.sh
+  endif
+endfunction
+
+function! BuildTern(info)
+  if a:info.status == 'installed' || a:info.force
+    !npm install
+  endif
+endfunction
+
+function! Installjshint(info)
+  if a:info.status == 'installed' || a:info.force
+    !npm install -g jshint
+  endif
+endfunction
+
+call plug#begin('~/.vim/plugged')
+
+Plug 'nanotech/jellybeans.vim'
+Plug 'bling/vim-airline'
+Plug 'kchmck/vim-coffee-script'
+Plug 'csexton/trailertrash.vim'
+Plug 'scrooloose/nerdtree'
+Plug 'juvenn/mustache.vim'
+Plug 'yaymukund/vim-rabl'
+Plug 'int3/vim-extradite'
+Plug 'sjl/splice.vim'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-haml'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-endwise'
+Plug 'tpope/vim-rails'
+Plug 'tpope/vim-eunuch'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-markdown'
+Plug 'tpope/vim-pathogen'
+Plug 'tpope/vim-sleuth'
+Plug 'bitc/vim-bad-whitespace'
+Plug 'kien/ctrlp.vim'
+Plug 'tomtom/tlib_vim'
+Plug 'MarcWeber/vim-addon-mw-utils'
+Plug 'garbas/vim-snipmate'
+Plug 'honza/vim-snippets'
+Plug 'scrooloose/syntastic', { 'do': function('Installjshint') }
+Plug 'mattn/emmet-vim'
+Plug 'jelera/vim-javascript-syntax'
+Plug 'pangloss/vim-javascript'
+Plug 'nathanaelkane/vim-indent-guides'
+Plug 'Raimondi/delimitMate'
+Plug 'tomtom/tcomment_vim'
+Plug 'jshint/jshint'
+Plug 'Shutnik/jshint2.vim'
+Plug 'mattn/gist-vim'
+Plug 'mattn/webapi-vim'
+Plug 'elzr/vim-json'
+Plug 'digitaltoad/vim-jade'
+Plug 'moll/vim-node'
+Plug 'gioele/vim-autoswap'
+Plug 'gavinbeatty/dragvisuals.vim'
+Plug 'rking/ag.vim'
+Plug 'Valloric/YouCompleteMe', { 'do': function('BuildYCM') }
+Plug 'juneedahamed/svnj.vim'
+Plug 'majutsushi/tagbar'
+Plug 'ternjs/tern_for_vim', { 'do': function('BuildTern') }
+
+call plug#end()
 
 set nocp
 set nu
@@ -84,8 +105,6 @@ set mouse=a
 
 set wildmode=longest,list
 set wildmenu
-
-filetype plugin indent on
 
 "from Jared"
 let g:ctrlp_cmd = 'CtrlPMixed'
@@ -155,7 +174,6 @@ map <F7> gg=G''
 map <F8> :EraseBadWhitespace <CR>
 map <F11> :Ag <C-R><C-W> <C-R>=@% <CR><CR>
 map <F12> :Ag <C-R><C-W><CR>
-
 
 "No arrow keys. :(
 inoremap  <Up>     <NOP>
