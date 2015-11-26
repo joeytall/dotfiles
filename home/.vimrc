@@ -73,23 +73,56 @@ Plug 'ternjs/tern_for_vim', { 'do': function('BuildTern') }
 
 call plug#end()
 
-set nocp
+"neovim"
+set showcmd             " Show (partial) command in status line.
+set showmatch           " Show matching brackets.
+set showmode            " Show current mode.
+set ruler               " Show the line and column numbers of the cursor.
+set number              " Show the line numbers on the left side.
+set formatoptions+=o    " Continue comment marker in new lines.
+set textwidth=0         " Hard-wrap long lines as you type them.
+set expandtab           " Insert spaces when TAB is pressed.
+set tabstop=2           " Render TABs using this many spaces.
+set shiftwidth=2        " Indentation amount for < and > commands.
+
+set noerrorbells        " No beeps.
+set modeline            " Enable modeline.
+set esckeys             " Cursor keys in insert mode.
+set linespace=0         " Set line-spacing to minimum.
+set nojoinspaces        " Prevents inserting two spaces after punctuation on a join (J)
+
+" More natural splits
+set splitbelow          " Horizontal split below current.
+set splitright          " Vertical split to right of current.
+
+if !&scrolloff
+  set scrolloff=10       " Show next 3 lines while scrolling.
+endif
+if !&sidescrolloff
+  set sidescrolloff=5   " Show next 5 columns while side-scrolling.
+endif
+set display+=lastline
+set nostartofline       " Do not jump to first character with page commands.
+
+set hlsearch            " Highlight search results.
+set ignorecase          " Make searching case insensitive
+set smartcase           " ... unless the query has capital letters.
+set incsearch           " Incremental search.
+set gdefault            " Use 'g' flag by default with :s/foo/bar/.
+set magic               " Use 'magic' patterns (extended regular expressions).
+
+"vim
 set nu
 set ts=2                            "tab stop 2
-set shiftwidth=2                    "tab shift width 2
-set expandtab
 set autoindent
 set smartindent                     "use smart indenting
 set bs=2                            "allow backspace in insert mode
 syntax enable                       "enable syntax highlighting
+syntax on                       "enable syntax highlighting
 set wmh=0                           "set min window height
-set ruler                           "use the ruler thigy
-set showmatch                       "blink matching parentheses
-set ignorecase                      "do case insensitive searching
 set hls                             "use highlight search
 set exrc                            "enable per-directory .vimrc files
 set secure                          "disable unsafe commands in local .vimrc files
-set t_Co=256                        "256 color support
 set laststatus=2
 set encoding=utf-8
 set clipboard+=unnamed
