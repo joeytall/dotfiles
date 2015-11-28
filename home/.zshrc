@@ -4,12 +4,6 @@
 # Authors:
 #   Sorin Ionescu <sorin.ionescu@gmail.com>
 #
-# Source chruby and auto switch
-if [ -n "$BASH_VERSION" ] || [ -n "$ZSH_VERSION" ]; then
-  source /usr/local/share/chruby/chruby.sh
-  source /usr/local/share/chruby/auto.sh
-fi
-
 # Source Prezto.
 if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
@@ -17,6 +11,8 @@ fi
 
 # Customize to your needs...
 # Shell Commands
+alias vi='nvim'
+alias vim='nvim'
 alias l='ls -la'
 alias h='ls -lh'
 alias b='cd -'
