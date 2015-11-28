@@ -4,12 +4,6 @@
 # Authors:
 #   Sorin Ionescu <sorin.ionescu@gmail.com>
 #
-# Source chruby and auto switch
-if [ -n "$BASH_VERSION" ] || [ -n "$ZSH_VERSION" ]; then
-  source /usr/local/share/chruby/chruby.sh
-  source /usr/local/share/chruby/auto.sh
-fi
-
 # Source Prezto.
 if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
@@ -17,25 +11,51 @@ fi
 
 # Customize to your needs...
 # Shell Commands
+alias vi='nvim'
+alias vim='nvim'
 alias l='ls -la'
+alias h='ls -lh'
+alias b='cd -'
 alias desk='cd ~/Desktop'
 alias proj='cd ~/Projects'
 alias cdir='cd ~/Projects/fsa_chroot_env/'
 alias trunk='cd ~/Projects/fsa_chroot_env/fsa/workingTrunk'
 alias map='cd ~/Projects/fsa_chroot_env/fsa/mapTrunk'
+alias os='cd ~/Projects/fsa_chroot_env/fsa/FortiOS'
+alias style='cd ~/Projects/fsa_chroot_env/fsa/styleTrunk'
 alias sandbox='cd ~/Projects/fsa_chroot_env/fsa/workingTrunk/web/sandbox'
-alias suspicious='cd ~/Projects/fsa_chroot_env/Storage/suspicious'
+alias sus='cd ~/Projects/fsa_chroot_env/Storage/suspicious'
 alias fsadb='cd ~/Projects/fsa_chroot_env/drive0/private/db'
+alias pvt='cd ~/Projects/fsa_chroot_env/drive0/private'
 alias se="vim ~/.zshrc"
 alias ss="source ~/.zshrc"
 alias vv="vim ~/.vimrc"
 alias vp="vim patch.diff"
-alias vundle="vim +PluginInstall +qall"
+# alias vundle="vim +PluginInstall +qall"
+alias vimplug="nvim +PlugInstall +qall"
 alias sshon="sudo systemsetup -setremotelogin on"
 alias sshoff="sudo systemsetup -setremotelogin off"
+alias ff="find . -name"
+
+# Fortinet Shortcuts
 alias ssh90="ssh admin@172.16.92.90"
-alias ssh196="ssh andy@172.16.69.196"
-alias copydata="echo 'cd /drive0/private/db && cp FortiSandboxGUI.db /web/static/FortiSandboxGUI.db && sleep 4 && cd .. && tar zcvf /web/static/private.tgz db-install hc statistics/jobdata  statistics/rptstat && sleep 4 && cd /Storage && tar zcvf /web/static/s.tgz suspicious/$(date +20%y%m%d) quarantine/$(date +20%y%m%d)'"
+alias ssh96="ssh andy@172.16.69.96"
+alias ssh100="ssh fortinet@10.100.33.3"
+alias dd="copydata && copydata | xclip"
+alias copydata="echo 'cd /drive0/private && tar zcvf /web/static/private.tgz db-install hc statistics/jobdata statistics/rptstat && cd /Storage && tar zcvf /web/static/s.tgz suspicious/$(date +20%y%m%d) &&  cd /web/static'"
+alias ud="updatedata && updatedata | xclip"
+alias ud100="updatedata100 && updatedata100 | xclip"
+alias updatedata='echo "pvt && wget 172.16.69.96/static/private.tgz && tar zxvf private.tgz && /bin/rm private.tgz && cd db && /bin/rm FortiSandboxGUI.db FortiSandboxDevice.db && cp ../db-install/FortiSandboxGUI.db . && cp ../db-install/FortiSandboxDevice.db . && cdir && cd Storage/ && wget 172.16.69.96/static/s.tgz && tar zxvf s.tgz && /bin/rm s.tgz && cdir"'
+alias updatedata100='echo "pvt && wget 10.100.33.3/static/private.tgz && tar zxvf private.tgz && /bin/rm private.tgz && cd db && /bin/rm FortiSandboxGUI.db FortiSandboxDevice.db && cp ../db-install/FortiSandboxGUI.db . && cp ../db-install/FortiSandboxDevice.db . && cdir && cd Storage/ && wget 10.100.33.3/static/s.tgz && tar zxvf s.tgz && /bin/rm s.tgz && cdir"'
+function updatedataIP() {
+echo "pvt && wget $1/static/private.tgz && tar zxvf private.tgz && /bin/rm private.tgz && cd db && /bin/rm FortiSandboxGUI.db FortiSandboxDevice.db && cp ../db-install/FortiSandboxGUI.db . && cp ../db-install/FortiSandboxDevice.db . && cdir && cd Storage/ && wget $1/static/s.tgz && tar zxvf s.tgz && /bin/rm s.tgz && cdir"
+}
+alias ccc='echo "cd /fsa/workingTrunk && make clean && make && ./mkdevelop.sh" | xclip'
+alias sss='echo "/usr/webserver/httpd -k restart -f /usr/webserver/httpd.conf" | xclip'
+alias cdf='codiff && vp'
+function findjob() {
+  echo "cd \`sandbox-jobs-move -p -j$1\`" | xclip
+}
 
 # Homesick Commands
 alias hscd="cd ~/.homesick/repos/dotfiles"
@@ -44,7 +64,8 @@ alias hslink="homesick symlink dotfiles"
 # SVN commands
 alias sdf="svn diff --summarize"
 alias sup="svn update"
-alias slo="svn log -l"
+alias sg="svn log -l 10| perl -l40pe 's/^-+/\n/'"
+alias sgl="svn log -l $1 | perl -l40pe 's/^-+/\n/'"
 
 # Git Commands
 alias upstream='git branch -u origin/master'
@@ -144,5 +165,18 @@ alias chrome="open -a 'Google Chrome'"
 alias coffeewatch="coffee -o js/ -cw coffee/*.coffee"
 
 # Directory Shortcut, only works in Tero
-alias azzier="cd /Volumes/WebWork/Development/"
+alias azzier="cd /Volumes/t119/Development/"
 alias samplexml="cd /Volumes/Telerik/UI\ for\ ASP.NET\ AJAX\ Q1\ 2014/Live\ Demos/App_Data"
+
+# Fancy Ctrl Z
+fancy-ctrl-z () {
+  if [[ $#BUFFER -eq 0 ]]; then
+    BUFFER="fg"
+    zle accept-line
+  else
+    zle push-input
+    zle clear-screen
+  fi
+}
+zle -N fancy-ctrl-z
+bindkey '^Z' fancy-ctrl-z

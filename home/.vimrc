@@ -1,72 +1,132 @@
-set nocompatible                            "be Improved
-filetype off
+if empty(glob("~/.vim/autoload/plug.vim"))
+   execute '!curl -fLo ~/.vim/autoload/plug.vim https://raw.github.com/junegunn/vim-plug/master/plug.vim'
+endif
 
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+function! BuildYCM(info)
+  if a:info.status == 'installed' || a:info.force
+    !./install.sh
+  endif
+endfunction
 
-Bundle 'gmarik/vundle'
-Bundle 'nanotech/jellybeans.vim'
-Bundle 'bling/vim-airline'
-Bundle 'kchmck/vim-coffee-script'
-Bundle 'csexton/trailertrash.vim'
-Bundle 'scrooloose/nerdtree'
-Bundle 'juvenn/mustache.vim'
-Bundle 'yaymukund/vim-rabl'
-Bundle 'int3/vim-extradite'
-Bundle 'sjl/splice.vim'
-Bundle 'tpope/vim-fugitive'
-Bundle 'tpope/vim-haml'
-Bundle 'tpope/vim-repeat'
-Bundle 'tpope/vim-endwise'
-Bundle 'tpope/vim-rails'
-Bundle 'tpope/vim-eunuch'
-Bundle 'tpope/vim-surround'
-Bundle 'tpope/vim-markdown'
-Bundle 'tpope/vim-pathogen'
-Bundle 'bitc/vim-bad-whitespace'
-Bundle 'kien/ctrlp.vim'
-Bundle 'tomtom/tlib_vim'
-Bundle 'MarcWeber/vim-addon-mw-utils'
-Bundle 'garbas/vim-snipmate'
-Bundle 'honza/vim-snippets'
-Bundle 'scrooloose/syntastic'
-Bundle 'Lokaltog/vim-easymotion'
-Bundle 'mattn/emmet-vim'
-Bundle 'pangloss/vim-javascript'
-Bundle 'tomtom/tcomment_vim'
-Bundle 'jshint/jshint'
-Bundle 'Shutnik/jshint2.vim'
-Bundle 'mattn/gist-vim'
-Bundle 'mattn/webapi-vim'
-Bundle 'elzr/vim-json'
-Bundle 'digitaltoad/vim-jade'
-Bundle 'gioele/vim-autoswap'
-Bundle 'gavinbeatty/dragvisuals.vim'
-Bundle 'rking/ag.vim'
-Bundle 'Valloric/YouCompleteMe'
-Bundle 'juneedahamed/svnj.vim'
-Bundle 'majutsushi/tagbar'
+function! BuildTern(info)
+  if a:info.status == 'installed' || a:info.force
+    !npm install
+  endif
+endfunction
 
-set nocp
+function! Installjshint(info)
+  if a:info.status == 'installed' || a:info.force
+    !npm install -g jshint
+  endif
+endfunction
+
+let g:python_host_prog='/usr/bin/python'
+
+call plug#begin('~/.vim/plugged')
+
+Plug 'nanotech/jellybeans.vim'
+Plug 'bling/vim-airline'
+Plug 'kchmck/vim-coffee-script'
+Plug 'csexton/trailertrash.vim'
+Plug 'scrooloose/nerdtree'
+Plug 'juvenn/mustache.vim'
+Plug 'yaymukund/vim-rabl'
+Plug 'int3/vim-extradite'
+Plug 'sjl/splice.vim'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-haml'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-endwise'
+Plug 'tpope/vim-rails'
+Plug 'tpope/vim-eunuch'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-markdown'
+Plug 'tpope/vim-pathogen'
+Plug 'tpope/vim-sleuth'
+Plug 'bitc/vim-bad-whitespace'
+Plug 'kien/ctrlp.vim'
+Plug 'tomtom/tlib_vim'
+Plug 'MarcWeber/vim-addon-mw-utils'
+Plug 'garbas/vim-snipmate'
+Plug 'honza/vim-snippets'
+Plug 'scrooloose/syntastic', { 'do': function('Installjshint') }
+Plug 'mattn/emmet-vim'
+Plug 'jelera/vim-javascript-syntax'
+Plug 'pangloss/vim-javascript'
+Plug 'nathanaelkane/vim-indent-guides'
+Plug 'Raimondi/delimitMate'
+Plug 'tomtom/tcomment_vim'
+Plug 'jshint/jshint'
+Plug 'Shutnik/jshint2.vim'
+Plug 'mattn/gist-vim'
+Plug 'mattn/webapi-vim'
+Plug 'elzr/vim-json'
+Plug 'digitaltoad/vim-jade'
+Plug 'moll/vim-node'
+Plug 'gioele/vim-autoswap'
+Plug 'gavinbeatty/dragvisuals.vim'
+Plug 'rking/ag.vim'
+Plug 'Valloric/YouCompleteMe', { 'do': function('BuildYCM') }
+Plug 'juneedahamed/svnj.vim'
+Plug 'majutsushi/tagbar'
+Plug 'ternjs/tern_for_vim', { 'do': function('BuildTern') }
+
+call plug#end()
+
+"neovim"
+set showcmd             " Show (partial) command in status line.
+set showmatch           " Show matching brackets.
+set showmode            " Show current mode.
+set ruler               " Show the line and column numbers of the cursor.
+set number              " Show the line numbers on the left side.
+set formatoptions+=o    " Continue comment marker in new lines.
+set textwidth=0         " Hard-wrap long lines as you type them.
+set expandtab           " Insert spaces when TAB is pressed.
+set tabstop=2           " Render TABs using this many spaces.
+set shiftwidth=2        " Indentation amount for < and > commands.
+
+set noerrorbells        " No beeps.
+set modeline            " Enable modeline.
+set esckeys             " Cursor keys in insert mode.
+set linespace=0         " Set line-spacing to minimum.
+set nojoinspaces        " Prevents inserting two spaces after punctuation on a join (J)
+
+" More natural splits
+set splitbelow          " Horizontal split below current.
+set splitright          " Vertical split to right of current.
+
+if !&scrolloff
+  set scrolloff=10       " Show next 3 lines while scrolling.
+endif
+if !&sidescrolloff
+  set sidescrolloff=5   " Show next 5 columns while side-scrolling.
+endif
+set display+=lastline
+set nostartofline       " Do not jump to first character with page commands.
+
+set hlsearch            " Highlight search results.
+set ignorecase          " Make searching case insensitive
+set smartcase           " ... unless the query has capital letters.
+set incsearch           " Incremental search.
+set gdefault            " Use 'g' flag by default with :s/foo/bar/.
+set magic               " Use 'magic' patterns (extended regular expressions).
+
+"vim
 set nu
 set ts=2                            "tab stop 2
-set shiftwidth=2                    "tab shift width 2
-set expandtab
 set autoindent
 set smartindent                     "use smart indenting
 set bs=2                            "allow backspace in insert mode
 syntax enable                       "enable syntax highlighting
+syntax on                       "enable syntax highlighting
 set wmh=0                           "set min window height
-set ruler                           "use the ruler thigy
-set showmatch                       "blink matching parentheses
-set ignorecase                      "do case insensitive searching
 set hls                             "use highlight search
 set exrc                            "enable per-directory .vimrc files
 set secure                          "disable unsafe commands in local .vimrc files
-set t_Co=256                        "256 color support
 set laststatus=2
 set encoding=utf-8
 set clipboard+=unnamed
+set wrap
 
 set runtimepath^=~/.vim/bundle/ctrlp.vim
 
@@ -78,8 +138,6 @@ set mouse=a
 
 set wildmode=longest,list
 set wildmenu
-
-filetype plugin indent on
 
 "from Jared"
 let g:ctrlp_cmd = 'CtrlPMixed'
@@ -93,9 +151,9 @@ let g:airline_left_sep = ''
 let g:airline_left_alt_sep = ''
 let g:airline_right_sep = ''
 let g:airline_right_alt_sep = ''
-let g:airline_fugitive_prefix = ' '
-let g:airline_readonly_symbol = ''
-let g:airline_linecolumn_prefix = ''
+" let g:airline_fugitive_prefix = ' '
+" let g:airline_readonly_symbol = ''
+" let g:airline_linecolumn_prefix = ''
 let g:airline_theme='jellybeans'
 let NERDTreeShowHidden=1
 
@@ -144,10 +202,11 @@ map <F4> :SVNLog<CR>
 nmap <F5> :set paste!<CR>
 
 "Find javascript"
-nmap <F6> /javascript"><CR>mzV/script><CR>=`z<CR>
+map <F6> /Index: <CR> zz
 map <F7> gg=G''
 map <F8> :EraseBadWhitespace <CR>
-
+map <F11> :Ag <C-R><C-W> <C-R>=@% <CR><CR>
+map <F12> :Ag <C-R><C-W><CR>
 
 "No arrow keys. :(
 inoremap  <Up>     <NOP>
@@ -161,6 +220,7 @@ noremap   <Right>  <NOP>
 
 "ctrl p stuff from Jared"
 nmap <leader><leader> :CtrlP<cr>
+nmap <leader>b :CtrlPBuffer<cr>
 nmap <leader>fa :CtrlP app/assets<cr>
 nmap <leader>fc :CtrlP app/controllers<cr>
 nmap <leader>fm :CtrlP app/models<cr>
@@ -170,16 +230,23 @@ nmap <leader>fv :CtrlP app/views<cr>
 "tidy stuff from DK"
 nmap =t :%! tidy -config ~/.tidyrc<CR>
 
-"EasyMotion Fixup"
-map <Leader> <Plug>(easymotion-prefix)
-
 "Comment Code"
 map <C-K>c <c-_><c-_>
 
 "jshint"
-let g:syntastic_javascript_checkers = ['jshint']
+let g:syntastic_javascript_checkers = ['']
+" let g:syntastic_javascript_checkers = ['jshint']
 
-execute pathogen#infect()
+"Syntastic
+" set statusline+=%#warningmsg#
+" set statusline+=%{SyntasticStatuslineFlag()}
+" set statusline+=%*
+
+" let g:syntastic_always_populate_loc_list = 1
+" let g:syntastic_auto_loc_list = 1
+" let g:syntastic_check_on_open = 1
+" let g:syntastic_check_on_wq = 1
+" execute pathogen#infect()
 
 "font size for macvim"
 if has("gui_running")
@@ -202,3 +269,30 @@ vmap <expr> <C-H> DVB_Drag('left')
 vmap <expr> <C-L> DVB_Drag('right')
 vmap <expr> <C-J> DVB_Drag('down')
 vmap <expr> <C-K> DVB_Drag('up')
+
+"vim tricks"
+nnoremap <Leader>w :w<CR>
+nnoremap <Leader>q :q<CR>
+nnoremap <Leader>wq :wq<CR>
+vmap <Leader>y "+y
+vmap <Leader>d "+d
+nmap <Leader>p "+p
+nmap <Leader>P "+P
+vmap <Leader>p "+p
+vmap <Leader>P "+P
+
+"relative number
+set number
+set relativenumber
+autocmd InsertEnter * :set norelativenumber
+autocmd InsertLeave * :set relativenumber
+autocmd BufLeave,FocusLost * :set norelativenumber
+autocmd BufEnter,FocusGained * :set relativenumber
+
+"DelimitMate
+imap <C-c> <CR><Esc>O
+
+"YCM
+let g:ycm_add_preview_to_completeopt=0
+let g:ycm_confirm_extra_conf=0
+set completeopt-=preview
