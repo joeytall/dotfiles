@@ -70,6 +70,7 @@ Plug 'Valloric/YouCompleteMe', { 'do': function('BuildYCM') }
 Plug 'juneedahamed/svnj.vim'
 Plug 'majutsushi/tagbar'
 Plug 'ternjs/tern_for_vim', { 'do': function('BuildTern') }
+Plug 'vim-scripts/dbext.vim'
 
 call plug#end()
 
@@ -193,18 +194,16 @@ nmap <leader>p :!mkdir -p %:p:h<cr>
 "Expression mappings.
 cabbr <expr> %% expand('%:p:h')
 
-map <F1> :NERDTreeToggle<CR>
+map <F1> :EraseBadWhitespace <CR>
 map <F2> :TagbarToggle<CR>
 map <F3> :SVNBlame<CR>
 map <F4> :SVNLog<CR>
-
-"Paste mode"
-nmap <F5> :set paste!<CR>
+map <F5> :SVNDiff<CR>
 
 "Find javascript"
 map <F6> /Index: <CR> zz
-map <F7> gg=G''
-map <F8> :EraseBadWhitespace <CR>
+map <F7> :%y+ <CR>
+map <F8> :NERDTreeToggle<CR>
 map <F11> :Ag <C-R><C-W> <C-R>=@% <CR><CR>
 map <F12> :Ag <C-R><C-W><CR>
 

@@ -46,7 +46,7 @@ alias ssh90="ssh admin@172.16.92.90"
 alias ssh96="ssh andy@172.16.69.96"
 alias ssh100="ssh fortinet@10.100.33.3"
 alias dd="copydata && copydata | xclip"
-alias copydata="echo 'cd /drive0/private && tar zcvf /web/static/private.tgz db-install hc statistics/jobdata statistics/rptstat && cd /Storage && tar zcvf /web/static/s.tgz suspicious/$(date +20%y%m%d) &&  cd /web/static'"
+alias copydata="echo 'cd /drive0/private && tar zcvf /web/static/private.tgz db-install hc log statistics/jobdata statistics/rptstat && cd /Storage && tar zcvf /web/static/s.tgz suspicious/$(date +20%y%m%d) &&  cd /web/static'"
 alias ud="updatedata && updatedata | xclip"
 alias ud100="updatedata100 && updatedata100 | xclip"
 alias updatedata='echo "pvt && wget 172.16.69.96/static/private.tgz && tar zxvf private.tgz && /bin/rm private.tgz && cd db && /bin/rm FortiSandboxGUI.db FortiSandboxDevice.db && cp ../db-install/FortiSandboxGUI.db . && cp ../db-install/FortiSandboxDevice.db . && cdir && cd Storage/ && wget 172.16.69.96/static/s.tgz && tar zxvf s.tgz && /bin/rm s.tgz && cdir"'
@@ -60,6 +60,9 @@ alias cdf='codiff && vp'
 function findjob() {
   echo "cd \`sandbox-jobs-move -p -j$1\`" | xclip
 }
+
+# Django Python
+alias console='echo "cd /fsa/workingTrunk/web/sandbox && python manage.py shell" | xclip'
 
 # Homesick Commands
 alias hscd="cd ~/.homesick/repos/dotfiles"
@@ -121,26 +124,26 @@ alias bd="git branch -D"
 alias workflow='git log --since="08:30:00" --format="%s%n%b" --author="$(git config --global user.name)" | grep "^[^(Change-id)]"'
 
 # Bundle EXEC!!!
-alias bs="bundle show"
-alias bc="bundle clean"
-alias bl="bundle list"
-alias bu="bundle update"
-alias be="bundle exec"
-alias console="bundle exec rails console"
-alias testconsole="RAILS_ENV=test console"
-alias guard="COVERAGE=true bundle exec guard"
-alias setup="bundle exec rake db:setup"
-alias migrate="bundle exec rake db:migrate"
-alias rollback="bundle exec rake db:rollback"
-alias migratestatus="bundle exec rake db:migrate:status"
-alias prepare="bundle exec rake db:test:prepare"
-alias server="bundle exec rails server"
-alias server5="bundle exec rails server -p 50000"
-alias generate="bundle exec rails generate"
-alias bi="bundle install --path vendor/bundle"
-alias bm="bundle exec rake db:migrate"
-alias rspec="bundle exec rspec"
-alias routes="bundle exec rake routes"
+# alias bs="bundle show"
+# alias bc="bundle clean"
+# alias bl="bundle list"
+# alias bu="bundle update"
+# alias be="bundle exec"
+# alias console="bundle exec rails console"
+# alias testconsole="RAILS_ENV=test console"
+# alias guard="COVERAGE=true bundle exec guard"
+# alias setup="bundle exec rake db:setup"
+# alias migrate="bundle exec rake db:migrate"
+# alias rollback="bundle exec rake db:rollback"
+# alias migratestatus="bundle exec rake db:migrate:status"
+# alias prepare="bundle exec rake db:test:prepare"
+# alias server="bundle exec rails server"
+# alias server5="bundle exec rails server -p 50000"
+# alias generate="bundle exec rails generate"
+# alias bi="bundle install --path vendor/bundle"
+# alias bm="bundle exec rake db:migrate"
+# alias rspec="bundle exec rspec"
+# alias routes="bundle exec rake routes"
 
 # Node JS
 alias ni="npm install"
