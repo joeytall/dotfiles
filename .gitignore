@@ -8,3 +8,5 @@ home/.mpd/*
 home/.mpdcron/mpdcron.pid
 
 home/.ncmpcpp/error.log
+
+home/.vim/init.vim

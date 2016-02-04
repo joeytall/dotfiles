@@ -1,4 +1,4 @@
-#
+
 # Executes commands at the start of an interactive session.
 #
 # Authors:
@@ -23,12 +23,14 @@ alias trunk='cd ~/Projects/fsa_chroot_env/fsa/workingTrunk'
 alias map='cd ~/Projects/fsa_chroot_env/fsa/mapTrunk'
 alias os='cd ~/Projects/fsa_chroot_env/fsa/FortiOS'
 alias style='cd ~/Projects/fsa_chroot_env/fsa/styleTrunk'
+alias main='cd ~/Projects/fsa_chroot_env/fsa/mainTrunk'
 alias sandbox='cd ~/Projects/fsa_chroot_env/fsa/workingTrunk/web/sandbox'
 alias sus='cd ~/Projects/fsa_chroot_env/Storage/suspicious'
 alias fsadb='cd ~/Projects/fsa_chroot_env/drive0/private/db'
 alias pvt='cd ~/Projects/fsa_chroot_env/drive0/private'
 alias se="vim ~/.zshrc"
 alias ss="source ~/.zshrc"
+alias hh="hostname joeytall-OptiPlex-3020"
 alias vv="vim ~/.vimrc"
 alias vp="vim patch.diff"
 # alias vundle="vim +PluginInstall +qall"
@@ -38,23 +40,38 @@ alias sshoff="sudo systemsetup -setremotelogin off"
 alias ff="find . -name"
 
 # Fortinet Shortcuts
+alias rr="svn revert web/sandbox/apps/hacluster/forms.py web/sandbox/apps/hacluster/hacluster.py web/sandbox/apps/hacluster/views.py web/sandbox/apps/widgets/utils/sysres.py web/sandbox/apps/widgets/utils/sysinfo.py web/sandbox/utils/system/status.py"
 alias ssh90="ssh admin@172.16.92.90"
-alias ssh96="ssh andy@172.16.69.96"
+alias ssh96="ssh joey@172.16.69.96"
+alias ssh213="ssh admin@172.16.69.213"
+alias ssh34="ssh admin@172.16.69.34"
 alias ssh100="ssh fortinet@10.100.33.3"
+alias sshupdate34="echo 'rm -rf web/* && wget http://172.16.68.232/static/web.tar -P web && tar -xvf web/web.tar && rm web/web.tar && killall httpd' | xclip"
 alias dd="copydata && copydata | xclip"
 alias copydata="echo 'cd /drive0/private && tar zcvf /web/static/private.tgz db-install hc log statistics/jobdata statistics/rptstat && cd /Storage && tar zcvf /web/static/s.tgz suspicious/$(date +20%y%m%d) &&  cd /web/static'"
 alias ud="updatedata && updatedata | xclip"
 alias ud100="updatedata100 && updatedata100 | xclip"
+alias uds="updatedatassh && updatedatassh | xclip"
 alias updatedata='echo "pvt && wget 172.16.69.96/static/private.tgz && tar zxvf private.tgz && /bin/rm private.tgz && cd db && /bin/rm FortiSandboxGUI.db FortiSandboxDevice.db && cp ../db-install/FortiSandboxGUI.db . && cp ../db-install/FortiSandboxDevice.db . && cdir && cd Storage/ && wget 172.16.69.96/static/s.tgz && tar zxvf s.tgz && /bin/rm s.tgz && cdir"'
 alias updatedata100='echo "pvt && wget 10.100.33.3/static/private.tgz && tar zxvf private.tgz && /bin/rm private.tgz && cd db && /bin/rm FortiSandboxGUI.db FortiSandboxDevice.db && cp ../db-install/FortiSandboxGUI.db . && cp ../db-install/FortiSandboxDevice.db . && cdir && cd Storage/ && wget 10.100.33.3/static/s.tgz && tar zxvf s.tgz && /bin/rm s.tgz && cdir"'
+alias updatedatassh='echo "cd /drive0/private && wget http://172.16.69.96/static/private.tgz && tar zxvf private.tgz && rm private.tgz && cd /Storage/ && wget http://172.16.69.96/static/s.tgz && tar zxvf s.tgz && rm s.tgz && cd /"'
 function updatedataIP() {
 echo "pvt && wget $1/static/private.tgz && tar zxvf private.tgz && /bin/rm private.tgz && cd db && /bin/rm FortiSandboxGUI.db FortiSandboxDevice.db && cp ../db-install/FortiSandboxGUI.db . && cp ../db-install/FortiSandboxDevice.db . && cdir && cd Storage/ && wget $1/static/s.tgz && tar zxvf s.tgz && /bin/rm s.tgz && cdir"
 }
+alias tarWeb="main && /bin/rm web/static/web.tar && tar -cvf web/static/web.tar web"
+alias update34="tarWeb && python /etc/cronjobs/updateWeb.py"
+alias updateweb="tarWeb && python /etc/cronjobs/updateWeb.py $1"
+alias upgrade34='/usr/sbin/chroot ~/Projects/fsa_chroot_env ./cron1.sh && python /etc/cronjobs/upgradeFW.py && /usr/sbin/chroot ~/Projects/fsa_chroot_env ./cron2.sh'
+alias upgrade37='/usr/sbin/chroot ~/Projects/fsa_chroot_env ./cron1.sh && python /etc/cronjobs/upgrade37.py && /usr/sbin/chroot ~/Projects/fsa_chroot_env ./cron2.sh'
 alias ccc='echo "cd /fsa/workingTrunk && make clean && make && ./mkdevelop.sh" | xclip'
 alias sss='echo "/usr/webserver/httpd -k restart -f /usr/webserver/httpd.conf" | xclip'
 alias cdf='codiff && vp'
 function findjob() {
   echo "cd \`sandbox-jobs-move -p -j$1\`" | xclip
+}
+
+function burnimg() {
+  echo "./Configure -mFSA_3500D -ti -a2 -i2 -p0 -dy -ky -ly && make clean && make all && ./genpcimg.sh" | xclip
 }
 
 # Django Python

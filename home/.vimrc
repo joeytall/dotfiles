@@ -126,7 +126,7 @@ set exrc                            "enable per-directory .vimrc files
 set secure                          "disable unsafe commands in local .vimrc files
 set laststatus=2
 set encoding=utf-8
-set clipboard+=unnamed
+set clipboard+=unnamedplus
 set wrap
 
 set runtimepath^=~/.vim/bundle/ctrlp.vim
@@ -168,8 +168,11 @@ autocmd BufNewFile,BufRead Gemfile set filetype=ruby
 autocmd BufNewFile,BufRead Gemfile.lock set filetype=ruby
 autocmd BufNewFile,BufRead *.aspx set filetype=javascript
 autocmd BufNewFile,BufRead *.ascx set filetype=javascript
-" autocmd BufNewFile,BufRead *.html set filetype=javascript
 autocmd BufNewFile,BufRead *.asmx set filetype=aspnet
+
+"db.ext
+let g:dbext_default_profile_sqlite = 'type=SQLITE:dbname=/home/joeytall/Projects/fsa_chroot_env/drive0/private/db/FortiSandboxGUI.db'
+let g:dbext_default_profile = 'sqlite'
 
 "This maps ctrl+h and ctrl+l to moving between :vsplit windows
 map <silent> <C-J> <C-W>j
@@ -295,3 +298,4 @@ imap <C-c> <CR><Esc>O
 let g:ycm_add_preview_to_completeopt=0
 let g:ycm_confirm_extra_conf=0
 set completeopt-=preview
+
