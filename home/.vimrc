@@ -70,6 +70,7 @@ Plug 'Valloric/YouCompleteMe', { 'do': function('BuildYCM') }
 Plug 'juneedahamed/svnj.vim'
 Plug 'majutsushi/tagbar'
 Plug 'ternjs/tern_for_vim', { 'do': function('BuildTern') }
+Plug 'vim-scripts/dbext.vim'
 
 call plug#end()
 
@@ -125,7 +126,7 @@ set exrc                            "enable per-directory .vimrc files
 set secure                          "disable unsafe commands in local .vimrc files
 set laststatus=2
 set encoding=utf-8
-set clipboard+=unnamed
+set clipboard+=unnamedplus
 set wrap
 
 set runtimepath^=~/.vim/bundle/ctrlp.vim
@@ -167,8 +168,11 @@ autocmd BufNewFile,BufRead Gemfile set filetype=ruby
 autocmd BufNewFile,BufRead Gemfile.lock set filetype=ruby
 autocmd BufNewFile,BufRead *.aspx set filetype=javascript
 autocmd BufNewFile,BufRead *.ascx set filetype=javascript
-" autocmd BufNewFile,BufRead *.html set filetype=javascript
 autocmd BufNewFile,BufRead *.asmx set filetype=aspnet
+
+"db.ext
+let g:dbext_default_profile_sqlite = 'type=SQLITE:dbname=/home/joeytall/Projects/fsa_chroot_env/drive0/private/db/FortiSandboxGUI.db'
+let g:dbext_default_profile = 'sqlite'
 
 "This maps ctrl+h and ctrl+l to moving between :vsplit windows
 map <silent> <C-J> <C-W>j
@@ -193,18 +197,16 @@ nmap <leader>p :!mkdir -p %:p:h<cr>
 "Expression mappings.
 cabbr <expr> %% expand('%:p:h')
 
-map <F1> :NERDTreeToggle<CR>
+map <F1> :EraseBadWhitespace <CR>
 map <F2> :TagbarToggle<CR>
 map <F3> :SVNBlame<CR>
 map <F4> :SVNLog<CR>
-
-"Paste mode"
-nmap <F5> :set paste!<CR>
+map <F5> :SVNDiff<CR>
 
 "Find javascript"
 map <F6> /Index: <CR> zz
-map <F7> gg=G''
-map <F8> :EraseBadWhitespace <CR>
+map <F7> :%y+ <CR>
+map <F8> :NERDTreeToggle<CR>
 map <F11> :Ag <C-R><C-W> <C-R>=@% <CR><CR>
 map <F12> :Ag <C-R><C-W><CR>
 
@@ -296,3 +298,4 @@ imap <C-c> <CR><Esc>O
 let g:ycm_add_preview_to_completeopt=0
 let g:ycm_confirm_extra_conf=0
 set completeopt-=preview
+
