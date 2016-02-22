@@ -192,6 +192,13 @@ function downloadwallpaper() {
   interfacelift-downloader 1280x800 Pictures/background/interfaceLift/1280x800
 }
 
+function neovimsetup(){
+  mkdir -p ${XDG_CONFIG_HOME:=$HOME/.config}
+  ln -s ~/.vim $XDG_CONFIG_HOME/nvim
+  ln -s ~/.vimrc $XDG_CONFIG_HOME/nvim/init.vim
+  vimplug
+}
+
 alias downloadwebsite="wget -r -p -U chrome"
 
 # Open file in Chrome
