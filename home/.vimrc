@@ -273,6 +273,7 @@ vmap <expr> <C-J> DVB_Drag('down')
 vmap <expr> <C-K> DVB_Drag('up')
 
 "vim tricks"
+nnoremap <Leader>e :e<CR>
 nnoremap <Leader>w :w<CR>
 nnoremap <Leader>q :q<CR>
 nnoremap <Leader>wq :wq<CR>

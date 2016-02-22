@@ -38,21 +38,27 @@ alias vimplug="nvim +PlugInstall +qall"
 alias sshon="sudo systemsetup -setremotelogin on"
 alias sshoff="sudo systemsetup -setremotelogin off"
 alias ff="find . -name"
+alias kk="rm -rf /root/.ssh/known_hosts"
 
 # Fortinet Shortcuts
 alias rr="svn revert web/sandbox/apps/hacluster/forms.py web/sandbox/apps/hacluster/hacluster.py web/sandbox/apps/hacluster/views.py web/sandbox/apps/widgets/utils/sysres.py web/sandbox/apps/widgets/utils/sysinfo.py web/sandbox/utils/system/status.py"
-alias ssh90="ssh admin@172.16.92.90"
-alias ssh96="ssh joey@172.16.69.96"
-alias ssh213="ssh admin@172.16.69.213"
+alias ssh32="ssh admin@172.16.69.32"
 alias ssh34="ssh admin@172.16.69.34"
+alias ssh90="ssh admin@172.16.92.90"
+alias ssh96="ssh admin@172.16.69.96"
+alias ssh146="ssh admin@172.16.69.146"
+alias ssh154="ssh admin@172.16.69.154"
+alias ssh155="ssh admin@172.16.69.155"
+alias ssh213="ssh admin@172.16.69.213"
 alias ssh100="ssh fortinet@10.100.33.3"
-alias sshupdate34="echo 'rm -rf web/* && wget http://172.16.68.232/static/web.tar -P web && tar -xvf web/web.tar && rm web/web.tar && killall httpd' | xclip"
+alias sshupdate="echo 'rm -rf web/* && wget http://172.16.68.232/static/web.tar -P web && tar -xvf web/web.tar && rm web/web.tar && killall httpd' | xclip"
+alias sshrestart="echo '/usr/bin/httpd -k restart -f /usr/webserver/httpd.conf' | xclip"
 alias dd="copydata && copydata | xclip"
 alias copydata="echo 'cd /drive0/private && tar zcvf /web/static/private.tgz db-install hc log statistics/jobdata statistics/rptstat && cd /Storage && tar zcvf /web/static/s.tgz suspicious/$(date +20%y%m%d) &&  cd /web/static'"
 alias ud="updatedata && updatedata | xclip"
 alias ud100="updatedata100 && updatedata100 | xclip"
 alias uds="updatedatassh && updatedatassh | xclip"
-alias updatedata='echo "pvt && wget 172.16.69.96/static/private.tgz && tar zxvf private.tgz && /bin/rm private.tgz && cd db && /bin/rm FortiSandboxGUI.db FortiSandboxDevice.db && cp ../db-install/FortiSandboxGUI.db . && cp ../db-install/FortiSandboxDevice.db . && cdir && cd Storage/ && wget 172.16.69.96/static/s.tgz && tar zxvf s.tgz && /bin/rm s.tgz && cdir"'
+alias updatedata='echo "pvt && wget 172.16.69.96/static/private.tgz && tar zxvf private.tgz && /bin/rm private.tgz && cd ../../Storage/ && wget 172.16.69.96/static/s.tgz && tar zxvf s.tgz && /bin/rm s.tgz && cdir"'
 alias updatedata100='echo "pvt && wget 10.100.33.3/static/private.tgz && tar zxvf private.tgz && /bin/rm private.tgz && cd db && /bin/rm FortiSandboxGUI.db FortiSandboxDevice.db && cp ../db-install/FortiSandboxGUI.db . && cp ../db-install/FortiSandboxDevice.db . && cdir && cd Storage/ && wget 10.100.33.3/static/s.tgz && tar zxvf s.tgz && /bin/rm s.tgz && cdir"'
 alias updatedatassh='echo "cd /drive0/private && wget http://172.16.69.96/static/private.tgz && tar zxvf private.tgz && rm private.tgz && cd /Storage/ && wget http://172.16.69.96/static/s.tgz && tar zxvf s.tgz && rm s.tgz && cd /"'
 function updatedataIP() {
@@ -66,8 +72,15 @@ alias upgrade37='/usr/sbin/chroot ~/Projects/fsa_chroot_env ./cron1.sh && python
 alias ccc='echo "cd /fsa/workingTrunk && make clean && make && ./mkdevelop.sh" | xclip'
 alias sss='echo "/usr/webserver/httpd -k restart -f /usr/webserver/httpd.conf" | xclip'
 alias cdf='codiff && vp'
+alias jj="tarJobAndDB $1"
+alias gg90="getJobAndDB"
+alias getJobAndDB="cdir && wget http://172.16.92.90/static/s.tar && tar -xvf s.tar && cd drive0/private/db-install && /bin/rm FortiSandboxGUI.db && wget http://172.16.92.90/static/FortiSandboxGUI.db"
 function findjob() {
   echo "cd \`sandbox-jobs-move -p -j$1\`" | xclip
+}
+
+function tarJobAndDB(){
+  echo "tar -cvf /web/static/s.tar \`sandbox-jobs-move -p -j$1\` && cp /drive0/private/db/FortiSandboxGUI.db /web/static/" | xclip
 }
 
 function burnimg() {
@@ -84,8 +97,8 @@ alias hslink="homesick symlink dotfiles"
 # SVN commands
 alias sdf="svn diff --summarize"
 alias sup="svn update"
-alias sg="svn log -l 10| perl -l40pe 's/^-+/\n/'"
-alias sgl="svn log -l $1 | perl -l40pe 's/^-+/\n/'"
+alias sg="svn log --limit 3"
+alias sgl="svn log --limit $1"
 
 # Git Commands
 alias upstream='git branch -u origin/master'
