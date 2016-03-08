@@ -24,6 +24,8 @@ let g:python_host_prog='/usr/bin/python'
 
 call plug#begin('~/.vim/plugged')
 
+Plug 'sjl/gundo.vim'
+Plug 'ap/vim-css-color'
 Plug 'nanotech/jellybeans.vim'
 Plug 'bling/vim-airline'
 Plug 'kchmck/vim-coffee-script'
@@ -75,6 +77,7 @@ Plug 'vim-scripts/dbext.vim'
 call plug#end()
 
 "neovim"
+set hidden
 set showcmd             " Show (partial) command in status line.
 set showmatch           " Show matching brackets.
 set showmode            " Show current mode.
@@ -175,6 +178,7 @@ let g:dbext_default_profile_sqlite = 'type=SQLITE:dbname=/home/joeytall/Projects
 let g:dbext_default_profile = 'sqlite'
 
 "This maps ctrl+h and ctrl+l to moving between :vsplit windows
+map <silent> <bs> <C-W>h
 map <silent> <C-J> <C-W>j
 map <silent> <C-K> <C-W>k
 map <silent> <C-H> <C-W>h
@@ -233,7 +237,7 @@ nmap <leader>fv :CtrlP app/views<cr>
 nmap =t :%! tidy -config ~/.tidyrc<CR>
 
 "Comment Code"
-map <C-K>c <c-_><c-_>
+" map <C-K>c <c-_><c-_>
 
 "jshint"
 let g:syntastic_javascript_checkers = ['']
@@ -262,15 +266,15 @@ let g:gist_clip_command = 'pbcopy'
 let g:gist_post_private = 1
 
 "drag visual"
-vmap <expr> ˙ DVB_Drag('left')
-vmap <expr> ¬ DVB_Drag('right')
-vmap <expr> ∆ DVB_Drag('down')
-vmap <expr> ˚ DVB_Drag('up')
-
-vmap <expr> <C-H> DVB_Drag('left')
-vmap <expr> <C-L> DVB_Drag('right')
-vmap <expr> <C-J> DVB_Drag('down')
-vmap <expr> <C-K> DVB_Drag('up')
+" vmap <expr> ˙ DVB_Drag('left')
+" vmap <expr> ¬ DVB_Drag('right')
+" vmap <expr> ∆ DVB_Drag('down')
+" vmap <expr> ˚ DVB_Drag('up')
+"
+" vmap <expr> <C-H> DVB_Drag('left')
+" vmap <expr> <C-L> DVB_Drag('right')
+" vmap <expr> <C-J> DVB_Drag('down')
+" vmap <expr> <C-K> DVB_Drag('up')
 
 "vim tricks"
 nnoremap <Leader>e :e<CR>
