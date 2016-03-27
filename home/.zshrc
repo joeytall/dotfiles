@@ -21,15 +21,18 @@ alias b='cd -'
 alias desk='cd ~/Desktop'
 alias proj='cd ~/Projects'
 alias cdir='cd ~/Projects/fsa_chroot_env/'
-alias trunk='cd ~/Projects/fsa_chroot_env/fsa/workingTrunk'
 alias map='cd ~/Projects/fsa_chroot_env/fsa/mapTrunk'
 alias os='cd ~/Projects/fsa_chroot_env/fsa/FortiOS'
 alias style='cd ~/Projects/fsa_chroot_env/fsa/styleTrunk'
+alias fun='cd ~/Projects/fsa_chroot_env/fsa/funTrunk'
+alias bug='cd ~/Projects/fsa_chroot_env/fsa/bugTrunk'
 alias main='cd ~/Projects/fsa_chroot_env/fsa/mainTrunk'
+alias trunk='cd ~/Projects/fsa_chroot_env/fsa/mainTrunk'
 alias sandbox='cd ~/Projects/fsa_chroot_env/fsa/workingTrunk/web/sandbox'
 alias sus='cd ~/Projects/fsa_chroot_env/Storage/suspicious'
-alias fsadb='cd ~/Projects/fsa_chroot_env/drive0/private/db'
+alias fsadb='cd ~/Projects/fsa_chroot_env/drive0/private/db-install'
 alias pvt='cd ~/Projects/fsa_chroot_env/drive0/private'
+alias pkg='cd ~/Projects/fsa_chroot_env/fsa/pkgtools'
 alias se="vim ~/.zshrc"
 alias ss="source ~/.zshrc"
 alias hh="hostname joeytall-OptiPlex-3020"
@@ -56,17 +59,17 @@ alias ssh100="ssh fortinet@10.100.33.3"
 alias sshupdate="echo 'rm -rf web/* && wget http://172.16.68.232/static/web.tar -P web && tar -xvf web/web.tar && rm web/web.tar && killall httpd' | xclip"
 alias sshrestart="echo '/usr/bin/httpd -k restart -f /usr/webserver/httpd.conf' | xclip"
 alias dd="copydata && copydata | xclip"
-alias copydata="echo 'cd /drive0/private && tar zcvf /web/static/private.tgz db-install hc log statistics/jobdata statistics/rptstat && cd /Storage && tar zcvf /web/static/s.tgz suspicious/$(date +20%y%m%d) &&  cd /web/static'"
+alias copydata="echo 'cd /drive0/private && tar zcvf /web/static/private.tgz db-install yara hc log statistics/jobdata statistics/rptstat && cd /Storage && tar zcvf /web/static/s.tgz suspicious/$(date +20%y%m%d) &&  cd /web/static'"
 alias ud="updatedata && updatedata | xclip"
 alias ud100="updatedata100 && updatedata100 | xclip"
 alias uds="updatedatassh && updatedatassh | xclip"
-alias updatedata='echo "pvt && wget 172.16.69.96/static/private.tgz && tar zxvf private.tgz && /bin/rm private.tgz && cd ../../Storage/ && wget 172.16.69.96/static/s.tgz && tar zxvf s.tgz && /bin/rm s.tgz && cdir"'
+alias updatedata='echo "pvt && wget 172.16.69.32/static/private.tgz && tar zxvf private.tgz && /bin/rm private.tgz && cd ../../Storage/ && wget 172.16.69.32/static/s.tgz && tar zxvf s.tgz && /bin/rm s.tgz && cdir"'
 alias updatedata100='echo "pvt && wget 10.100.33.3/static/private.tgz && tar zxvf private.tgz && /bin/rm private.tgz && cd db && /bin/rm FortiSandboxGUI.db FortiSandboxDevice.db && cp ../db-install/FortiSandboxGUI.db . && cp ../db-install/FortiSandboxDevice.db . && cdir && cd Storage/ && wget 10.100.33.3/static/s.tgz && tar zxvf s.tgz && /bin/rm s.tgz && cdir"'
 alias updatedatassh='echo "cd /drive0/private && wget http://172.16.69.96/static/private.tgz && tar zxvf private.tgz && rm private.tgz && cd /Storage/ && wget http://172.16.69.96/static/s.tgz && tar zxvf s.tgz && rm s.tgz && cd /"'
 function updatedataIP() {
 echo "pvt && wget $1/static/private.tgz && tar zxvf private.tgz && /bin/rm private.tgz && cd db && /bin/rm FortiSandboxGUI.db FortiSandboxDevice.db && cp ../db-install/FortiSandboxGUI.db . && cp ../db-install/FortiSandboxDevice.db . && cdir && cd Storage/ && wget $1/static/s.tgz && tar zxvf s.tgz && /bin/rm s.tgz && cdir"
 }
-alias tarWeb="main && /bin/rm web/static/web.tar && tar -cvf web/static/web.tar web"
+alias tarWeb="bug && /bin/rm web/static/web.tar && tar -cvf web/static/web.tar web"
 alias update34="tarWeb && python /etc/cronjobs/updateWeb.py"
 alias updateweb="tarWeb && python /etc/cronjobs/updateWeb.py $1"
 alias upgrade34='/usr/sbin/chroot ~/Projects/fsa_chroot_env ./cron1.sh && python /etc/cronjobs/upgradeFW.py && /usr/sbin/chroot ~/Projects/fsa_chroot_env ./cron2.sh'
@@ -76,13 +79,13 @@ alias sss='echo "/usr/webserver/httpd -k restart -f /usr/webserver/httpd.conf" |
 alias cdf='codiff && vp'
 alias jj="tarJobAndDB $1"
 alias gg90="getJobAndDB"
-alias getJobAndDB="cdir && wget http://172.16.92.90/static/s.tar && tar -xvf s.tar && cd drive0/private/db-install && /bin/rm FortiSandboxGUI.db && wget http://172.16.92.90/static/FortiSandboxGUI.db"
+alias getJobAndDB='echo "cdir && wget http://172.16.92.90/static/s.tar && tar -xvf s.tar && /bin/rm s.tar && cd drive0/private/db-install && /bin/rm FortiSandboxGUI.db && wget http://172.16.92.90/static/FortiSandboxGUI.db"'
 function findjob() {
   echo "cd \`sandbox-jobs-move -p -j$1\`" | xclip
 }
 
 function tarJobAndDB(){
-  echo "tar -cvf /web/static/s.tar \`sandbox-jobs-move -p -j$1\` && cp /drive0/private/db/FortiSandboxGUI.db /web/static/" | xclip
+  echo "tar -cvf /web/static/s.tar \`sandbox-jobs-move -p -j$1\` && cp /drive0/private/db/FortiSandboxGUI.db /web/static/ && cd /web/static" | xclip
 }
 
 function burnimg() {
@@ -101,6 +104,7 @@ alias sdf="svn diff --summarize"
 alias sup="svn update"
 alias sg="svn log --limit 3"
 alias sgl="svn log --limit $1"
+alias sgr="svn log -v -r $1"
 
 # Git Commands
 alias upstream='git branch -u origin/master'
