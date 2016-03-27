@@ -21,14 +21,16 @@ alias b='cd -'
 alias desk='cd ~/Desktop'
 alias proj='cd ~/Projects'
 alias cdir='cd ~/Projects/fsa_chroot_env/'
-alias trunk='cd ~/Projects/fsa_chroot_env/fsa/workingTrunk'
 alias map='cd ~/Projects/fsa_chroot_env/fsa/mapTrunk'
 alias os='cd ~/Projects/fsa_chroot_env/fsa/FortiOS'
 alias style='cd ~/Projects/fsa_chroot_env/fsa/styleTrunk'
+alias fun='cd ~/Projects/fsa_chroot_env/fsa/funTrunk'
+alias bug='cd ~/Projects/fsa_chroot_env/fsa/bugTrunk'
 alias main='cd ~/Projects/fsa_chroot_env/fsa/mainTrunk'
+alias trunk='cd ~/Projects/fsa_chroot_env/fsa/mainTrunk'
 alias sandbox='cd ~/Projects/fsa_chroot_env/fsa/workingTrunk/web/sandbox'
 alias sus='cd ~/Projects/fsa_chroot_env/Storage/suspicious'
-alias fsadb='cd ~/Projects/fsa_chroot_env/drive0/private/db'
+alias fsadb='cd ~/Projects/fsa_chroot_env/drive0/private/db-install'
 alias pvt='cd ~/Projects/fsa_chroot_env/drive0/private'
 alias pkg='cd ~/Projects/fsa_chroot_env/fsa/pkgtools'
 alias se="vim ~/.zshrc"
@@ -67,7 +69,7 @@ alias updatedatassh='echo "cd /drive0/private && wget http://172.16.69.96/static
 function updatedataIP() {
 echo "pvt && wget $1/static/private.tgz && tar zxvf private.tgz && /bin/rm private.tgz && cd db && /bin/rm FortiSandboxGUI.db FortiSandboxDevice.db && cp ../db-install/FortiSandboxGUI.db . && cp ../db-install/FortiSandboxDevice.db . && cdir && cd Storage/ && wget $1/static/s.tgz && tar zxvf s.tgz && /bin/rm s.tgz && cdir"
 }
-alias tarWeb="main && /bin/rm web/static/web.tar && tar -cvf web/static/web.tar web"
+alias tarWeb="bug && /bin/rm web/static/web.tar && tar -cvf web/static/web.tar web"
 alias update34="tarWeb && python /etc/cronjobs/updateWeb.py"
 alias updateweb="tarWeb && python /etc/cronjobs/updateWeb.py $1"
 alias upgrade34='/usr/sbin/chroot ~/Projects/fsa_chroot_env ./cron1.sh && python /etc/cronjobs/upgradeFW.py && /usr/sbin/chroot ~/Projects/fsa_chroot_env ./cron2.sh'

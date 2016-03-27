@@ -14,9 +14,9 @@ function! BuildTern(info)
   endif
 endfunction
 
-function! Installjshint(info)
+function! Installeslint(info)
   if a:info.status == 'installed' || a:info.force
-    !npm install -g jshint
+    !npm install -g eslint
   endif
 endfunction
 
@@ -51,15 +51,13 @@ Plug 'tomtom/tlib_vim'
 Plug 'MarcWeber/vim-addon-mw-utils'
 Plug 'garbas/vim-snipmate'
 Plug 'honza/vim-snippets'
-Plug 'scrooloose/syntastic', { 'do': function('Installjshint') }
+Plug 'scrooloose/syntastic', { 'do': function('Installeslint') }
 Plug 'mattn/emmet-vim'
 Plug 'jelera/vim-javascript-syntax'
 Plug 'pangloss/vim-javascript'
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'Raimondi/delimitMate'
 Plug 'tomtom/tcomment_vim'
-Plug 'jshint/jshint'
-Plug 'Shutnik/jshint2.vim'
 Plug 'mattn/gist-vim'
 Plug 'mattn/webapi-vim'
 Plug 'elzr/vim-json'
@@ -159,6 +157,9 @@ let g:airline_right_alt_sep = ''
 " let g:airline_readonly_symbol = ''
 " let g:airline_linecolumn_prefix = ''
 let g:airline_theme='jellybeans'
+let g:airline_section_y=''
+let g:airline_section_z='%3p%%'
+
 let NERDTreeShowHidden=1
 
 colorscheme jellybeans
@@ -185,6 +186,9 @@ map <silent> <C-H> <C-W>h
 map <silent> <C-L> <C-W>l
 map <silent> <S-H> <C-W>H
 map <silent> <S-L> <C-W>L
+map <silent> <S-K> <C-W>K
+map <leader>K <C-W>K
+map <leader>J <C-W>J
 map <silent> <C-M> <C-W>_
 map <silent> <C-=> <C-W>=
 map <silent> <+> <C-W><S-=>
@@ -209,8 +213,9 @@ map <F5> :SVNDiff<CR>
 
 "Find javascript"
 map <F6> /Index: <CR> zz
-map <F7> :%y+ <CR>
+map <F7> :GundoToggle <CR>
 map <F8> :NERDTreeToggle<CR>
+map <F10> :lclose<CR>
 map <F11> :Ag <C-R><C-W> <C-R>=@% <CR><CR>
 map <F12> :Ag <C-R><C-W><CR>
 
@@ -239,19 +244,19 @@ nmap =t :%! tidy -config ~/.tidyrc<CR>
 "Comment Code"
 " map <C-K>c <c-_><c-_>
 
-"jshint"
-let g:syntastic_javascript_checkers = ['']
-" let g:syntastic_javascript_checkers = ['jshint']
+"eslint"
+" let g:syntastic_javascript_checkers = ['']
+" let g:syntastic_javascript_checkers = ['eslint']
 
 "Syntastic
 " set statusline+=%#warningmsg#
 " set statusline+=%{SyntasticStatuslineFlag()}
 " set statusline+=%*
 
-" let g:syntastic_always_populate_loc_list = 1
+" let g:syntastic_always_populate_loc_list = 0
 " let g:syntastic_auto_loc_list = 1
-" let g:syntastic_check_on_open = 1
-" let g:syntastic_check_on_wq = 1
+" let g:syntastic_check_on_open = 0
+" let g:syntastic_check_on_w = 0
 " execute pathogen#infect()
 
 "font size for macvim"
