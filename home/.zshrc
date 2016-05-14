@@ -46,17 +46,22 @@ alias ff="find . -name"
 alias kk="rm -rf /root/.ssh/known_hosts"
 
 # Fortinet Shortcuts
+alias djangotranslate="python manage.py makemessages --all -e 'html,js' && python manage.py makemessages --all -d djangojs --symlink"
 alias rr="svn revert web/sandbox/apps/hacluster/forms.py web/sandbox/apps/hacluster/hacluster.py web/sandbox/apps/hacluster/views.py web/sandbox/apps/widgets/utils/sysres.py web/sandbox/apps/widgets/utils/sysinfo.py web/sandbox/utils/system/status.py"
 alias ssh32="ssh admin@172.16.69.32"
 alias ssh34="ssh admin@172.16.69.34"
+alias ssh89="ssh admin@172.16.92.89"
 alias ssh90="ssh admin@172.16.92.90"
 alias ssh96="ssh admin@172.16.69.96"
+alias ssh128="ssh admin@172.16.69.128"
 alias ssh146="ssh admin@172.16.69.146"
+alias ssh152="ssh admin@172.16.68.152"
 alias ssh154="ssh admin@172.16.69.154"
 alias ssh155="ssh admin@172.16.69.155"
+alias ssh160="ssh admin@172.16.69.160"
 alias ssh213="ssh admin@172.16.69.213"
 alias ssh100="ssh fortinet@10.100.33.3"
-alias sshupdate="echo 'rm -rf web/* && wget http://172.16.68.232/static/web.tar -P web && tar -xvf web/web.tar && rm web/web.tar && killall httpd' | xclip"
+alias sshupdate="hh && echo 'cd / && rm -rf web/* && wget http://172.16.68.232/static/web.tar -P web && tar -xvf web/web.tar && rm web/web.tar && killall httpd' | xclip"
 alias sshrestart="echo '/usr/bin/httpd -k restart -f /usr/webserver/httpd.conf' | xclip"
 alias dd="copydata && copydata | xclip"
 alias copydata="echo 'cd /drive0/private && tar zcvf /web/static/private.tgz db-install yara hc log statistics/jobdata statistics/rptstat && cd /Storage && tar zcvf /web/static/s.tgz suspicious/$(date +20%y%m%d) &&  cd /web/static'"
@@ -79,7 +84,7 @@ alias sss='echo "/usr/webserver/httpd -k restart -f /usr/webserver/httpd.conf" |
 alias cdf='codiff && vp'
 alias jj="tarJobAndDB $1"
 alias gg90="getJobAndDB"
-alias getJobAndDB='echo "cdir && wget http://172.16.92.90/static/s.tar && tar -xvf s.tar && /bin/rm s.tar && cd drive0/private/db-install && /bin/rm FortiSandboxGUI.db && wget http://172.16.92.90/static/FortiSandboxGUI.db"'
+alias getJobAndDB='echo "cdir && wget http://172.16.69.32/static/s.tar && tar -xvf s.tar && /bin/rm s.tar && cd drive0/private/db-install && /bin/rm FortiSandboxGUI.db && wget http://172.16.69.32/static/FortiSandboxGUI.db"'
 function findjob() {
   echo "cd \`sandbox-jobs-move -p -j$1\`" | xclip
 }
