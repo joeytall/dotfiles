@@ -9,6 +9,8 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
 
+export EDITOR=vim
+
 # Customize to your needs...
 # Shell Commands
 alias vi='nvim'
@@ -19,15 +21,18 @@ alias b='cd -'
 alias desk='cd ~/Desktop'
 alias proj='cd ~/Projects'
 alias cdir='cd ~/Projects/fsa_chroot_env/'
-alias trunk='cd ~/Projects/fsa_chroot_env/fsa/workingTrunk'
 alias map='cd ~/Projects/fsa_chroot_env/fsa/mapTrunk'
 alias os='cd ~/Projects/fsa_chroot_env/fsa/FortiOS'
 alias style='cd ~/Projects/fsa_chroot_env/fsa/styleTrunk'
+alias fun='cd ~/Projects/fsa_chroot_env/fsa/funTrunk'
+alias bug='cd ~/Projects/fsa_chroot_env/fsa/bugTrunk'
 alias main='cd ~/Projects/fsa_chroot_env/fsa/mainTrunk'
+alias trunk='cd ~/Projects/fsa_chroot_env/fsa/mainTrunk'
 alias sandbox='cd ~/Projects/fsa_chroot_env/fsa/workingTrunk/web/sandbox'
 alias sus='cd ~/Projects/fsa_chroot_env/Storage/suspicious'
-alias fsadb='cd ~/Projects/fsa_chroot_env/drive0/private/db'
+alias fsadb='cd ~/Projects/fsa_chroot_env/drive0/private/db-install'
 alias pvt='cd ~/Projects/fsa_chroot_env/drive0/private'
+alias pkg='cd ~/Projects/fsa_chroot_env/fsa/pkgtools'
 alias se="vim ~/.zshrc"
 alias ss="source ~/.zshrc"
 alias hh="hostname joeytall-OptiPlex-3020"
@@ -38,27 +43,38 @@ alias vimplug="nvim +PlugInstall +qall"
 alias sshon="sudo systemsetup -setremotelogin on"
 alias sshoff="sudo systemsetup -setremotelogin off"
 alias ff="find . -name"
+alias kk="rm -rf /root/.ssh/known_hosts"
 
 # Fortinet Shortcuts
+alias djangotranslate="python manage.py makemessages --all -e 'html,js' && python manage.py makemessages --all -d djangojs --symlink"
 alias rr="svn revert web/sandbox/apps/hacluster/forms.py web/sandbox/apps/hacluster/hacluster.py web/sandbox/apps/hacluster/views.py web/sandbox/apps/widgets/utils/sysres.py web/sandbox/apps/widgets/utils/sysinfo.py web/sandbox/utils/system/status.py"
-alias ssh90="ssh admin@172.16.92.90"
-alias ssh96="ssh joey@172.16.69.96"
-alias ssh213="ssh admin@172.16.69.213"
+alias ssh32="ssh admin@172.16.69.32"
 alias ssh34="ssh admin@172.16.69.34"
+alias ssh89="ssh admin@172.16.92.89"
+alias ssh90="ssh admin@172.16.92.90"
+alias ssh96="ssh admin@172.16.69.96"
+alias ssh128="ssh admin@172.16.69.128"
+alias ssh146="ssh admin@172.16.69.146"
+alias ssh152="ssh admin@172.16.68.152"
+alias ssh154="ssh admin@172.16.69.154"
+alias ssh155="ssh admin@172.16.69.155"
+alias ssh160="ssh admin@172.16.69.160"
+alias ssh213="ssh admin@172.16.69.213"
 alias ssh100="ssh fortinet@10.100.33.3"
-alias sshupdate34="echo 'rm -rf web/* && wget http://172.16.68.232/static/web.tar -P web && tar -xvf web/web.tar && rm web/web.tar && killall httpd' | xclip"
+alias sshupdate="hh && echo 'cd / && rm -rf web/* && wget http://172.16.68.232/static/web.tar -P web && tar -xvf web/web.tar && rm web/web.tar && killall httpd' | xclip"
+alias sshrestart="echo '/usr/bin/httpd -k restart -f /usr/webserver/httpd.conf' | xclip"
 alias dd="copydata && copydata | xclip"
-alias copydata="echo 'cd /drive0/private && tar zcvf /web/static/private.tgz db-install hc log statistics/jobdata statistics/rptstat && cd /Storage && tar zcvf /web/static/s.tgz suspicious/$(date +20%y%m%d) &&  cd /web/static'"
+alias copydata="echo 'cd /drive0/private && tar zcvf /web/static/private.tgz db-install yara hc log statistics/jobdata statistics/rptstat && cd /Storage && tar zcvf /web/static/s.tgz suspicious/$(date +20%y%m%d) &&  cd /web/static'"
 alias ud="updatedata && updatedata | xclip"
 alias ud100="updatedata100 && updatedata100 | xclip"
 alias uds="updatedatassh && updatedatassh | xclip"
-alias updatedata='echo "pvt && wget 172.16.69.96/static/private.tgz && tar zxvf private.tgz && /bin/rm private.tgz && cd db && /bin/rm FortiSandboxGUI.db FortiSandboxDevice.db && cp ../db-install/FortiSandboxGUI.db . && cp ../db-install/FortiSandboxDevice.db . && cdir && cd Storage/ && wget 172.16.69.96/static/s.tgz && tar zxvf s.tgz && /bin/rm s.tgz && cdir"'
+alias updatedata='echo "pvt && wget 172.16.69.32/static/private.tgz && tar zxvf private.tgz && /bin/rm private.tgz && cd ../../Storage/ && wget 172.16.69.32/static/s.tgz && tar zxvf s.tgz && /bin/rm s.tgz && cdir"'
 alias updatedata100='echo "pvt && wget 10.100.33.3/static/private.tgz && tar zxvf private.tgz && /bin/rm private.tgz && cd db && /bin/rm FortiSandboxGUI.db FortiSandboxDevice.db && cp ../db-install/FortiSandboxGUI.db . && cp ../db-install/FortiSandboxDevice.db . && cdir && cd Storage/ && wget 10.100.33.3/static/s.tgz && tar zxvf s.tgz && /bin/rm s.tgz && cdir"'
 alias updatedatassh='echo "cd /drive0/private && wget http://172.16.69.96/static/private.tgz && tar zxvf private.tgz && rm private.tgz && cd /Storage/ && wget http://172.16.69.96/static/s.tgz && tar zxvf s.tgz && rm s.tgz && cd /"'
 function updatedataIP() {
 echo "pvt && wget $1/static/private.tgz && tar zxvf private.tgz && /bin/rm private.tgz && cd db && /bin/rm FortiSandboxGUI.db FortiSandboxDevice.db && cp ../db-install/FortiSandboxGUI.db . && cp ../db-install/FortiSandboxDevice.db . && cdir && cd Storage/ && wget $1/static/s.tgz && tar zxvf s.tgz && /bin/rm s.tgz && cdir"
 }
-alias tarWeb="main && /bin/rm web/static/web.tar && tar -cvf web/static/web.tar web"
+alias tarWeb="bug && /bin/rm web/static/web.tar && tar -cvf web/static/web.tar web"
 alias update34="tarWeb && python /etc/cronjobs/updateWeb.py"
 alias updateweb="tarWeb && python /etc/cronjobs/updateWeb.py $1"
 alias upgrade34='/usr/sbin/chroot ~/Projects/fsa_chroot_env ./cron1.sh && python /etc/cronjobs/upgradeFW.py && /usr/sbin/chroot ~/Projects/fsa_chroot_env ./cron2.sh'
@@ -66,8 +82,15 @@ alias upgrade37='/usr/sbin/chroot ~/Projects/fsa_chroot_env ./cron1.sh && python
 alias ccc='echo "cd /fsa/workingTrunk && make clean && make && ./mkdevelop.sh" | xclip'
 alias sss='echo "/usr/webserver/httpd -k restart -f /usr/webserver/httpd.conf" | xclip'
 alias cdf='codiff && vp'
+alias jj="tarJobAndDB $1"
+alias gg90="getJobAndDB"
+alias getJobAndDB='echo "cdir && wget http://172.16.69.32/static/s.tar && tar -xvf s.tar && /bin/rm s.tar && cd drive0/private/db-install && /bin/rm FortiSandboxGUI.db && wget http://172.16.69.32/static/FortiSandboxGUI.db"'
 function findjob() {
   echo "cd \`sandbox-jobs-move -p -j$1\`" | xclip
+}
+
+function tarJobAndDB(){
+  echo "tar -cvf /web/static/s.tar \`sandbox-jobs-move -p -j$1\` && cp /drive0/private/db/FortiSandboxGUI.db /web/static/ && cd /web/static" | xclip
 }
 
 function burnimg() {
@@ -84,8 +107,9 @@ alias hslink="homesick symlink dotfiles"
 # SVN commands
 alias sdf="svn diff --summarize"
 alias sup="svn update"
-alias sg="svn log -l 10| perl -l40pe 's/^-+/\n/'"
-alias sgl="svn log -l $1 | perl -l40pe 's/^-+/\n/'"
+alias sg="svn log --limit 3"
+alias sgl="svn log --limit $1"
+alias sgr="svn log -v -r $1"
 
 # Git Commands
 alias upstream='git branch -u origin/master'
@@ -172,8 +196,16 @@ alias agup="sudo apt-get update"
 function downloadwallpaper() {
   interfacelift-downloader 2560x1440 Pictures/background/interfaceLift/2560x1440
   interfacelift-downloader 1920x1080 Pictures/background/interfaceLift/1920x1080
+  interfacelift-downloader 1920x1200 Pictures/background/interfaceLift/1920x1200
   interfacelift-downloader 1200x1920 Pictures/background/interfaceLift/1200x1920
   interfacelift-downloader 1280x800 Pictures/background/interfaceLift/1280x800
+}
+
+function neovimsetup(){
+  mkdir -p ${XDG_CONFIG_HOME:=$HOME/.config}
+  ln -s ~/.vim $XDG_CONFIG_HOME/nvim
+  ln -s ~/.vimrc $XDG_CONFIG_HOME/nvim/init.vim
+  vimplug
 }
 
 alias downloadwebsite="wget -r -p -U chrome"

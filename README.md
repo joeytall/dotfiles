@@ -26,6 +26,8 @@ ln -s ~/.vimrc $XDG_CONFIG_HOME/nvim/init.vim
 
 vimplug
 
+or simply run neovimsetup
+
 ##YCM
 sudo easy_install gevent==1.1rc1
 

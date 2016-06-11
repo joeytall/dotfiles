@@ -14,9 +14,9 @@ function! BuildTern(info)
   endif
 endfunction
 
-function! Installjshint(info)
+function! Installeslint(info)
   if a:info.status == 'installed' || a:info.force
-    !npm install -g jshint
+    !npm install -g eslint
   endif
 endfunction
 
@@ -24,6 +24,8 @@ let g:python_host_prog='/usr/bin/python'
 
 call plug#begin('~/.vim/plugged')
 
+Plug 'sjl/gundo.vim'
+Plug 'ap/vim-css-color'
 Plug 'nanotech/jellybeans.vim'
 Plug 'bling/vim-airline'
 Plug 'kchmck/vim-coffee-script'
@@ -49,15 +51,13 @@ Plug 'tomtom/tlib_vim'
 Plug 'MarcWeber/vim-addon-mw-utils'
 Plug 'garbas/vim-snipmate'
 Plug 'honza/vim-snippets'
-Plug 'scrooloose/syntastic', { 'do': function('Installjshint') }
+Plug 'scrooloose/syntastic', { 'do': function('Installeslint') }
 Plug 'mattn/emmet-vim'
 Plug 'jelera/vim-javascript-syntax'
 Plug 'pangloss/vim-javascript'
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'Raimondi/delimitMate'
 Plug 'tomtom/tcomment_vim'
-Plug 'jshint/jshint'
-Plug 'Shutnik/jshint2.vim'
 Plug 'mattn/gist-vim'
 Plug 'mattn/webapi-vim'
 Plug 'elzr/vim-json'
@@ -72,10 +72,12 @@ Plug 'majutsushi/tagbar'
 Plug 'ternjs/tern_for_vim', { 'do': function('BuildTern') }
 Plug 'vim-scripts/dbext.vim'
 Plug 'sjl/gundo.vim'
+Plug 'klen/python-mode'
 
 call plug#end()
 
 "neovim"
+set hidden
 set showcmd             " Show (partial) command in status line.
 set showmatch           " Show matching brackets.
 set showmode            " Show current mode.
@@ -150,7 +152,7 @@ let g:ctrlp_cmd = 'CtrlPMixed'
 let g:ctrlp_working_path_mode = '' " Stop messing with the path
 let g:ctrlp_match_window_bottom = 1
 let g:ctrlp_jump_to_buffer = 2 " Jump to tab AND buffer if already open
-let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git\|coverage\|vendor/bundle\|result\|build\|img'
+let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git\|coverage\|vendor/bundle\|result\|build\|img\|*.pyc'
 
 let mapleader = ' '
 let g:airline_left_sep = ''
@@ -161,6 +163,9 @@ let g:airline_right_alt_sep = ''
 " let g:airline_readonly_symbol = ''
 " let g:airline_linecolumn_prefix = ''
 let g:airline_theme='jellybeans'
+let g:airline_section_y=''
+let g:airline_section_z='%3p%%'
+
 let NERDTreeShowHidden=1
 
 colorscheme jellybeans
@@ -180,12 +185,16 @@ let g:dbext_default_profile_sqlite = 'type=SQLITE:dbname=/home/joeytall/Projects
 let g:dbext_default_profile = 'sqlite'
 
 "This maps ctrl+h and ctrl+l to moving between :vsplit windows
+map <silent> <bs> <C-W>h
 map <silent> <C-J> <C-W>j
 map <silent> <C-K> <C-W>k
 map <silent> <C-H> <C-W>h
 map <silent> <C-L> <C-W>l
 map <silent> <S-H> <C-W>H
 map <silent> <S-L> <C-W>L
+map <silent> <S-K> <C-W>K
+map <leader>K <C-W>K
+map <leader>J <C-W>J
 map <silent> <C-M> <C-W>_
 map <silent> <C-=> <C-W>=
 map <silent> <+> <C-W><S-=>
@@ -210,8 +219,9 @@ map <F5> :GundoToggle<CR>
 
 "Find javascript"
 map <F6> /Index: <CR> zz
-map <F7> :%y+ <CR>
+map <F7> :GundoToggle <CR>
 map <F8> :NERDTreeToggle<CR>
+map <F10> :lclose<CR>
 map <F11> :Ag <C-R><C-W> <C-R>=@% <CR><CR>
 map <F12> :Ag <C-R><C-W><CR>
 
@@ -238,21 +248,21 @@ nmap <leader>fv :CtrlP app/views<cr>
 nmap =t :%! tidy -config ~/.tidyrc<CR>
 
 "Comment Code"
-map <C-K>c <c-_><c-_>
+" map <C-K>c <c-_><c-_>
 
-"jshint"
-let g:syntastic_javascript_checkers = ['']
-" let g:syntastic_javascript_checkers = ['jshint']
+"eslint"
+" let g:syntastic_javascript_checkers = ['']
+" let g:syntastic_javascript_checkers = ['eslint']
 
 "Syntastic
 " set statusline+=%#warningmsg#
 " set statusline+=%{SyntasticStatuslineFlag()}
 " set statusline+=%*
 
-" let g:syntastic_always_populate_loc_list = 1
+" let g:syntastic_always_populate_loc_list = 0
 " let g:syntastic_auto_loc_list = 1
-" let g:syntastic_check_on_open = 1
-" let g:syntastic_check_on_wq = 1
+" let g:syntastic_check_on_open = 0
+" let g:syntastic_check_on_w = 0
 " execute pathogen#infect()
 
 "font size for macvim"
@@ -267,17 +277,18 @@ let g:gist_clip_command = 'pbcopy'
 let g:gist_post_private = 1
 
 "drag visual"
-vmap <expr> ˙ DVB_Drag('left')
-vmap <expr> ¬ DVB_Drag('right')
-vmap <expr> ∆ DVB_Drag('down')
-vmap <expr> ˚ DVB_Drag('up')
-
-vmap <expr> <C-H> DVB_Drag('left')
-vmap <expr> <C-L> DVB_Drag('right')
-vmap <expr> <C-J> DVB_Drag('down')
-vmap <expr> <C-K> DVB_Drag('up')
+" vmap <expr> ˙ DVB_Drag('left')
+" vmap <expr> ¬ DVB_Drag('right')
+" vmap <expr> ∆ DVB_Drag('down')
+" vmap <expr> ˚ DVB_Drag('up')
+"
+" vmap <expr> <C-H> DVB_Drag('left')
+" vmap <expr> <C-L> DVB_Drag('right')
+" vmap <expr> <C-J> DVB_Drag('down')
+" vmap <expr> <C-K> DVB_Drag('up')
 
 "vim tricks"
+nnoremap <Leader>e :e<CR>
 nnoremap <Leader>w :w<CR>
 nnoremap <Leader>q :q<CR>
 nnoremap <Leader>wq :wq<CR>
@@ -304,3 +315,25 @@ let g:ycm_add_preview_to_completeopt=0
 let g:ycm_confirm_extra_conf=0
 set completeopt-=preview
 
+"python-mode
+filetype off
+
+call pathogen#infect()
+call pathogen#helptags()
+
+filetype plugin indent on
+syntax on
+
+let g:pymode_folding = 0
+let g:pymode_breakpoint_bind = '<leader>g'
+let g:pymode_lint_unmodified = 1
+let g:pymode_lint_ignore = "W0401"
+let g:pymode_lint_checkers = ['pyflakes',]
+let g:pymode_lint_cwindow = 0
+let g:pymode_lint_todo_symbol = 'W'
+let g:pymode_lint_comment_symbol = 'C'
+let g:pymode_lint_visual_symbol = 'R'
+let g:pymode_lint_error_symbol = 'E'
+let g:pymode_lint_info_symbol = 'I'
+let g:pymode_lint_pyflakes_symbol = 'F'
+let g:pymode_rope_completion = 0
