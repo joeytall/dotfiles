@@ -6,3 +6,7 @@
 	path = home/.zprezto
 	url = https://github.com/sorin-ionescu/prezto.git
   ignore = dirty
+[submodule "home/.zsh/zsh-autosuggestions"]
+	path = home/.zsh/zsh-autosuggestions
+	url = https://github.com/zsh-users/zsh-autosuggestions
+  ignore = dirty

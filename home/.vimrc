@@ -26,6 +26,7 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'sjl/gundo.vim'
 Plug 'ap/vim-css-color'
+Plug 'hail2u/vim-css3-syntax'
 Plug 'nanotech/jellybeans.vim'
 Plug 'bling/vim-airline'
 Plug 'kchmck/vim-coffee-script'
@@ -72,6 +73,7 @@ Plug 'majutsushi/tagbar'
 Plug 'ternjs/tern_for_vim', { 'do': function('BuildTern') }
 Plug 'vim-scripts/dbext.vim'
 Plug 'klen/python-mode'
+Plug 'othree/html5.vim'
 
 call plug#end()
 
@@ -147,7 +149,7 @@ let g:ctrlp_cmd = 'CtrlPMixed'
 let g:ctrlp_working_path_mode = '' " Stop messing with the path
 let g:ctrlp_match_window_bottom = 1
 let g:ctrlp_jump_to_buffer = 2 " Jump to tab AND buffer if already open
-let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git\|coverage\|vendor/bundle\|result\|build\|img\|*.pyc'
+let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git\|coverage\|vendor/bundle\|result\|build\|img\|**/*.pyc'
 
 let mapleader = ' '
 let g:airline_left_sep = ''
@@ -332,3 +334,4 @@ let g:pymode_lint_error_symbol = 'E'
 let g:pymode_lint_info_symbol = 'I'
 let g:pymode_lint_pyflakes_symbol = 'F'
 let g:pymode_rope_completion = 0
+let g:pymode_rope_lookup_project = 0

@@ -11,15 +11,10 @@ imgpc/
 *.csv
 *.tsv
 *.tmp*
-/*.js
-/*.css
-/*.scss
 *.old
-/*.json
-/*.xml
-/*.html
 *.plist
 *.pdf
 *.md
 *.log
 *.db
+*.po
