@@ -72,6 +72,7 @@ Plug 'juneedahamed/svnj.vim'
 Plug 'majutsushi/tagbar'
 Plug 'ternjs/tern_for_vim', { 'do': function('BuildTern') }
 Plug 'vim-scripts/dbext.vim'
+Plug 'sjl/gundo.vim'
 Plug 'klen/python-mode'
 Plug 'othree/html5.vim'
 
@@ -140,6 +141,10 @@ set dir=~/.vim/swap
 set undodir=~/.vim/undo
 set cursorcolumn
 set mouse=a
+
+set undofile
+set history=100
+set undolevels=100
 
 set wildmode=longest,list
 set wildmenu
@@ -212,7 +217,7 @@ map <F1> :EraseBadWhitespace <CR>
 map <F2> :TagbarToggle<CR>
 map <F3> :SVNBlame<CR>
 map <F4> :SVNLog<CR>
-map <F5> :SVNDiff<CR>
+map <F5> :GundoToggle<CR>
 
 "Find javascript"
 map <F6> /Index: <CR> zz
