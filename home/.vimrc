@@ -27,6 +27,7 @@ call plug#begin('~/.vim/plugged')
 Plug 'StanAngeloff/php.vim'
 Plug 'sjl/gundo.vim'
 Plug 'ap/vim-css-color'
+Plug 'hail2u/vim-css3-syntax'
 Plug 'nanotech/jellybeans.vim'
 Plug 'bling/vim-airline'
 Plug 'kchmck/vim-coffee-script'
@@ -72,6 +73,9 @@ Plug 'juneedahamed/svnj.vim'
 Plug 'majutsushi/tagbar'
 Plug 'ternjs/tern_for_vim', { 'do': function('BuildTern') }
 Plug 'vim-scripts/dbext.vim'
+Plug 'sjl/gundo.vim'
+Plug 'klen/python-mode'
+Plug 'othree/html5.vim'
 
 call plug#end()
 
@@ -139,6 +143,10 @@ set undodir=~/.vim/undo
 set cursorcolumn
 set mouse=a
 
+set undofile
+set history=100
+set undolevels=100
+
 set wildmode=longest,list
 set wildmenu
 
@@ -147,7 +155,7 @@ let g:ctrlp_cmd = 'CtrlPMixed'
 let g:ctrlp_working_path_mode = '' " Stop messing with the path
 let g:ctrlp_match_window_bottom = 1
 let g:ctrlp_jump_to_buffer = 2 " Jump to tab AND buffer if already open
-let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git\|coverage\|vendor/bundle\|result\|build\|img'
+let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git\|coverage\|vendor/bundle\|result\|build\|img\|**/*.pyc'
 
 let mapleader = ' '
 let g:airline_left_sep = ''
@@ -210,7 +218,7 @@ map <F1> :EraseBadWhitespace <CR>
 map <F2> :TagbarToggle<CR>
 map <F3> :SVNBlame<CR>
 map <F4> :SVNLog<CR>
-map <F5> :SVNDiff<CR>
+map <F5> :GundoToggle<CR>
 
 "Find javascript"
 map <F6> /Index: <CR> zz
@@ -310,3 +318,26 @@ let g:ycm_add_preview_to_completeopt=0
 let g:ycm_confirm_extra_conf=0
 set completeopt-=preview
 
+"python-mode
+filetype off
+
+call pathogen#infect()
+call pathogen#helptags()
+
+filetype plugin indent on
+syntax on
+
+let g:pymode_folding = 0
+let g:pymode_breakpoint_bind = '<leader>g'
+let g:pymode_lint_unmodified = 1
+let g:pymode_lint_ignore = "W0401"
+let g:pymode_lint_checkers = ['pyflakes',]
+let g:pymode_lint_cwindow = 0
+let g:pymode_lint_todo_symbol = 'W'
+let g:pymode_lint_comment_symbol = 'C'
+let g:pymode_lint_visual_symbol = 'R'
+let g:pymode_lint_error_symbol = 'E'
+let g:pymode_lint_info_symbol = 'I'
+let g:pymode_lint_pyflakes_symbol = 'F'
+let g:pymode_rope_completion = 0
+let g:pymode_rope_lookup_project = 0

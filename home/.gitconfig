@@ -5,7 +5,7 @@
   name = joeytall
   email = joeytall.liu@gmail.com
 [credential]
-  helper = osxkeychain
+  # helper = osxkeychain
 [init]
   templatedir = ~/.git-template
 [core]

@@ -1,11 +1,5 @@
-dotfiles
+Dotfiles
 ========
-
-#backup with homesick
-
-##IT WORKS!
-
-##HOW?
 
 ###To copy:
 
@@ -13,7 +7,7 @@ dotfiles
 
 2.homesick clone joeytall/dotfiles
 
-3.hoemsick symlink dotfiles
+3.homesick symlink dotfiles
 
 GG
 
