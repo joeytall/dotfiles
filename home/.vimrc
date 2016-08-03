@@ -24,6 +24,7 @@ let g:python_host_prog='/usr/bin/python'
 
 call plug#begin('~/.vim/plugged')
 
+Plug 'StanAngeloff/php.vim'
 Plug 'sjl/gundo.vim'
 Plug 'ap/vim-css-color'
 Plug 'nanotech/jellybeans.vim'

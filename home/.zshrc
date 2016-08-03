@@ -109,8 +109,7 @@ alias sgr="svn log -v -r $1"
 # Git Commands
 alias upstream='git branch -u origin/master'
 alias gfo='git fetch origin'
-#alias ptg='git push origin HEAD:refs/for/master'
-#alias ptgmobile='git push origin HEAD:refs/for/mobile-specific-version'
+alias ptg='git push origin HEAD:refs/for/master'
 alias pom='git push origin master'
 alias gts="git status"
 alias gta="git add"
@@ -188,6 +187,7 @@ alias agi="sudo apt-get install"
 alias agup="sudo apt-get update"
 
 # InterfaceLift Downloader
+alias dw="downloadwallpaper"
 function downloadwallpaper() {
   interfacelift-downloader 2560x1440 Pictures/background/interfaceLift/2560x1440
   interfacelift-downloader 1920x1080 Pictures/background/interfaceLift/1920x1080
