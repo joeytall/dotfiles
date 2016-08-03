@@ -141,3 +141,7 @@ fancy-ctrl-z () {
 }
 zle -N fancy-ctrl-z
 bindkey '^Z' fancy-ctrl-z
+
+# JSON resume
+alias updateresume="resume export resume.html && wkhtmltopdf resume.html resume.pdf"
+alias postresume="resume publish --theme elegant"

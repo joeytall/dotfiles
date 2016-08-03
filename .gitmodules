@@ -1,12 +1,8 @@
-[submodule "home/.vim/bundle/vundle"]
-	path = home/.vim/bundle/vundle
-	url = https://github.com/gmarik/Vundle.vim.git
-  ignore = dirty
 [submodule "home/.zprezto"]
 	path = home/.zprezto
 	url = https://github.com/sorin-ionescu/prezto.git
   ignore = dirty
 [submodule "home/.zsh/zsh-autosuggestions"]
 	path = home/.zsh/zsh-autosuggestions
-	url = https://github.com/zsh-users/zsh-autosuggestions
+	url = git://github.com/zsh-users/zsh-autosuggestions
   ignore = dirty
