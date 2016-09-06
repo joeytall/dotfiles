@@ -50,6 +50,7 @@ alias newadd="svn status | grep -P '^(?=.{0,6}A)'"
 # Git Commands
 alias upstream='git branch -u origin/master'
 alias gfo='git fetch origin'
+alias ptg='git push origin HEAD:refs/for/master'
 alias pom='git push origin master'
 alias gts="git status"
 alias gta="git add"
@@ -105,6 +106,7 @@ alias agi="sudo apt-get install"
 alias agup="sudo apt-get update"
 
 # InterfaceLift Downloader
+alias dw="downloadwallpaper"
 function downloadwallpaper() {
   interfacelift-downloader 2560x1440 Pictures/background/interfaceLift/2560x1440
   interfacelift-downloader 1920x1080 Pictures/background/interfaceLift/1920x1080
@@ -145,5 +147,10 @@ fancy-ctrl-z () {
 zle -N fancy-ctrl-z
 bindkey '^Z' fancy-ctrl-z
 
+# JSON resume
+alias updateresume="resume export resume.html && wkhtmltopdf resume.html resume.pdf"
+alias postresume="resume publish --theme elegant"
+
 #Fun fun Fun
 alias weather="curl wttr.in/vancouver"
+
