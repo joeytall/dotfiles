@@ -340,3 +340,6 @@ let g:pymode_lint_info_symbol = 'I'
 let g:pymode_lint_pyflakes_symbol = 'F'
 let g:pymode_rope_completion = 0
 let g:pymode_rope_lookup_project = 0
+
+"Eliminate delays on ESC
+set timeoutlen=1000 ttimeoutlen=0

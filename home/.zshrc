@@ -9,6 +9,11 @@ source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 # Add Fortinet settings
 source $HOME/.fortinetrc
 
+# Linux brew setup
+export PATH="$HOME/.linuxbrew/bin:$PATH"
+export MANPATH="$HOME/.linuxbrew/share/man:$MANPATH"
+export INFOPATH="$HOME/.linuxbrew/share/info:$INFOPATH"
+
 export EDITOR=vim
 
 # Shell Commands
@@ -20,12 +25,12 @@ alias b='cd -'
 alias desk='cd ~/Desktop'
 alias proj='cd ~/Projects'
 alias se="vim ~/.zshrc"
+alias ff="vim ~/.fortinetrc"
 alias ss="source ~/.zshrc"
 alias vv="vim ~/.vimrc"
 alias vimplug="nvim +PlugInstall +qall"
 alias sshon="sudo systemsetup -setremotelogin on"
 alias sshoff="sudo systemsetup -setremotelogin off"
-alias ff="find . -name"
 alias kk="rm -rf /root/.ssh/known_hosts"
 alias rr="xset r rate 380 60"
 
@@ -139,3 +144,6 @@ fancy-ctrl-z () {
 }
 zle -N fancy-ctrl-z
 bindkey '^Z' fancy-ctrl-z
+
+#Fun fun Fun
+alias weather="curl wttr.in/vancouver"
