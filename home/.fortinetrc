@@ -1,6 +1,6 @@
 # Fortinet Shortcuts
 alias cdir='cd ~/Projects/fsa_chroot_env/'
-alias bug='cd ~/Projects/old_chroot/fsa/bugTrunk'
+alias bug='cd ~/Projects/fsa_chroot_env/fsa/bugTrunk'
 alias main='cd ~/Projects/fsa_chroot_env/fsa/mainTrunk'
 alias icap='cd ~/Projects/fsa_chroot_env/fsa/icap'
 alias device='cd ~/Projects/fsa_chroot_env/fsa/deviceUser'
@@ -58,7 +58,7 @@ alias upgrade37='/usr/sbin/chroot ~/Projects/fsa_chroot_env ./cron1.sh && python
 alias ccc='echo "make clean && make && ./mkdevelop.sh" | xclip'
 alias sss='echo "/usr/webserver/httpd -k restart -f /usr/webserver/httpd.conf" | xclip'
 alias cdf='codiff && vp'
-alias rdf='rb_genco diff'
+alias rdf='rb_genco diff >! patch.diff && vp'
 alias rpo='rb_genco post'
 alias rup="rb_genco update $1"
 function findjob() {
@@ -67,6 +67,10 @@ function findjob() {
 
 function burnimg() {
   echo "./Configure -mFSA_3500D -ti -a2 -i2 -p0 -dy -ky -ly && make clean && make all && ./genpcimg.sh" | xclip
+}
+
+function getfile() {
+  eval "wget http://172.16.69.$1/static/$2"
 }
 
 # Django Python
