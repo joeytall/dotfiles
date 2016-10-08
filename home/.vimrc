@@ -20,7 +20,7 @@ function! Installeslint(info)
   endif
 endfunction
 
-let g:python_host_prog='/usr/bin/python'
+let g:python_host_prog='/usr/local/bin/python'
 
 call plug#begin('~/.vim/plugged')
 
