@@ -95,9 +95,12 @@ alias renamebranch="git branch -m"
 alias bd="git branch -D"
 alias workflow='git log --since="08:30:00" --format="%s%n%b" --author="$(git config --global user.name)" | grep "^[^(Change-id)]"'
 alias bi="brew install"
+alias bu="brew update && brew upgrade"
 
 # Node JS
 alias ni="npm install"
+alias nis="npm install --save-dev"
+alias nig="npm install -g"
 alias ns="npm start"
 alias nu="npm update"
 
@@ -149,7 +152,7 @@ zle -N fancy-ctrl-z
 bindkey '^Z' fancy-ctrl-z
 
 # JSON resume
-alias updateresume="resume export resume.html && wkhtmltopdf resume.html resume.pdf"
+alias updateresume="resume export resume.html --theme elegant && wkhtmltopdf resume.html resume.pdf"
 alias postresume="resume publish --theme elegant"
 
 #Fun fun Fun
