@@ -20,7 +20,7 @@ function! Installeslint(info)
   endif
 endfunction
 
-let g:python_host_prog='/usr/bin/python'
+let g:python_host_prog='/usr/local/bin/python'
 
 call plug#begin('~/.vim/plugged')
 
@@ -30,6 +30,7 @@ Plug 'ap/vim-css-color'
 Plug 'hail2u/vim-css3-syntax'
 Plug 'nanotech/jellybeans.vim'
 Plug 'bling/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 Plug 'kchmck/vim-coffee-script'
 Plug 'csexton/trailertrash.vim'
 Plug 'scrooloose/nerdtree'
@@ -155,13 +156,13 @@ let g:ctrlp_cmd = 'CtrlPMixed'
 let g:ctrlp_working_path_mode = '' " Stop messing with the path
 let g:ctrlp_match_window_bottom = 1
 let g:ctrlp_jump_to_buffer = 2 " Jump to tab AND buffer if already open
-let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git\|coverage\|vendor/bundle\|result\|build\|img\|**/*.pyc'
+let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git\|coverage\|vendor/bundle\|build\|img\|**/*.pyc'
 
 let mapleader = ' '
-let g:airline_left_sep = ''
-let g:airline_left_alt_sep = ''
-let g:airline_right_sep = ''
-let g:airline_right_alt_sep = ''
+" let g:airline_left_sep = ''
+" let g:airline_left_alt_sep = ''
+" let g:airline_right_sep = ''
+" let g:airline_right_alt_sep = ''
 " let g:airline_fugitive_prefix = ' '
 " let g:airline_readonly_symbol = ''
 " let g:airline_linecolumn_prefix = ''
