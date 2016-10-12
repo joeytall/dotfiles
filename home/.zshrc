@@ -57,6 +57,7 @@ alias gta="git add"
 alias gtaa='git add --all'
 alias lg="git lg"
 alias commit="git commit"
+alias com="git commit -m"
 alias fixup="git commit -m 'fixup'"
 alias amend="git commit --amend"
 alias diff="git diff"
