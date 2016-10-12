@@ -57,26 +57,20 @@ alias gta="git add"
 alias gtaa='git add --all'
 alias lg="git lg"
 alias commit="git commit"
-alias ammend="git commit --amend"
 alias fixup="git commit -m 'fixup'"
 alias amend="git commit --amend"
 alias diff="git diff"
 alias clone="git clone"
-alias getapp="git clone joey@gerrit:"
 alias rb="git rebase -i"
-alias rb1="git rebase -i HEAD~1"
-alias rb2="git rebase -i HEAD~2"
-alias rb3="git rebase -i HEAD~3"
-alias rb4="git rebase -i HEAD~4"
-alias rb5="git rebase -i HEAD~5"
-alias rb6="git rebase -i HEAD~6"
-alias rb7="git rebase -i HEAD~7"
-alias rb8="git rebase -i HEAD~8"
-alias rb9="git rebase -i HEAD~9"
+
+function rbh(){
+  eval "git rebase -i HEAD~$1"
+}
+
 alias rbo="git rebase -i origin/master"
-alias rbomobile="git rebase -i origin/mobile-specific-version"
 alias rbc="git rebase --continue"
 alias rba="git rebase --abort"
+
 alias track="git branch -u origin/master"
 alias reset="git reset"
 alias reset1="git reset HEAD~1"
@@ -94,6 +88,8 @@ alias branch="git branch -a"
 alias renamebranch="git branch -m"
 alias bd="git branch -D"
 alias workflow='git log --since="08:30:00" --format="%s%n%b" --author="$(git config --global user.name)" | grep "^[^(Change-id)]"'
+
+# Brew
 alias bi="brew install"
 alias bu="brew update && brew upgrade"
 
