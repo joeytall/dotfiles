@@ -24,6 +24,7 @@ alias h='ls -lh'
 alias b='cd -'
 alias desk='cd ~/Desktop'
 alias proj='cd ~/Projects'
+alias coca='cd ~/Projects/coca'
 alias se="vim ~/.zshrc"
 alias ff="vim ~/.fortinetrc"
 alias ss="source ~/.zshrc"
