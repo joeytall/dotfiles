@@ -65,6 +65,7 @@ alias diff="git diff"
 alias clone="git clone"
 alias rb="git rebase -i"
 alias gpu="git pull"
+alias gcl="git clone"
 
 function rbh(){
   eval "git rebase -i HEAD~$1"
