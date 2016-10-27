@@ -346,3 +346,7 @@ let g:pymode_rope_lookup_project = 0
 
 "Eliminate delays on ESC
 set timeoutlen=1000 ttimeoutlen=0
+
+"crontab
+autocmd FileType crontab setlocal nobackup nowritebackup
+
