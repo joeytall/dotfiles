@@ -101,6 +101,7 @@ alias bu="brew update && brew upgrade"
 alias ni="npm install"
 alias nis="npm install --save-dev"
 alias nig="npm install -g"
+alias np="npm prune"
 alias ns="npm start"
 alias nu="npm update"
 
