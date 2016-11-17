@@ -29,6 +29,7 @@ Plug 'sjl/gundo.vim'
 Plug 'ap/vim-css-color'
 Plug 'hail2u/vim-css3-syntax'
 Plug 'nanotech/jellybeans.vim'
+Plug 'dracula/vim'
 Plug 'bling/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'kchmck/vim-coffee-script'
@@ -167,14 +168,16 @@ let mapleader = ' '
 " let g:airline_fugitive_prefix = ' '
 " let g:airline_readonly_symbol = ''
 " let g:airline_linecolumn_prefix = ''
-let g:airline_theme='jellybeans'
+let g:airline_theme='dracula'
 let g:airline_section_y=''
 let g:airline_section_z='%3p%%'
 
 let NERDTreeShowHidden=1
 
-colorscheme jellybeans
+" colorscheme jellybeans
+colorscheme dracula
 highlight clear SignColumn
+highlight CursorColumn guibg=#404040
 
 autocmd BufNewFile,BufRead *.mobile.erb let b:eruby_subtype='html'
 autocmd BufNewFile,BufRead *.mobile.erb set filetype=eruby
