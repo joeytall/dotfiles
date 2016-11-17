@@ -20,7 +20,7 @@ function! Installeslint(info)
   endif
 endfunction
 
-let g:python_host_prog='/usr/bin/python'
+let g:python_host_prog='/usr/local/bin/python'
 
 call plug#begin('~/.vim/plugged')
 
@@ -29,7 +29,9 @@ Plug 'sjl/gundo.vim'
 Plug 'ap/vim-css-color'
 Plug 'hail2u/vim-css3-syntax'
 Plug 'nanotech/jellybeans.vim'
+Plug 'dracula/vim'
 Plug 'bling/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 Plug 'kchmck/vim-coffee-script'
 Plug 'csexton/trailertrash.vim'
 Plug 'scrooloose/nerdtree'
@@ -64,6 +66,7 @@ Plug 'mattn/gist-vim'
 Plug 'mattn/webapi-vim'
 Plug 'elzr/vim-json'
 Plug 'digitaltoad/vim-jade'
+Plug 'digitaltoad/vim-pug'
 Plug 'moll/vim-node'
 Plug 'gioele/vim-autoswap'
 Plug 'gavinbeatty/dragvisuals.vim'
@@ -158,21 +161,23 @@ let g:ctrlp_jump_to_buffer = 2 " Jump to tab AND buffer if already open
 let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git\|coverage\|vendor/bundle\|build\|img\|**/*.pyc\|**/*.edited\|**/*.diff\|**/*.deb'
 
 let mapleader = ' '
-let g:airline_left_sep = ''
-let g:airline_left_alt_sep = ''
-let g:airline_right_sep = ''
-let g:airline_right_alt_sep = ''
+" let g:airline_left_sep = ''
+" let g:airline_left_alt_sep = ''
+" let g:airline_right_sep = ''
+" let g:airline_right_alt_sep = ''
 " let g:airline_fugitive_prefix = ' '
 " let g:airline_readonly_symbol = ''
 " let g:airline_linecolumn_prefix = ''
-let g:airline_theme='jellybeans'
+let g:airline_theme='dracula'
 let g:airline_section_y=''
 let g:airline_section_z='%3p%%'
 
 let NERDTreeShowHidden=1
 
-colorscheme jellybeans
+" colorscheme jellybeans
+colorscheme dracula
 highlight clear SignColumn
+highlight CursorColumn guibg=#404040
 
 autocmd BufNewFile,BufRead *.mobile.erb let b:eruby_subtype='html'
 autocmd BufNewFile,BufRead *.mobile.erb set filetype=eruby
@@ -344,3 +349,7 @@ let g:pymode_rope_lookup_project = 0
 
 "Eliminate delays on ESC
 set timeoutlen=1000 ttimeoutlen=0
+
+"crontab
+autocmd FileType crontab setlocal nobackup nowritebackup
+

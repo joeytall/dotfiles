@@ -25,6 +25,7 @@ alias h='ls -lh'
 alias b='cd -'
 alias desk='cd ~/Desktop'
 alias proj='cd ~/Projects'
+alias coca='cd ~/Projects/coca'
 alias se="vim ~/.zshrc"
 alias ff="vim ~/.fortinetrc"
 alias ss="source ~/.zshrc"
@@ -58,26 +59,23 @@ alias gta="git add"
 alias gtaa='git add --all'
 alias lg="git lg"
 alias commit="git commit"
-alias ammend="git commit --amend"
+alias com="git commit -m"
 alias fixup="git commit -m 'fixup'"
 alias amend="git commit --amend"
 alias diff="git diff"
 alias clone="git clone"
-alias getapp="git clone joey@gerrit:"
 alias rb="git rebase -i"
-alias rb1="git rebase -i HEAD~1"
-alias rb2="git rebase -i HEAD~2"
-alias rb3="git rebase -i HEAD~3"
-alias rb4="git rebase -i HEAD~4"
-alias rb5="git rebase -i HEAD~5"
-alias rb6="git rebase -i HEAD~6"
-alias rb7="git rebase -i HEAD~7"
-alias rb8="git rebase -i HEAD~8"
-alias rb9="git rebase -i HEAD~9"
+alias gpu="git pull"
+alias gcl="git clone"
+
+function rbh(){
+  eval "git rebase -i HEAD~$1"
+}
+
 alias rbo="git rebase -i origin/master"
-alias rbomobile="git rebase -i origin/mobile-specific-version"
 alias rbc="git rebase --continue"
 alias rba="git rebase --abort"
+
 alias track="git branch -u origin/master"
 alias reset="git reset"
 alias reset1="git reset HEAD~1"
@@ -95,10 +93,16 @@ alias branch="git branch -a"
 alias renamebranch="git branch -m"
 alias bd="git branch -D"
 alias workflow='git log --since="08:30:00" --format="%s%n%b" --author="$(git config --global user.name)" | grep "^[^(Change-id)]"'
+
+# Brew
 alias bi="brew install"
+alias bu="brew update && brew upgrade"
 
 # Node JS
 alias ni="npm install"
+alias nis="npm install --save-dev"
+alias nig="npm install -g"
+alias np="npm prune"
 alias ns="npm start"
 alias nu="npm update"
 
@@ -109,6 +113,7 @@ alias agrm="sudo apt-get remove"
 
 # InterfaceLift Downloader
 alias dw="downloadwallpaper"
+alias dw1080="interfacelift-downloader 1920x1080 Pictures/background/interfaceLift/1920x1080"
 function downloadwallpaper() {
   interfacelift-downloader 2560x1440 Pictures/background/interfaceLift/2560x1440
   interfacelift-downloader 1920x1080 Pictures/background/interfaceLift/1920x1080
@@ -150,7 +155,7 @@ zle -N fancy-ctrl-z
 bindkey '^Z' fancy-ctrl-z
 
 # JSON resume
-alias updateresume="resume export resume.html && wkhtmltopdf resume.html resume.pdf"
+alias updateresume="resume export resume.html --theme elegant && wkhtmltopdf resume.html resume.pdf"
 alias postresume="resume publish --theme elegant"
 
 #Fun fun Fun
