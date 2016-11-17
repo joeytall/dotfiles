@@ -1,7 +1,7 @@
 # Fortinet Shortcuts
 alias cdir='cd ~/Projects/fsa_chroot_env/'
-alias bug='cd ~/Projects/fsa_chroot_env/fsa/bugTrunk'
-alias main='cd ~/Projects/fsa_chroot_env/fsa/mainTrunk'
+alias 2.3='cd ~/Projects/fsa_chroot_env/fsa/2.3'
+alias 2.4='cd ~/Projects/fsa_chroot_env/fsa/2.4'
 alias icap='cd ~/Projects/fsa_chroot_env/fsa/icap'
 alias device='cd ~/Projects/fsa_chroot_env/fsa/deviceUser'
 alias trunk='cd ~/Projects/fsa_chroot_env/fsa/mainTrunk'
@@ -9,9 +9,12 @@ alias sus='cd ~/Projects/fsa_chroot_env/Storage/suspicious'
 alias fsadb='cd ~/Projects/fsa_chroot_env/drive0/private/db-install'
 alias pvt='cd ~/Projects/fsa_chroot_env/drive0/private'
 alias pkg='cd ~/Projects/fsa_chroot_env/fsa/pkgtools'
+alias startDaemon='bin/merged_daemon &'
 
 alias hh="hostname joeytall-OptiPlex-3020"
 alias vp="vim patch.diff"
+
+alias sshgui="ssh69 215"
 
 alias djangotranslate="python manage.py makemessages --all -e 'html,js' && python manage.py makemessages --all -d djangojs --symlink"
 
@@ -57,10 +60,13 @@ alias upgrade34='/usr/sbin/chroot ~/Projects/fsa_chroot_env ./cron1.sh && python
 alias upgrade37='/usr/sbin/chroot ~/Projects/fsa_chroot_env ./cron1.sh && python /etc/cronjobs/upgrade37.py && /usr/sbin/chroot ~/Projects/fsa_chroot_env ./cron2.sh'
 alias ccc='echo "make clean && make && ./mkdevelop.sh" | xclip'
 alias sss='echo "/usr/webserver/httpd -k restart -f /usr/webserver/httpd.conf" | xclip'
-alias cdf='codiff && vp'
 alias rdf='rb_genco diff >! patch.diff && vp'
-alias rpo='rb_genco post'
-alias rup="rb_genco update $1"
+alias rpo='revert_config && rb_genco post'
+alias rup='revert_config && rb_genco update $1'
+alias revert_config='svn revert .config'
+function touchadd(){
+  eval "touch $1 && svn add $1"
+}
 function findjob() {
   echo "cd \`sandbox-jobs-move -p -j$1\`" | xclip
 }
@@ -76,3 +82,14 @@ function getfile() {
 # Django Python
 alias console='echo "cd /fsa/workingTrunk/web/sandbox && python manage.py shell" | xclip'
 
+alias tt='tmux -CC attach'
+alias fc='sdf >! changed.files && vc'
+alias vc='cat changed.files'
+
+function scp_coca(){
+  eval 'scp image.deb.$2 dev@172.16.69.132:/home/dev/coca/public/eco_attachments/$1'
+}
+
+function scp_macmini(){
+  eval 'scp image.deb.$1 joeyliu@172.16.68.231:~/Downloads/images'
+}

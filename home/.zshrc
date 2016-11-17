@@ -13,6 +13,7 @@ source $HOME/.fortinetrc
 export PATH="$HOME/.linuxbrew/bin:$PATH"
 export MANPATH="$HOME/.linuxbrew/share/man:$MANPATH"
 export INFOPATH="$HOME/.linuxbrew/share/info:$INFOPATH"
+export TERM="xterm-256color"
 
 export EDITOR=vim
 
@@ -103,7 +104,8 @@ alias nu="npm update"
 
 # Ubuntu
 alias agi="sudo apt-get install"
-alias agup="sudo apt-get update"
+alias agup="sudo apt-get update && apt-get upgrade"
+alias agrm="sudo apt-get remove"
 
 # InterfaceLift Downloader
 alias dw="downloadwallpaper"
@@ -154,3 +156,4 @@ alias postresume="resume publish --theme elegant"
 #Fun fun Fun
 alias weather="curl wttr.in/vancouver"
 
+alias tmux="TERM=screen-256color-bce tmux"
