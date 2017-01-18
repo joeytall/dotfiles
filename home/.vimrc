@@ -27,6 +27,7 @@ let g:python_host_prog='/usr/local/bin/python'
 call plug#begin('~/.vim/plugged')
 
 Plug 'joshdick/onedark.vim'
+Plug 'burnettk/vim-angular'
 Plug 'StanAngeloff/php.vim'
 Plug 'sjl/gundo.vim'
 Plug 'ap/vim-css-color'

@@ -75,5 +75,5 @@ function getfile() {
 
 # Django Python
 alias console='echo "cd /fsa/workingTrunk/web/sandbox && python manage.py shell" | pbcopy'
-alias sj='ssh -X joeytall@172.16.68.232'
-alias sc='ssh -X fsa@172.16.69.132'
+alias sj='ssh joeytall@172.16.68.232'
+alias sc='ssh fsa@172.16.69.132'
