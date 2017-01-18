@@ -1,3 +1,5 @@
+set termguicolors
+
 if empty(glob("~/.vim/autoload/plug.vim"))
    execute '!curl -fLo ~/.vim/autoload/plug.vim https://raw.github.com/junegunn/vim-plug/master/plug.vim'
 endif
@@ -24,12 +26,11 @@ let g:python_host_prog='/usr/local/bin/python'
 
 call plug#begin('~/.vim/plugged')
 
+Plug 'joshdick/onedark.vim'
 Plug 'StanAngeloff/php.vim'
 Plug 'sjl/gundo.vim'
 Plug 'ap/vim-css-color'
 Plug 'hail2u/vim-css3-syntax'
-Plug 'nanotech/jellybeans.vim'
-Plug 'dracula/vim'
 Plug 'bling/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'kchmck/vim-coffee-script'
@@ -49,6 +50,7 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-markdown'
 Plug 'tpope/vim-pathogen'
 Plug 'tpope/vim-sleuth'
+Plug 'sheerun/vim-polyglot'
 Plug 'bitc/vim-bad-whitespace'
 Plug 'kien/ctrlp.vim'
 Plug 'tomtom/tlib_vim'
@@ -57,7 +59,6 @@ Plug 'garbas/vim-snipmate'
 Plug 'honza/vim-snippets'
 Plug 'scrooloose/syntastic', { 'do': function('Installeslint') }
 Plug 'mattn/emmet-vim'
-Plug 'jelera/vim-javascript-syntax'
 Plug 'pangloss/vim-javascript'
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'Raimondi/delimitMate'
@@ -160,22 +161,15 @@ let g:ctrlp_match_window_bottom = 1
 let g:ctrlp_jump_to_buffer = 2 " Jump to tab AND buffer if already open
 let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git\|coverage\|vendor/bundle\|build\|img\|**/*.pyc'
 
+colorscheme onedark
+
 let mapleader = ' '
-" let g:airline_left_sep = ''
-" let g:airline_left_alt_sep = ''
-" let g:airline_right_sep = ''
-" let g:airline_right_alt_sep = ''
-" let g:airline_fugitive_prefix = ' '
-" let g:airline_readonly_symbol = ''
-" let g:airline_linecolumn_prefix = ''
-let g:airline_theme='dracula'
+let g:airline_theme='onedark'
 let g:airline_section_y=''
 let g:airline_section_z='%3p%%'
 
 let NERDTreeShowHidden=1
 
-" colorscheme jellybeans
-colorscheme dracula
 highlight clear SignColumn
 highlight CursorColumn guibg=#404040
 
