@@ -22,7 +22,7 @@ function! Installeslint(info)
   endif
 endfunction
 
-let g:python_host_prog='/usr/local/bin/python'
+let g:python_host_prog='/usr/bin/python'
 
 call plug#begin('~/.vim/plugged')
 
@@ -75,7 +75,6 @@ Plug 'gavinbeatty/dragvisuals.vim'
 Plug 'rking/ag.vim'
 Plug 'Valloric/YouCompleteMe', { 'do': function('BuildYCM') }
 Plug 'juneedahamed/svnj.vim'
-Plug 'majutsushi/tagbar'
 Plug 'ternjs/tern_for_vim', { 'do': function('BuildTern') }
 Plug 'vim-scripts/dbext.vim'
 Plug 'sjl/gundo.vim'
@@ -137,7 +136,6 @@ set exrc                            "enable per-directory .vimrc files
 set secure                          "disable unsafe commands in local .vimrc files
 set laststatus=2
 set encoding=utf-8
-set clipboard+=unnamedplus
 set wrap
 
 set runtimepath^=~/.vim/bundle/ctrlp.vim
@@ -160,7 +158,7 @@ let g:ctrlp_cmd = 'CtrlPMixed'
 let g:ctrlp_working_path_mode = '' " Stop messing with the path
 let g:ctrlp_match_window_bottom = 1
 let g:ctrlp_jump_to_buffer = 2 " Jump to tab AND buffer if already open
-let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git\|coverage\|vendor/bundle\|build\|img\|**/*.pyc'
+let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git\|coverage\|vendor/bundle\|build\|img\|**/*.pyc\|**/*.edited\|**/*.diff\|**/*.deb'
 
 colorscheme onedark
 
@@ -171,6 +169,7 @@ let g:airline_section_z='%3p%%'
 
 let NERDTreeShowHidden=1
 
+colorscheme onedark
 highlight clear SignColumn
 highlight CursorColumn guibg=#404040
 
@@ -279,17 +278,6 @@ endif
 let g:gist_clip_command = 'pbcopy'
 let g:gist_post_private = 1
 
-"drag visual"
-" vmap <expr> ˙ DVB_Drag('left')
-" vmap <expr> ¬ DVB_Drag('right')
-" vmap <expr> ∆ DVB_Drag('down')
-" vmap <expr> ˚ DVB_Drag('up')
-"
-" vmap <expr> <C-H> DVB_Drag('left')
-" vmap <expr> <C-L> DVB_Drag('right')
-" vmap <expr> <C-J> DVB_Drag('down')
-" vmap <expr> <C-K> DVB_Drag('up')
-
 "vim tricks"
 nnoremap <Leader>e :e<CR>
 nnoremap <Leader>w :w<CR>
@@ -317,6 +305,7 @@ imap <C-c> <CR><Esc>O
 let g:ycm_add_preview_to_completeopt=0
 let g:ycm_confirm_extra_conf=0
 set completeopt-=preview
+hi Pmenu ctermfg=15 ctermbg=0 guifg=#ffffff guibg=#000000
 
 "python-mode
 filetype off
@@ -339,12 +328,13 @@ let g:pymode_lint_visual_symbol = 'R'
 let g:pymode_lint_error_symbol = 'E'
 let g:pymode_lint_info_symbol = 'I'
 let g:pymode_lint_pyflakes_symbol = 'F'
+let g:pymode_rope= 0
 let g:pymode_rope_completion = 0
 let g:pymode_rope_lookup_project = 0
+let g:pymode_options_colorcolumn = 0
 
 "Eliminate delays on ESC
 set timeoutlen=1000 ttimeoutlen=0
 
 "crontab
 autocmd FileType crontab setlocal nobackup nowritebackup
-

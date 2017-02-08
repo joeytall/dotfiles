@@ -18,3 +18,4 @@ imgpc/
 *.log
 *.db
 *.po
+*.diff

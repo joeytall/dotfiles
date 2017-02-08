@@ -1,7 +1,10 @@
 # Fortinet Shortcuts
 alias cdir='cd ~/Projects/fsa_chroot_env/'
-alias bug='cd ~/Projects/fsa_chroot_env/fsa/bugTrunk'
-alias main='cd ~/Projects/fsa_chroot_env/fsa/mainTrunk'
+alias 2.3='cd ~/Projects/fsa_chroot_env/fsa/2.3'
+alias 2.4='cd ~/Projects/fsa_chroot_env/fsa/2.4'
+alias fancy='cd ~/Projects/fsa_chroot_env/fsa/fancy'
+alias aws='cd ~/Projects/fsa_chroot_env/fsa/AWS'
+alias dbperf='cd ~/Projects/fsa_chroot_env/fsa/db_perf'
 alias icap='cd ~/Projects/fsa_chroot_env/fsa/icap'
 alias device='cd ~/Projects/fsa_chroot_env/fsa/deviceUser'
 alias trunk='cd ~/Projects/fsa_chroot_env/fsa/mainTrunk'
@@ -9,9 +12,12 @@ alias sus='cd ~/Projects/fsa_chroot_env/Storage/suspicious'
 alias fsadb='cd ~/Projects/fsa_chroot_env/drive0/private/db-install'
 alias pvt='cd ~/Projects/fsa_chroot_env/drive0/private'
 alias pkg='cd ~/Projects/fsa_chroot_env/fsa/pkgtools'
+alias startDaemon='bin/merged_daemon &'
 
 alias hh="hostname joeytall-OptiPlex-3020"
 alias vp="vim patch.diff"
+
+alias sshgui="ssh69 215"
 
 alias djangotranslate="python manage.py makemessages --all -e 'html,js' && python manage.py makemessages --all -d djangojs --symlink"
 
@@ -28,11 +34,11 @@ function ssh92(){
 }
 
 function getJobAndDB(){
-  eval "cdir && wget http://172.16.69.$1/static/s.tar && tar -xvf s.tar && /bin/rm s.tar && cd drive0/private/db-install && /bin/rm FortiSandboxGUI.db && wget http://172.16.69.$1/static/FortiSandboxGUI.db"
+  eval "cdir && wget http://172.16.69.$1/static/s.tar && tar -xvf s.tar && /bin/rm s.tar && cd ramdisk && /bin/rm FortiSandboxGUI.db && wget http://172.16.69.$1/static/FortiSandboxGUI.db"
 }
 
 function tarJobAndDB(){
-  echo "tar cvf web/static/s.tar \`sandbox-jobs-move -p -j$1\` && cp /drive0/private/db-install/FortiSandboxGUI.db /web/static/" | pbcopy
+  echo "tar cvf web/static/s.tar \`sandbox-jobs-move -p -j$1\` && cp /ramdisk/FortiSandboxGUI.db /web/static/" | pbcopy
 }
 
 alias tj="tarJobAndDB && tarJobAndDB | pbcopy"
@@ -51,16 +57,14 @@ function updatedataIP() {
 echo "pvt && wget $1/static/private.tgz && tar zxvf private.tgz && /bin/rm private.tgz && cd db && /bin/rm FortiSandboxGUI.db FortiSandboxDevice.db && cp ../db-install/FortiSandboxGUI.db . && cp ../db-install/FortiSandboxDevice.db . && cdir && cd Storage/ && wget $1/static/s.tgz && tar zxvf s.tgz && /bin/rm s.tgz && cdir"
 }
 alias tarWeb="tar -cvf web/static/web.tar web"
-alias update34="tarWeb && python /etc/cronjobs/updateWeb.py"
-alias updateweb="tarWeb && python /etc/cronjobs/updateWeb.py $1"
-alias upgrade34='/usr/sbin/chroot ~/Projects/fsa_chroot_env ./cron1.sh && python /etc/cronjobs/upgradeFW.py && /usr/sbin/chroot ~/Projects/fsa_chroot_env ./cron2.sh'
-alias upgrade37='/usr/sbin/chroot ~/Projects/fsa_chroot_env ./cron1.sh && python /etc/cronjobs/upgrade37.py && /usr/sbin/chroot ~/Projects/fsa_chroot_env ./cron2.sh'
-alias ccc='echo "make clean && make && ./mkdevelop.sh" | pbcopy'
-alias sss='echo "/usr/webserver/httpd -k restart -f /usr/webserver/httpd.conf" | pbcopy'
-alias cdf='codiff && vp'
-alias rdf='rb_genco diff >! patch.diff && vp'
-alias rpo='rb_genco post'
-alias rup="rb_genco update $1"
+alias rdf='svn diff >! patch.diff && vp'
+alias rpo='revert_config && rb_genco.py post'
+alias rup='revert_config && rb_genco.py update $1'
+alias revert_config='svn revert .config'
+
+function touchadd(){
+  eval "touch $1 && svn add $1"
+}
 function findjob() {
   echo "cd \`sandbox-jobs-move -p -j$1\`" | pbcopy
 }
@@ -74,6 +78,17 @@ function getfile() {
 }
 
 # Django Python
-alias console='echo "cd /fsa/workingTrunk/web/sandbox && python manage.py shell" | pbcopy'
+alias tt='tmux -CC attach'
+alias fc='sdf >! changed.files && vc'
+alias vc='cat changed.files'
+alias console='echo "cd /fsa/workingTrunk/web/sandbox && python manage.py shell" | xclip -selection clipboard'
 alias sj='ssh joeytall@172.16.68.232'
 alias sc='ssh fsa@172.16.69.132'
+
+function scp_coca(){
+  eval 'scp image.deb.$2 dev@172.16.69.132:/home/dev/coca/public/eco_attachments/$1'
+}
+
+function scp_macmini(){
+  eval 'scp image.deb.$1 joeyliu@172.16.68.231:~/Projects/uploads/'
+}

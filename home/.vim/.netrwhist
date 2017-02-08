@@ -2,4 +2,8 @@ let g:netrw_dirhistmax  =10
 let g:netrw_dirhist_cnt =3
 let g:netrw_dirhist_1='/Users/jOeY/Projects/fortinet/Q5Project'
 let g:netrw_dirhist_2='/Users/jOeY/.vimgolf'
+<<<<<<< HEAD
 let g:netrw_dirhist_3='/Users/joeyliu'
+=======
+let g:netrw_dirhist_3='/home/joeytall/.homesick/repos/dotfiles/home/.zprezto'
+>>>>>>> 66f017b217008fed33bacac31bbd169148616539
