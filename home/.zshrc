@@ -9,28 +9,25 @@ source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 # Add Fortinet settings
 source $HOME/.fortinetrc
 
-# Linux brew setup
-export PATH="$HOME/.linuxbrew/bin:$PATH"
-export MANPATH="$HOME/.linuxbrew/share/man:$MANPATH"
-export INFOPATH="$HOME/.linuxbrew/share/info:$INFOPATH"
+export PATH="${HOME}/bin":${PATH}
 export TERM="xterm-256color"
 
-export EDITOR=vim
+export EDITOR=nvim
+export SVN_EDITOR=nvim
 
 # Shell Commands
-alias vi='nvim'
-alias vim='nvim'
 alias l='ls -la'
 alias h='ls -lh'
 alias b='cd -'
 alias desk='cd ~/Desktop'
 alias proj='cd ~/Projects'
 alias coca='cd ~/Projects/coca'
+alias vim='nvim'
 alias se="vim ~/.zshrc"
 alias ff="vim ~/.fortinetrc"
 alias ss="source ~/.zshrc"
 alias vv="vim ~/.vimrc"
-alias vimplug="nvim +PlugInstall +qall"
+alias vimplug="vim +PlugInstall +qall"
 alias sshon="sudo systemsetup -setremotelogin on"
 alias sshoff="sudo systemsetup -setremotelogin off"
 alias kk="rm -rf /root/.ssh/known_hosts"
@@ -43,6 +40,8 @@ alias hslink="homesick symlink dotfiles"
 # SVN commands
 alias sdf="svn diff --summarize"
 alias sup="svn update"
+alias scom="svn commit -m $1"
+alias si="svn info"
 alias sg="svn log --limit 3"
 alias sgl="svn log --limit $1"
 alias sgr="svn log -v -r $1"
@@ -162,3 +161,4 @@ alias postresume="resume publish --theme elegant"
 alias weather="curl wttr.in/vancouver"
 
 alias tmux="TERM=screen-256color-bce tmux"
+alias sysinfo="landscape-sysinfo"
