@@ -82,8 +82,8 @@ alias tt='tmux -CC attach'
 alias fc='sdf >! changed.files && vc'
 alias vc='cat changed.files'
 alias console='echo "cd /fsa/workingTrunk/web/sandbox && python manage.py shell" | xclip -selection clipboard'
-alias sj='ssh -Y joeytall@172.16.68.232'
-alias sc='ssh -Y fsa@172.16.69.132'
+alias sj='ssh joeytall@172.16.68.232'
+alias sc='ssh fsa@172.16.69.132'
 
 function scp_coca(){
   eval 'scp image.deb.$2 dev@172.16.69.132:/home/dev/coca/public/eco_attachments/$1'
