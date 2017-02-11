@@ -22,9 +22,10 @@ function! Installeslint(info)
   endif
 endfunction
 
-let g:python_host_prog='/usr/bin/python'
-
+set clipboard=unnamedplus
 call plug#begin('~/.vim/plugged')
+
+source ~/.vim_python_rc
 
 Plug 'joshdick/onedark.vim'
 Plug 'burnettk/vim-angular'
@@ -78,7 +79,7 @@ Plug 'juneedahamed/svnj.vim'
 Plug 'ternjs/tern_for_vim', { 'do': function('BuildTern') }
 Plug 'vim-scripts/dbext.vim'
 Plug 'sjl/gundo.vim'
-Plug 'klen/python-mode'
+Plug 'python-mode/python-mode'
 Plug 'othree/html5.vim'
 
 call plug#end()
@@ -306,15 +307,6 @@ let g:ycm_add_preview_to_completeopt=0
 let g:ycm_confirm_extra_conf=0
 set completeopt-=preview
 hi Pmenu ctermfg=15 ctermbg=0 guifg=#ffffff guibg=#000000
-
-"python-mode
-filetype off
-
-call pathogen#infect()
-call pathogen#helptags()
-
-filetype plugin indent on
-syntax on
 
 let g:pymode_folding = 0
 let g:pymode_breakpoint_bind = '<leader>g'
