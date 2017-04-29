@@ -116,6 +116,7 @@ alias agrm="sudo apt-get remove"
 alias dw="downloadwallpaper"
 alias dw1080="interfacelift-downloader 1920x1080 Pictures/background/interfaceLift/1920x1080"
 function downloadwallpaper() {
+  interfacelift-downloader 3840x2160 Pictures/background/interfaceLift/3840x2160
   interfacelift-downloader 2560x1440 Pictures/background/interfaceLift/2560x1440
   interfacelift-downloader 1920x1080 Pictures/background/interfaceLift/1920x1080
   interfacelift-downloader 1920x1200 Pictures/background/interfaceLift/1920x1200

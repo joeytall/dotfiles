@@ -27,7 +27,8 @@ call plug#begin('~/.vim/plugged')
 
 source ~/.vim_python_rc
 
-Plug 'joshdick/onedark.vim'
+Plug 'joeytall/onedark.vim'
+Plug 'joeytall/python-syntax'
 Plug 'burnettk/vim-angular'
 Plug 'StanAngeloff/php.vim'
 Plug 'sjl/gundo.vim'
@@ -68,7 +69,6 @@ Plug 'tomtom/tcomment_vim'
 Plug 'mattn/gist-vim'
 Plug 'mattn/webapi-vim'
 Plug 'elzr/vim-json'
-Plug 'digitaltoad/vim-jade'
 Plug 'digitaltoad/vim-pug'
 Plug 'moll/vim-node'
 Plug 'gioele/vim-autoswap'
@@ -79,7 +79,7 @@ Plug 'juneedahamed/svnj.vim'
 Plug 'ternjs/tern_for_vim', { 'do': function('BuildTern') }
 Plug 'vim-scripts/dbext.vim'
 Plug 'sjl/gundo.vim'
-Plug 'python-mode/python-mode'
+Plug 'klen/python-mode'
 Plug 'othree/html5.vim'
 
 call plug#end()
@@ -278,6 +278,8 @@ endif
 "gist"
 let g:gist_clip_command = 'pbcopy'
 let g:gist_post_private = 1
+
+let python_highlight_all = 1
 
 "vim tricks"
 nnoremap <Leader>e :e<CR>
