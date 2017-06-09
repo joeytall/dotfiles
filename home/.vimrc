@@ -306,7 +306,6 @@ imap <C-c> <CR><Esc>O
 let g:ycm_add_preview_to_completeopt=0
 let g:ycm_confirm_extra_conf=0
 set completeopt-=preview
-hi Pmenu ctermfg=15 ctermbg=0 guifg=#ffffff guibg=#000000
 
 let g:pymode_folding = 0
 let g:pymode_breakpoint_bind = '<leader>g'
