@@ -29,7 +29,7 @@ call plug#begin('~/.vim/plugged')
 source ~/.vim_python_rc
 
 Plug 'joeytall/python-syntax'
-Plug 'joshdick/onedark.vim'
+Plug 'joeytall/onedark.vim'
 Plug 'burnettk/vim-angular'
 Plug 'StanAngeloff/php.vim'
 Plug 'sjl/gundo.vim'
