@@ -172,7 +172,6 @@ let python_highlight_all = 1
 
 colorscheme onedark
 highlight clear SignColumn
-highlight CursorColumn guibg=#404040
 
 autocmd BufNewFile,BufRead *.mobile.erb let b:eruby_subtype='html'
 autocmd BufNewFile,BufRead *.mobile.erb set filetype=eruby
