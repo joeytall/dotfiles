@@ -26,7 +26,8 @@ let g:python_host_prog='/usr/bin/python'
 
 call plug#begin('~/.vim/plugged')
 
-Plug 'joshdick/onedark.vim'
+Plug 'joeytall/python-syntax'
+Plug 'joeytall/onedark.vim'
 Plug 'burnettk/vim-angular'
 Plug 'StanAngeloff/php.vim'
 Plug 'sjl/gundo.vim'
@@ -58,7 +59,7 @@ Plug 'tomtom/tlib_vim'
 Plug 'MarcWeber/vim-addon-mw-utils'
 Plug 'garbas/vim-snipmate'
 Plug 'honza/vim-snippets'
-Plug 'scrooloose/syntastic', { 'do': function('Installeslint') }
+Plug 'vim-syntastic/syntastic', { 'do': function('Installeslint') }
 Plug 'mattn/emmet-vim'
 Plug 'pangloss/vim-javascript'
 Plug 'nathanaelkane/vim-indent-guides'
@@ -67,7 +68,6 @@ Plug 'tomtom/tcomment_vim'
 Plug 'mattn/gist-vim'
 Plug 'mattn/webapi-vim'
 Plug 'elzr/vim-json'
-Plug 'digitaltoad/vim-jade'
 Plug 'digitaltoad/vim-pug'
 Plug 'moll/vim-node'
 Plug 'gioele/vim-autoswap'
@@ -78,7 +78,7 @@ Plug 'juneedahamed/svnj.vim'
 Plug 'ternjs/tern_for_vim', { 'do': function('BuildTern') }
 Plug 'vim-scripts/dbext.vim'
 Plug 'sjl/gundo.vim'
-Plug 'klen/python-mode'
+Plug 'python-mode/python-mode'
 Plug 'othree/html5.vim'
 
 call plug#end()
@@ -98,7 +98,6 @@ set shiftwidth=2        " Indentation amount for < and > commands.
 
 set noerrorbells        " No beeps.
 set modeline            " Enable modeline.
-set esckeys             " Cursor keys in insert mode.
 set linespace=0         " Set line-spacing to minimum.
 set nojoinspaces        " Prevents inserting two spaces after punctuation on a join (J)
 
@@ -160,14 +159,14 @@ let g:ctrlp_match_window_bottom = 1
 let g:ctrlp_jump_to_buffer = 2 " Jump to tab AND buffer if already open
 let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git\|coverage\|vendor/bundle\|build\|img\|**/*.pyc\|**/*.edited\|**/*.diff\|**/*.deb'
 
-colorscheme onedark
-
 let mapleader = ' '
 let g:airline_theme='onedark'
 let g:airline_section_y=''
 let g:airline_section_z='%3p%%'
 
 let NERDTreeShowHidden=1
+
+let python_highlight_all = 1
 
 colorscheme onedark
 highlight clear SignColumn
