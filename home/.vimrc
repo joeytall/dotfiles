@@ -1,4 +1,5 @@
 set termguicolors
+set clipboard+=unnamedplus
 
 if empty(glob("~/.vim/autoload/plug.vim"))
    execute '!curl -fLo ~/.vim/autoload/plug.vim https://raw.github.com/junegunn/vim-plug/master/plug.vim'
@@ -22,11 +23,12 @@ function! Installeslint(info)
   endif
 endfunction
 
-let g:python_host_prog='/usr/bin/python'
+let g:python_host_prog='/usr/local/bin/python'
 
 call plug#begin('~/.vim/plugged')
 
-Plug 'joshdick/onedark.vim'
+Plug 'joeytall/python-syntax'
+Plug 'joeytall/onedark.vim'
 Plug 'burnettk/vim-angular'
 Plug 'StanAngeloff/php.vim'
 Plug 'sjl/gundo.vim'
@@ -160,14 +162,14 @@ let g:ctrlp_match_window_bottom = 1
 let g:ctrlp_jump_to_buffer = 2 " Jump to tab AND buffer if already open
 let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git\|coverage\|vendor/bundle\|build\|img\|**/*.pyc\|**/*.edited\|**/*.diff\|**/*.deb'
 
-colorscheme onedark
-
 let mapleader = ' '
 let g:airline_theme='onedark'
 let g:airline_section_y=''
 let g:airline_section_z='%3p%%'
 
 let NERDTreeShowHidden=1
+
+let python_highlight_all = 1
 
 colorscheme onedark
 highlight clear SignColumn
