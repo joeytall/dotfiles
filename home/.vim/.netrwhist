@@ -1,5 +1,6 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =3
+let g:netrw_dirhist_cnt =4
 let g:netrw_dirhist_1='/Users/jOeY/Projects/fortinet/Q5Project'
 let g:netrw_dirhist_2='/Users/jOeY/.vimgolf'
 let g:netrw_dirhist_3='/home/joeytall/.homesick/repos/dotfiles/home/.zprezto'
+let g:netrw_dirhist_4='/home/joeytall/.homesick/repos/dotfiles/home/.vim'

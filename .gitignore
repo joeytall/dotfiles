@@ -12,3 +12,5 @@ home/.ncmpcpp/error.log
 home/.vim/init.vim
 
 home/.vim/undo/
+
+home/.vim_python_rc
