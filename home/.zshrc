@@ -49,6 +49,7 @@ alias sgl="svn log --limit $1"
 alias sgr="svn log -v -r $1"
 alias conflict="svn status | grep -P '^(?=.{0,6}C)'"
 alias newadd="svn status | grep -P '^(?=.{0,6}A)'"
+alias remove_dot_edited_files="find . -name '*.edited' -type f -delete"
 
 # Git Commands
 alias upstream='git branch -u origin/master'
