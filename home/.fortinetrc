@@ -2,17 +2,18 @@
 alias cdir='cd ~/Projects/fsa_chroot_env/'
 alias 2.3='cd ~/Projects/fsa_chroot_env/fsa/2.3'
 alias 2.4='cd ~/Projects/fsa_chroot_env/fsa/2.4'
-alias fancy='cd ~/Projects/fsa_chroot_env/fsa/fancy'
-alias aws='cd ~/Projects/fsa_chroot_env/fsa/AWS'
-alias dbperf='cd ~/Projects/fsa_chroot_env/fsa/db_perf'
-alias icap='cd ~/Projects/fsa_chroot_env/fsa/icap'
-alias device='cd ~/Projects/fsa_chroot_env/fsa/deviceUser'
-alias trunk='cd ~/Projects/fsa_chroot_env/fsa/mainTrunk'
+alias 2.4.1='cd ~/Projects/fsa_chroot_env/fsa/2.4.1'
+alias scheduler='cd ~/Projects/fsa_chroot_env/fsa/scheduler'
+alias sniffer='cd ~/Projects/fsa_chroot_env/fsa/sniffer'
 alias sus='cd ~/Projects/fsa_chroot_env/Storage/suspicious'
 alias fsadb='cd ~/Projects/fsa_chroot_env/drive0/private/db-install'
+alias rd='cd ~/Projects/fsa_chroot_env/ramdisk'
 alias pvt='cd ~/Projects/fsa_chroot_env/drive0/private'
 alias pkg='cd ~/Projects/fsa_chroot_env/fsa/pkgtools'
 alias startDaemon='bin/merged_daemon &'
+alias 2.4web='cd /Users/joeyliu/Projects/fsa/2.4/web'
+alias copy_web_from_local='scp -r joeyliu@172.16.68.231:~/Projects/fsa/2.4/web/ .'
+alias cc='copy_web_from_local'
 
 alias hh="hostname joeytall-OptiPlex-3020"
 alias vp="vim patch.diff"
@@ -20,6 +21,10 @@ alias vp="vim patch.diff"
 alias sshgui="ssh69 215"
 
 alias djangotranslate="python manage.py makemessages --all -e 'html,js' && python manage.py makemessages --all -d djangojs --symlink"
+
+function ssh39(){
+  eval "ssh admin@172.18.39.$1"
+}
 
 function ssh69(){
   eval "ssh admin@172.16.69.$1"
@@ -34,7 +39,7 @@ function ssh92(){
 }
 
 function getJobAndDB(){
-  eval "cdir && wget http://172.16.69.$1/static/s.tar && tar -xvf s.tar && /bin/rm s.tar && cd ramdisk && /bin/rm FortiSandboxGUI.db && wget http://172.16.69.$1/static/FortiSandboxGUI.db"
+  eval "cdir && wget http://$1/static/s.tar && tar -xvf s.tar && /bin/rm s.tar && cd ramdisk && /bin/rm FortiSandboxGUI.db && wget http://$1/static/FortiSandboxGUI.db"
 }
 
 function tarJobAndDB(){
@@ -42,8 +47,9 @@ function tarJobAndDB(){
 }
 
 alias tj="tarJobAndDB && tarJobAndDB | pbcopy"
-
-alias sshupdate="echo 'cd / && rm -rf web/* && wget http://172.16.68.232/static/web.tar -P web && tar -xvf web/web.tar && rm web/web.tar && httpd -k restart -f /usr/webserver/httpd.conf' | pbcopy"
+alias sshupdate="echo 'cp /web/SESSIONMAGIC /etc/ && cd / && rm -rf web/* && wget http://172.16.68.232/static/web.tar -P web && tar -xvf web/web.tar && rm web/web.tar && mv /etc/SESSIONMAGIC /web/ && httpd -k restart -f /usr/webserver/httpd.conf' | pbcopy"
+alias ftpupdate="echo 'cd / && rm -rf web/* && /usr/bin/wget ftp://ftp.apsecure.com/web.tar --ftp-user=fsaupload --ftp-password=Zf6gy#e7 -P web && tar -xvf web/web.tar && rm web/web.tar && httpd -k restart -f /usr/webserver/httpd.conf' | pbcopy"
+alias opendebug="echo 'cd /web/sandbox/ && rm settings.pyc && wget http://172.16.68.232/static/settings.pyc && /usr/bin/httpd -k restart -f /usr/webserver/httpd.conf' | pbcopy"
 alias sshrestart="echo '/usr/bin/httpd -k restart -f /usr/webserver/httpd.conf' | pbcopy"
 alias dd="copydata && copydata | pbcopy"
 alias copydata="echo 'cd /drive0/private && tar zcvf /web/static/private.tgz db-install yara hc log statistics/jobdata statistics/rptstat && cd /Storage && tar zcvf /web/static/s.tgz suspicious/$(date +20%y%m%d) &&  cd /web/static'"
@@ -91,4 +97,9 @@ function scp_coca(){
 
 function scp_macmini(){
   eval 'scp image.deb.$1 joeyliu@172.16.68.231:~/Projects/uploads/'
+}
+
+alias fsh="~/.ssh.tcl"
+function ftpaws(){
+  echo "cd / && rm -rf web/* && /usr/bin/wget ftp://ftp.apsecure.com/web.tar --ftp-user=fsaupload --ftp-password=Zf6gy#e7 -P web && tar -xvf web/web.tar && rm web/web.tar && httpd -k restart -f /usr/webserver/httpd.conf" | pbcopy
 }

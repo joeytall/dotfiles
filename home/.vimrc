@@ -1,4 +1,5 @@
 set termguicolors
+set clipboard+=unnamedplus
 
 if empty(glob("~/.vim/autoload/plug.vim"))
    execute '!curl -fLo ~/.vim/autoload/plug.vim https://raw.github.com/junegunn/vim-plug/master/plug.vim'
@@ -60,7 +61,7 @@ Plug 'tomtom/tlib_vim'
 Plug 'MarcWeber/vim-addon-mw-utils'
 Plug 'garbas/vim-snipmate'
 Plug 'honza/vim-snippets'
-Plug 'scrooloose/syntastic', { 'do': function('Installeslint') }
+Plug 'vim-syntastic/syntastic', { 'do': function('Installeslint') }
 Plug 'mattn/emmet-vim'
 Plug 'pangloss/vim-javascript'
 Plug 'nathanaelkane/vim-indent-guides'
@@ -99,7 +100,6 @@ set shiftwidth=2        " Indentation amount for < and > commands.
 
 set noerrorbells        " No beeps.
 set modeline            " Enable modeline.
-set esckeys             " Cursor keys in insert mode.
 set linespace=0         " Set line-spacing to minimum.
 set nojoinspaces        " Prevents inserting two spaces after punctuation on a join (J)
 
@@ -161,8 +161,6 @@ let g:ctrlp_match_window_bottom = 1
 let g:ctrlp_jump_to_buffer = 2 " Jump to tab AND buffer if already open
 let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git\|coverage\|vendor/bundle\|build\|img\|**/*.pyc\|**/*.edited\|**/*.diff\|**/*.deb'
 
-colorscheme onedark
-
 let mapleader = ' '
 let g:airline_theme='onedark'
 let g:airline_section_y=''
@@ -170,9 +168,10 @@ let g:airline_section_z='%3p%%'
 
 let NERDTreeShowHidden=1
 
+let python_highlight_all = 1
+
 colorscheme onedark
 highlight clear SignColumn
-highlight CursorColumn guibg=#404040
 
 autocmd BufNewFile,BufRead *.mobile.erb let b:eruby_subtype='html'
 autocmd BufNewFile,BufRead *.mobile.erb set filetype=eruby
@@ -308,7 +307,6 @@ imap <C-c> <CR><Esc>O
 let g:ycm_add_preview_to_completeopt=0
 let g:ycm_confirm_extra_conf=0
 set completeopt-=preview
-hi Pmenu ctermfg=15 ctermbg=0 guifg=#ffffff guibg=#000000
 
 let g:pymode_folding = 0
 let g:pymode_breakpoint_bind = '<leader>g'
