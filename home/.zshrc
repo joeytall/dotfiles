@@ -117,11 +117,12 @@ alias agrm="sudo apt-get remove"
 alias dw="downloadwallpaper"
 alias dw1080="interfacelift-downloader 1920x1080 Pictures/background/interfaceLift/1920x1080"
 function downloadwallpaper() {
-  interfacelift-downloader 2560x1440 Pictures/background/interfaceLift/2560x1440
-  interfacelift-downloader 1920x1080 Pictures/background/interfaceLift/1920x1080
-  interfacelift-downloader 1920x1200 Pictures/background/interfaceLift/1920x1200
-  interfacelift-downloader 1200x1920 Pictures/background/interfaceLift/1200x1920
-  interfacelift-downloader 1280x800 Pictures/background/interfaceLift/1280x800
+  interfacelift-downloader 2560x1440 ~/Pictures/background/interfaceLift/2560x1440
+  interfacelift-downloader 1920x1080 ~/Pictures/background/interfaceLift/1920x1080
+  interfacelift-downloader 1920x1200 ~/Pictures/background/interfaceLift/1920x1200
+  interfacelift-downloader 1200x1920 ~/Pictures/background/interfaceLift/1200x1920
+  interfacelift-downloader 1280x800 ~/Pictures/background/interfaceLift/1280x800
+  interfacelift-downloader 1440x900 ~/Pictures/background/interfaceLift/1440x900
 }
 
 function neovimsetup(){
