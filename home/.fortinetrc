@@ -12,7 +12,6 @@ alias pvt='cd ~/Projects/fsa_chroot_env/drive0/private'
 alias pkg='cd ~/Projects/fsa_chroot_env/fsa/pkgtools'
 alias startDaemon='bin/merged_daemon &'
 alias 2.4web='cd /Users/joeyliu/Projects/fsa/2.4/web'
-alias copy_web_from_local='scp -r joeyliu@172.16.68.231:~/Projects/fsa/2.4/web/ .'
 alias cc='copy_web_from_local'
 
 alias hh="hostname joeytall-OptiPlex-3020"
@@ -47,9 +46,9 @@ function tarJobAndDB(){
 }
 
 alias tj="tarJobAndDB && tarJobAndDB | pbcopy"
-alias sshupdate="echo 'cp /web/SESSIONMAGIC /etc/ && cd / && rm -rf web/* && wget http://172.16.68.232/static/web.tar -P web && tar -xvf web/web.tar && rm web/web.tar && mv /etc/SESSIONMAGIC /web/ && httpd -k restart -f /usr/webserver/httpd.conf' | pbcopy"
+alias sshupdate="echo 'cp /web/SESSIONMAGIC /etc/ && cd / && rm -rf web/* && wget http://172.16.68.222/static/web.tar -P web && tar -xvf web/web.tar && rm web/web.tar && mv /etc/SESSIONMAGIC /web/ && httpd -k restart -f /usr/webserver/httpd.conf' | pbcopy"
 alias ftpupdate="echo 'cd / && rm -rf web/* && /usr/bin/wget ftp://ftp.apsecure.com/web.tar --ftp-user=fsaupload --ftp-password=Zf6gy#e7 -P web && tar -xvf web/web.tar && rm web/web.tar && httpd -k restart -f /usr/webserver/httpd.conf' | pbcopy"
-alias opendebug="echo 'cd /web/sandbox/ && rm settings.pyc && wget http://172.16.68.232/static/settings.pyc && /usr/bin/httpd -k restart -f /usr/webserver/httpd.conf' | pbcopy"
+alias opendebug="echo 'cd /web/sandbox/ && rm settings.pyc && wget http://172.16.68.222/static/settings.pyc && /usr/bin/httpd -k restart -f /usr/webserver/httpd.conf' | pbcopy"
 alias sshrestart="echo '/usr/bin/httpd -k restart -f /usr/webserver/httpd.conf' | pbcopy"
 alias dd="copydata && copydata | pbcopy"
 alias copydata="echo 'cd /drive0/private && tar zcvf /web/static/private.tgz db-install yara hc log statistics/jobdata statistics/rptstat && cd /Storage && tar zcvf /web/static/s.tgz suspicious/$(date +20%y%m%d) &&  cd /web/static'"
@@ -57,7 +56,6 @@ alias ud="updatedata && updatedata | pbcopy"
 alias ud100="updatedata100 && updatedata100 | pbcopy"
 alias uds="updatedatassh && updatedatassh | pbcopy"
 alias updatedata='echo "pvt && wget 172.16.69.32/static/private.tgz && tar zxvf private.tgz && /bin/rm private.tgz && cd ../../Storage/ && wget 172.16.69.32/static/s.tgz && tar zxvf s.tgz && /bin/rm s.tgz && cdir"'
-alias updatedata100='echo "pvt && wget 10.100.33.3/static/private.tgz && tar zxvf private.tgz && /bin/rm private.tgz && cd db && /bin/rm FortiSandboxGUI.db FortiSandboxDevice.db && cp ../db-install/FortiSandboxGUI.db . && cp ../db-install/FortiSandboxDevice.db . && cdir && cd Storage/ && wget 10.100.33.3/static/s.tgz && tar zxvf s.tgz && /bin/rm s.tgz && cdir"'
 alias updatedatassh='echo "cd /drive0/private && wget http://172.16.69.96/static/private.tgz && tar zxvf private.tgz && rm private.tgz && cd /Storage/ && wget http://172.16.69.96/static/s.tgz && tar zxvf s.tgz && rm s.tgz && cd /"'
 function updatedataIP() {
 echo "pvt && wget $1/static/private.tgz && tar zxvf private.tgz && /bin/rm private.tgz && cd db && /bin/rm FortiSandboxGUI.db FortiSandboxDevice.db && cp ../db-install/FortiSandboxGUI.db . && cp ../db-install/FortiSandboxDevice.db . && cdir && cd Storage/ && wget $1/static/s.tgz && tar zxvf s.tgz && /bin/rm s.tgz && cdir"
@@ -88,7 +86,7 @@ alias tt='tmux -CC attach'
 alias fc='sdf >! changed.files && vc'
 alias vc='cat changed.files'
 alias console='echo "cd /fsa/workingTrunk/web/sandbox && python manage.py shell" | xclip -selection clipboard'
-alias sj='ssh joeytall@172.16.68.232'
+alias sj='ssh joeytall@172.16.68.222'
 alias sc='ssh fsa@172.16.69.132'
 
 function scp_coca(){
@@ -96,7 +94,7 @@ function scp_coca(){
 }
 
 function scp_macmini(){
-  eval 'scp image.deb.$1 joeyliu@172.16.68.231:~/Projects/uploads/'
+  eval 'scp image.deb.$1 joeyliu@172.16.68.221:~/Projects/uploads/'
 }
 
 alias fsh="~/.ssh.tcl"
