@@ -28,6 +28,7 @@ call plug#begin('~/.vim/plugged')
 
 source ~/.vim_python_rc
 
+Plug 'posva/vim-vue'
 Plug 'joeytall/onedark.vim'
 Plug 'joeytall/python-syntax'
 Plug 'burnettk/vim-angular'
