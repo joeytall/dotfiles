@@ -33,7 +33,7 @@ alias vimplug="vim +PlugInstall +qall"
 alias sshon="sudo systemsetup -setremotelogin on"
 alias sshoff="sudo systemsetup -setremotelogin off"
 alias kk="rm -rf /root/.ssh/known_hosts"
-alias rr="xset r rate 380 60"
+alias rr="rm -rf *.pyc"
 
 # Homesick Commands
 alias hscd="cd ~/.homesick/repos/dotfiles"
