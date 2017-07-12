@@ -52,6 +52,7 @@ Plug 'juneedahamed/svnj.vim'
 Plug 'juvenn/mustache.vim'
 Plug 'kchmck/vim-coffee-script'
 Plug 'kien/ctrlp.vim'
+Plug 'klen/python-mode'
 Plug 'majutsushi/tagbar'
 Plug 'mattn/emmet-vim'
 Plug 'mattn/gist-vim'
@@ -60,6 +61,7 @@ Plug 'moll/vim-node'
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'othree/html5.vim'
 Plug 'pangloss/vim-javascript'
+Plug 'posva/vim-vue'
 Plug 'python-mode/python-mode'
 Plug 'rking/ag.vim'
 Plug 'scrooloose/nerdtree'
@@ -278,6 +280,8 @@ endif
 "gist"
 let g:gist_clip_command = 'pbcopy'
 let g:gist_post_private = 1
+
+let python_highlight_all = 1
 
 "vim tricks"
 nnoremap <Leader>e :e<CR>
