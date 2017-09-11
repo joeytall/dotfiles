@@ -28,61 +28,62 @@ call plug#begin('~/.vim/plugged')
 
 source ~/.vim_python_rc
 
-Plug 'posva/vim-vue'
+
+Plug 'MarcWeber/vim-addon-mw-utils'
+Plug 'Raimondi/delimitMate'
+Plug 'StanAngeloff/php.vim'
+Plug 'Valloric/YouCompleteMe', { 'do': function('BuildYCM') }
+Plug 'ap/vim-css-color'
+Plug 'bitc/vim-bad-whitespace'
+Plug 'bling/vim-airline'
+Plug 'burnettk/vim-angular'
+Plug 'csexton/trailertrash.vim'
+Plug 'digitaltoad/vim-pug'
+Plug 'elzr/vim-json'
+Plug 'garbas/vim-snipmate'
+Plug 'gavinbeatty/dragvisuals.vim'
+Plug 'gioele/vim-autoswap'
+Plug 'hail2u/vim-css3-syntax'
+Plug 'honza/vim-snippets'
+Plug 'int3/vim-extradite'
 Plug 'joeytall/onedark.vim'
 Plug 'joeytall/python-syntax'
-Plug 'burnettk/vim-angular'
-Plug 'StanAngeloff/php.vim'
-Plug 'sjl/gundo.vim'
-Plug 'ap/vim-css-color'
-Plug 'hail2u/vim-css3-syntax'
-Plug 'bling/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-Plug 'kchmck/vim-coffee-script'
-Plug 'csexton/trailertrash.vim'
-Plug 'scrooloose/nerdtree'
+Plug 'juneedahamed/svnj.vim'
 Plug 'juvenn/mustache.vim'
-Plug 'yaymukund/vim-rabl'
-Plug 'int3/vim-extradite'
-Plug 'sjl/splice.vim'
-Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-haml'
-Plug 'tpope/vim-repeat'
-Plug 'tpope/vim-endwise'
-Plug 'tpope/vim-rails'
-Plug 'tpope/vim-eunuch'
-Plug 'tpope/vim-surround'
-Plug 'tpope/vim-markdown'
-Plug 'tpope/vim-pathogen'
-Plug 'tpope/vim-sleuth'
-Plug 'sheerun/vim-polyglot'
-Plug 'bitc/vim-bad-whitespace'
+Plug 'kchmck/vim-coffee-script'
 Plug 'kien/ctrlp.vim'
-Plug 'tomtom/tlib_vim'
-Plug 'MarcWeber/vim-addon-mw-utils'
-Plug 'garbas/vim-snipmate'
-Plug 'honza/vim-snippets'
-Plug 'vim-syntastic/syntastic', { 'do': function('Installeslint') }
+Plug 'majutsushi/tagbar'
 Plug 'mattn/emmet-vim'
-Plug 'pangloss/vim-javascript'
-Plug 'nathanaelkane/vim-indent-guides'
-Plug 'Raimondi/delimitMate'
-Plug 'tomtom/tcomment_vim'
 Plug 'mattn/gist-vim'
 Plug 'mattn/webapi-vim'
-Plug 'elzr/vim-json'
-Plug 'digitaltoad/vim-pug'
 Plug 'moll/vim-node'
-Plug 'gioele/vim-autoswap'
-Plug 'gavinbeatty/dragvisuals.vim'
-Plug 'rking/ag.vim'
-Plug 'Valloric/YouCompleteMe', { 'do': function('BuildYCM') }
-Plug 'juneedahamed/svnj.vim'
-Plug 'ternjs/tern_for_vim', { 'do': function('BuildTern') }
-Plug 'vim-scripts/dbext.vim'
-Plug 'sjl/gundo.vim'
-Plug 'klen/python-mode'
+Plug 'nathanaelkane/vim-indent-guides'
 Plug 'othree/html5.vim'
+Plug 'pangloss/vim-javascript'
+Plug 'posva/vim-vue'
+Plug 'python-mode/python-mode', {'branch': 'develop'}
+Plug 'rking/ag.vim'
+Plug 'scrooloose/nerdtree'
+Plug 'sheerun/vim-polyglot'
+Plug 'sjl/gundo.vim'
+Plug 'sjl/splice.vim'
+Plug 'ternjs/tern_for_vim', { 'do': function('BuildTern') }
+Plug 'tomtom/tcomment_vim'
+Plug 'tomtom/tlib_vim'
+Plug 'tpope/vim-endwise'
+Plug 'tpope/vim-eunuch'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-haml'
+Plug 'tpope/vim-markdown'
+Plug 'tpope/vim-pathogen'
+Plug 'tpope/vim-rails'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-sleuth'
+Plug 'tpope/vim-surround'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'vim-scripts/dbext.vim'
+Plug 'vim-syntastic/syntastic', { 'do': function('Installeslint') }
+Plug 'yaymukund/vim-rabl'
 
 call plug#end()
 
@@ -312,7 +313,7 @@ set completeopt-=preview
 let g:pymode_folding = 0
 let g:pymode_breakpoint_bind = '<leader>g'
 let g:pymode_lint_unmodified = 1
-let g:pymode_lint_ignore = "W0401"
+let g:pymode_lint_ignore = "W0401,E111,E251,E401,E501"
 let g:pymode_lint_checkers = ['pyflakes',]
 let g:pymode_lint_cwindow = 0
 let g:pymode_lint_todo_symbol = 'W'
@@ -331,3 +332,5 @@ set timeoutlen=1000 ttimeoutlen=0
 
 "crontab
 autocmd FileType crontab setlocal nobackup nowritebackup
+
+let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
