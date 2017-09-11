@@ -42,7 +42,7 @@ function getJobAndDB(){
 }
 
 function tarJobAndDB(){
-  echo "tar cvf web/static/s.tar \`sandbox-jobs-move -p -j$1\` && cp /ramdisk/FortiSandboxGUI.db /web/static/" | pbcopy
+  echo "cd / && tar cvf web/static/s.tar \`sandbox-jobs-move -p -j$1\` && cp /ramdisk/FortiSandboxGUI.db /web/static/" | pbcopy
 }
 
 alias tj="tarJobAndDB && tarJobAndDB | pbcopy"
