@@ -52,7 +52,6 @@ Plug 'juneedahamed/svnj.vim'
 Plug 'juvenn/mustache.vim'
 Plug 'kchmck/vim-coffee-script'
 Plug 'kien/ctrlp.vim'
-Plug 'klen/python-mode'
 Plug 'majutsushi/tagbar'
 Plug 'mattn/emmet-vim'
 Plug 'mattn/gist-vim'
@@ -62,7 +61,7 @@ Plug 'nathanaelkane/vim-indent-guides'
 Plug 'othree/html5.vim'
 Plug 'pangloss/vim-javascript'
 Plug 'posva/vim-vue'
-Plug 'python-mode/python-mode'
+Plug 'python-mode/python-mode', {'branch': 'develop'}
 Plug 'rking/ag.vim'
 Plug 'scrooloose/nerdtree'
 Plug 'sheerun/vim-polyglot'
@@ -314,7 +313,7 @@ set completeopt-=preview
 let g:pymode_folding = 0
 let g:pymode_breakpoint_bind = '<leader>g'
 let g:pymode_lint_unmodified = 1
-let g:pymode_lint_ignore = "W0401"
+let g:pymode_lint_ignore = "W0401,E111,E251,E401,E501"
 let g:pymode_lint_checkers = ['pyflakes',]
 let g:pymode_lint_cwindow = 0
 let g:pymode_lint_todo_symbol = 'W'

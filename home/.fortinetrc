@@ -100,6 +100,8 @@ function scp_macmini(){
   eval 'scp image.deb.$1 joeyliu@172.16.68.221:~/Projects/uploads/'
 }
 
+alias scp_all_models='scp_macmini 3000E && scp_macmini 3000D && scp_macmini 3500D && scp_macmini 1000D && scp_macmini VM'
+
 alias fsh="~/.ssh.tcl"
 function ftpaws(){
   echo "cd / && rm -rf web/* && /usr/bin/wget ftp://ftp.apsecure.com/web.tar --ftp-user=fsaupload --ftp-password=Zf6gy#e7 -P web && tar -xvf web/web.tar && rm web/web.tar && httpd -k restart -f /usr/webserver/httpd.conf" | pbcopy
