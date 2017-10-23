@@ -1,13 +1,9 @@
 # Fortinet Shortcuts
 alias cdir='cd ~/Projects/fsa_chroot_env/'
-alias 2.3='cd ~/Projects/fsa_chroot_env/fsa/2.3'
 alias 2.4='cd ~/Projects/fsa_chroot_env/fsa/2.4'
 alias trunk='cd ~/Projects/fsa_chroot_env/fsa/trunk'
-alias scheduler='cd ~/Projects/fsa_chroot_env/fsa/scheduler'
+alias manager='cd ~/Projects/fsa_chroot_env/fsa/manager'
 alias report='cd ~/Projects/fsa_chroot_env/fsa/report'
-alias profile='cd ~/Projects/fsa_chroot_env/fsa/profile'
-alias sniffer='cd ~/Projects/fsa_chroot_env/fsa/sniffer'
-alias fhv='cd ~/Projects/fsa_chroot_env/fsa/FHV'
 alias sus='cd ~/Projects/fsa_chroot_env/Storage/suspicious'
 alias fsadb='cd ~/Projects/fsa_chroot_env/drive0/private/db-install'
 alias rd='cd ~/Projects/fsa_chroot_env/ramdisk'
@@ -41,11 +37,11 @@ function ssh92(){
 }
 
 function getJobAndDB(){
-  eval "cdir && wget http://$1/static/s.tar && tar -xvf s.tar && /bin/rm s.tar && cd ramdisk && /bin/rm FortiSandboxGUI.db && wget http://$1/static/FortiSandboxGUI.db"
+  eval "cdir && wget http://$1/static/s.tar && tar -xvf s.tar && /bin/rm s.tar; trunk"
 }
 
 function tarJobAndDB(){
-  echo "tar cvf web/static/s.tar \`sandbox-jobs-move -p -j$1\` && cp /ramdisk/FortiSandboxGUI.db /web/static/" | pbcopy
+  echo "tar cvf web/static/s.tar \`sandbox-jobs-move -p -j$1\` " | pbcopy
 }
 
 alias tj="tarJobAndDB && tarJobAndDB | pbcopy"
@@ -96,11 +92,11 @@ function scp_coca(){
   eval 'scp image.deb.$2 dev@172.16.69.132:/home/dev/coca/public/eco_attachments/$1'
 }
 
-function scp_macmini(){
-  eval 'scp image.deb.$1 joeyliu@172.16.68.221:~/Projects/uploads/'
+function cp_img(){
+  eval '\cp image.deb.$1 ~/shares/'
 }
 
-alias scp_all_models='scp_macmini 3000E && scp_macmini 3000D && scp_macmini 3500D && scp_macmini 1000D && scp_macmini VM'
+alias copy_all_models='cp_img 2000E && cp_img 3000E && cp_img 3000D && cp_img 3500D && cp_img 1000D && cp_img VM'
 
 alias fsh="~/.ssh.tcl"
 function ftpaws(){

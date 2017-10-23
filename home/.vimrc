@@ -100,6 +100,9 @@ set expandtab           " Insert spaces when TAB is pressed.
 set tabstop=2           " Render TABs using this many spaces.
 set shiftwidth=2        " Indentation amount for < and > commands.
 
+setlocal tabstop=2
+setlocal shiftwidth=2
+
 set noerrorbells        " No beeps.
 set modeline            " Enable modeline.
 set linespace=0         " Set line-spacing to minimum.
@@ -128,8 +131,6 @@ set magic               " Use 'magic' patterns (extended regular expressions).
 "vim
 set nu
 set ts=2                            "tab stop 2
-set autoindent
-set smartindent                     "use smart indenting
 set bs=2                            "allow backspace in insert mode
 syntax enable                       "enable syntax highlighting
 syntax on                       "enable syntax highlighting
@@ -161,7 +162,7 @@ let g:ctrlp_cmd = 'CtrlPMixed'
 let g:ctrlp_working_path_mode = '' " Stop messing with the path
 let g:ctrlp_match_window_bottom = 1
 let g:ctrlp_jump_to_buffer = 2 " Jump to tab AND buffer if already open
-let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git\|coverage\|vendor/bundle\|build\|img\|**/*.pyc\|**/*.edited\|**/*.diff\|**/*.deb'
+let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git\|coverage\|vendor/bundle\|build\|**/*.pyc\|**/*.edited\|**/*.diff\|**/*.deb'
 
 let mapleader = ' '
 let g:airline_theme='onedark'
@@ -313,7 +314,7 @@ set completeopt-=preview
 let g:pymode_folding = 0
 let g:pymode_breakpoint_bind = '<leader>g'
 let g:pymode_lint_unmodified = 1
-let g:pymode_lint_ignore = "W0401,E111,E251,E401,E501"
+let g:pymode_lint_ignore = "W0401,E111,E203,E251,E302,E401,E501"
 let g:pymode_lint_checkers = ['pyflakes',]
 let g:pymode_lint_cwindow = 0
 let g:pymode_lint_todo_symbol = 'W'
@@ -332,5 +333,6 @@ set timeoutlen=1000 ttimeoutlen=0
 
 "crontab
 autocmd FileType crontab setlocal nobackup nowritebackup
+autocmd FileType python setlocal tabstop=2 shiftwidth=2
 
 let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
