@@ -21,9 +21,8 @@ function tarJobAndDB(){
   echo "tar cvf web/static/s.tar \`sandbox-jobs-move -p -j$1\` " | pbcopy
 }
 
-alias tj="tarJobAndDB && tarJobAndDB | pbcopy"
-alias sshupdate="echo 'cp /web/SESSIONMAGIC /etc/ && cd / && rm -rf web/* && wget http://172.16.68.222/static/web.tar -P web && tar -xvf web/web.tar && rm web/web.tar && mv /etc/SESSIONMAGIC /web/ && cd / && httpd -k restart -f /usr/webserver/httpd.conf' | pbcopy"
-alias sshupdatelog="echo 'cd / && rm -rf drive0/private/logprocessor && wget http://172.16.68.222/static/log.tar && tar -xvf log.tar && rm log.tar' | pbcopy"
+alias sshupdate="echo 'cp /web/SESSIONMAGIC /etc/ && cd / && rm -rf web/* && wget http://172.16.68.222/static/web.tar -P web && tar -xvf web/web.tar && rm web/web.tar && mv /etc/SESSIONMAGIC /web/ && httpd -k restart -f /usr/webserver/httpd.conf' | pbcopy"
+alias sshupdatelog="echo 'cd /drive0/private/ && rm -rf logprocessor && wget http://172.16.68.222/static/log.tar && tar -xvf log.tar && rm log.tar; cd /' | pbcopy"
 alias ftpupdate="echo 'cd / && rm -rf web/* && /usr/bin/wget ftp://ftp.apsecure.com/web.tar --ftp-user=fsaupload --ftp-password=Zf6gy#e7 -P web && tar -xvf web/web.tar && rm web/web.tar && httpd -k restart -f /usr/webserver/httpd.conf' | pbcopy"
 alias sshrestart="echo '/usr/bin/httpd -k restart -f /usr/webserver/httpd.conf' | pbcopy"
 alias dd="copydata && copydata | pbcopy"
