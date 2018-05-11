@@ -19,6 +19,7 @@ export SVN_EDITOR=nvim
 
 # Shell Commands
 alias l='ls -la'
+alias lsh='ls -lah'
 alias h='ls -lh'
 alias b='cd -'
 alias desk='cd ~/Desktop'
