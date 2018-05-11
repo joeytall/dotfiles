@@ -186,8 +186,8 @@ autocmd BufNewFile,BufRead *.ascx set filetype=javascript
 autocmd BufNewFile,BufRead *.asmx set filetype=aspnet
 
 "db.ext
-let g:dbext_default_profile_sqlite = 'type=SQLITE:dbname=/home/joeytall/Projects/fsa_chroot_env/drive0/private/db/FortiSandboxGUI.db'
-let g:dbext_default_profile = 'sqlite'
+let g:dbext_default_profile_trap='type=pgsql:host=172.16.69.80:user=trapuser:dbname=trapdb:passwd=trapuser'
+let g:dbext_default_profile='trap'
 
 "This maps ctrl+h and ctrl+l to moving between :vsplit windows
 map <silent> <bs> <C-W>h
@@ -314,7 +314,7 @@ set completeopt-=preview
 let g:pymode_folding = 0
 let g:pymode_breakpoint_bind = '<leader>g'
 let g:pymode_lint_unmodified = 1
-let g:pymode_lint_ignore = "W0401,E111,E203,E251,E302,E401,E501"
+let g:pymode_lint_ignore = "W0401,E0100,E111,E203,E251,E302,E401,E501"
 let g:pymode_lint_checkers = ['pyflakes',]
 let g:pymode_lint_cwindow = 0
 let g:pymode_lint_todo_symbol = 'W'
@@ -336,3 +336,4 @@ autocmd FileType crontab setlocal nobackup nowritebackup
 autocmd FileType python setlocal tabstop=2 shiftwidth=2
 
 let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
+
