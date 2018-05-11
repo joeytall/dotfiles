@@ -1,40 +1,17 @@
 # Fortinet Shortcuts
 alias cdir='cd ~/Projects/fsa_chroot_env/'
-alias 2.4='cd ~/Projects/fsa_chroot_env/fsa/2.4'
+alias 2.5='cd ~/Projects/fsa_chroot_env/fsa/2.5'
 alias trunk='cd ~/Projects/fsa_chroot_env/fsa/trunk'
 alias manager='cd ~/Projects/fsa_chroot_env/fsa/manager'
-alias report='cd ~/Projects/fsa_chroot_env/fsa/report'
-alias sus='cd ~/Projects/fsa_chroot_env/Storage/suspicious'
-alias fsadb='cd ~/Projects/fsa_chroot_env/drive0/private/db-install'
+alias trap='cd ~/Projects/fsa_chroot_env/fsa/trap'
 alias rd='cd ~/Projects/fsa_chroot_env/ramdisk'
 alias pvt='cd ~/Projects/fsa_chroot_env/drive0/private'
 alias pkg='cd ~/Projects/fsa_chroot_env/fsa/pkgtools'
-alias startDaemon='bin/merged_daemon &'
-alias 2.4web='cd /Users/joeyliu/Projects/fsa/2.4/web'
-alias cc='copy_web_from_local'
 
 alias hh="hostname joeytall-OptiPlex-3020"
 alias vp="vim patch.diff"
 
-alias sshgui="ssh69 215"
-
 alias djangotranslate="python manage.py makemessages --all -e 'html,js' && python manage.py makemessages --all -d djangojs --symlink"
-
-function ssh39(){
-  eval "ssh admin@172.18.39.$1"
-}
-
-function ssh69(){
-  eval "ssh admin@172.16.69.$1"
-}
-
-function ssh68(){
-  eval "ssh admin@172.16.68.$1"
-}
-
-function ssh92(){
-  eval "ssh admin@172.16.92.$1"
-}
 
 function getJobAndDB(){
   eval "cdir && wget http://$1/static/s.tar && tar -xvf s.tar && /bin/rm s.tar; trunk"
@@ -44,22 +21,21 @@ function tarJobAndDB(){
   echo "tar cvf web/static/s.tar \`sandbox-jobs-move -p -j$1\` " | pbcopy
 }
 
-alias tj="tarJobAndDB && tarJobAndDB | pbcopy"
 alias sshupdate="echo 'cp /web/SESSIONMAGIC /etc/ && cd / && rm -rf web/* && wget http://172.16.68.222/static/web.tar -P web && tar -xvf web/web.tar && rm web/web.tar && mv /etc/SESSIONMAGIC /web/ && httpd -k restart -f /usr/webserver/httpd.conf' | pbcopy"
+alias sshupdatelog="echo 'cd / && rm -rf drive0/private/logprocessor && wget http://172.16.68.222/static/log.tar && tar -xvf log.tar && rm log.tar' | pbcopy"
 alias ftpupdate="echo 'cd / && rm -rf web/* && /usr/bin/wget ftp://ftp.apsecure.com/web.tar --ftp-user=fsaupload --ftp-password=Zf6gy#e7 -P web && tar -xvf web/web.tar && rm web/web.tar && httpd -k restart -f /usr/webserver/httpd.conf' | pbcopy"
-alias opendebug="echo 'cd /web/sandbox/ && rm settings.pyc && wget http://172.16.68.222/static/settings.pyc && /usr/bin/httpd -k restart -f /usr/webserver/httpd.conf' | pbcopy"
 alias sshrestart="echo '/usr/bin/httpd -k restart -f /usr/webserver/httpd.conf' | pbcopy"
 alias dd="copydata && copydata | pbcopy"
 alias copydata="echo 'cd /drive0/private && tar zcvf /web/static/private.tgz db-install yara hc log statistics/jobdata statistics/rptstat && cd /Storage && tar zcvf /web/static/s.tgz suspicious/$(date +20%y%m%d) &&  cd /web/static'"
 alias ud="updatedata && updatedata | pbcopy"
-alias ud100="updatedata100 && updatedata100 | pbcopy"
 alias uds="updatedatassh && updatedatassh | pbcopy"
 alias updatedata='echo "pvt && wget 172.16.69.32/static/private.tgz && tar zxvf private.tgz && /bin/rm private.tgz && cd ../../Storage/ && wget 172.16.69.32/static/s.tgz && tar zxvf s.tgz && /bin/rm s.tgz && cdir"'
 alias updatedatassh='echo "cd /drive0/private && wget http://172.16.69.96/static/private.tgz && tar zxvf private.tgz && rm private.tgz && cd /Storage/ && wget http://172.16.69.96/static/s.tgz && tar zxvf s.tgz && rm s.tgz && cd /"'
 function updatedataIP() {
 echo "pvt && wget $1/static/private.tgz && tar zxvf private.tgz && /bin/rm private.tgz && cd db && /bin/rm FortiSandboxGUI.db FortiSandboxDevice.db && cp ../db-install/FortiSandboxGUI.db . && cp ../db-install/FortiSandboxDevice.db . && cdir && cd Storage/ && wget $1/static/s.tgz && tar zxvf s.tgz && /bin/rm s.tgz && cdir"
 }
-alias tarWeb="tar -cvf web/static/web.tar web"
+alias tarWeb="rm -f web/static/web.tar; tar -cvf web.tar web &> /dev/null; mv web.tar web/static/"
+alias tarLog="cd pkgtools && tar -cvf ../web/static/log.tar logprocessor && cd .."
 alias rdf='svn diff >! patch.diff && vp'
 alias rpo='revert_config && rb_genco.py post'
 alias rup='revert_config && rb_genco.py update $1'
@@ -84,13 +60,8 @@ function getfile() {
 alias tt='tmux -CC attach'
 alias fc='sdf >! changed.files && vc'
 alias vc='cat changed.files'
-alias console='echo "cd /fsa/workingTrunk/web/sandbox && python manage.py shell" | xclip -selection clipboard'
 alias sj='ssh joeytall@172.16.68.222'
 alias sc='ssh fsa@172.16.69.132'
-
-function scp_coca(){
-  eval 'scp image.deb.$2 dev@172.16.69.132:/home/dev/coca/public/eco_attachments/$1'
-}
 
 function cp_img(){
   eval '\cp image.deb.$1 ~/shares/'

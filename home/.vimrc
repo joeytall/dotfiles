@@ -220,7 +220,7 @@ map <F1> :EraseBadWhitespace <CR>
 map <F2> :TagbarToggle<CR>
 map <F3> :SVNBlame<CR>
 map <F4> :SVNLog<CR>
-map <F5> :GundoToggle<CR>
+map <F5> :pwd<CR>
 
 "Find javascript"
 map <F6> /Index: <CR> zz
@@ -314,7 +314,7 @@ set completeopt-=preview
 let g:pymode_folding = 0
 let g:pymode_breakpoint_bind = '<leader>g'
 let g:pymode_lint_unmodified = 1
-let g:pymode_lint_ignore = "W0401,E111,E203,E251,E302,E401,E501"
+let g:pymode_lint_ignore = ["W0401","E111","E203","E251","E265","E302","E401","E501","E155"]
 let g:pymode_lint_checkers = ['pyflakes',]
 let g:pymode_lint_cwindow = 0
 let g:pymode_lint_todo_symbol = 'W'
