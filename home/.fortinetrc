@@ -36,7 +36,7 @@ function updatedataIP() {
 echo "pvt && wget $1/static/private.tgz && tar zxvf private.tgz && /bin/rm private.tgz && cd db && /bin/rm FortiSandboxGUI.db FortiSandboxDevice.db && cp ../db-install/FortiSandboxGUI.db . && cp ../db-install/FortiSandboxDevice.db . && cdir && cd Storage/ && wget $1/static/s.tgz && tar zxvf s.tgz && /bin/rm s.tgz && cdir"
 }
 alias tarWeb="rm -f web/static/web.tar; tar -cvf web.tar web &> /dev/null; mv web.tar web/static/"
-alias tarLog="cd pkgtools && tar -cvf ../web/static/log.tar logprocessor && cd .."
+alias tarLog="cd pkgtools && tar -cvf ../web/static/log.tar logprocessor &> /dev/null; cd .."
 alias rdf='svn diff >! patch.diff && vp'
 alias rpo='revert_config && rb_genco.py post'
 alias rup='revert_config && rb_genco.py update $1'
