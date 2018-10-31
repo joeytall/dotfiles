@@ -186,7 +186,8 @@ autocmd BufNewFile,BufRead *.ascx set filetype=javascript
 autocmd BufNewFile,BufRead *.asmx set filetype=aspnet
 
 "db.ext
-let g:dbext_default_profile_trap='type=pgsql:host=172.16.69.80:user=trapuser:dbname=trapdb:passwd=trapuser'
+let g:dbext_default_profile_trap='type=pgsql:host=172.16.69.83:user=trapuser:dbname=trapdb:passwd=trapuser'
+let g:dbext_default_profile_sandbox='type=sqlite:dbname=/Users/joeyliu/Projects/sql/FortiSandboxGUI.db'
 let g:dbext_default_profile='trap'
 
 "This maps ctrl+h and ctrl+l to moving between :vsplit windows
