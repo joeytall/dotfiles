@@ -26,9 +26,6 @@ endfunction
 set clipboard=unnamedplus
 call plug#begin('~/.vim/plugged')
 
-source ~/.vim_python_rc
-
-
 Plug 'MarcWeber/vim-addon-mw-utils'
 Plug 'Raimondi/delimitMate'
 Plug 'StanAngeloff/php.vim'
@@ -314,7 +311,7 @@ set completeopt-=preview
 let g:pymode_folding = 0
 let g:pymode_breakpoint_bind = '<leader>g'
 let g:pymode_lint_unmodified = 1
-let g:pymode_lint_ignore = "W0401,E111,E203,E251,E302,E401,E501"
+let g:pymode_lint_ignore = ["W0401","E111","E0100","E203","E251","E302","E401","E501"]
 let g:pymode_lint_checkers = ['pyflakes',]
 let g:pymode_lint_cwindow = 0
 let g:pymode_lint_todo_symbol = 'W'

@@ -18,7 +18,7 @@ export EDITOR=nvim
 export SVN_EDITOR=nvim
 
 # Shell Commands
-alias l='ls -la'
+alias l='ls -lah'
 alias h='ls -lh'
 alias b='cd -'
 alias desk='cd ~/Desktop'
@@ -118,7 +118,10 @@ alias dw="downloadwallpaper"
 alias dw1080="interfacelift-downloader 1920x1080 Pictures/background/interfaceLift/1920x1080"
 function downloadwallpaper() {
   interfacelift-downloader 3840x2160 ~/Pictures/background/interfaceLift/3840x2160
+  interfacelift-downloader 3440x1440 ~/Pictures/background/interfaceLift/3440x1440
+  interfacelift-downloader 2560x1600 ~/Pictures/background/interfaceLift/2560x1600
   interfacelift-downloader 2560x1440 ~/Pictures/background/interfaceLift/2560x1440
+  interfacelift-downloader 2048x2048 ~/Pictures/background/interfaceLift/2048x2048
   interfacelift-downloader 1920x1080 ~/Pictures/background/interfaceLift/1920x1080
   interfacelift-downloader 1920x1200 ~/Pictures/background/interfaceLift/1920x1200
   interfacelift-downloader 1200x1920 ~/Pictures/background/interfaceLift/1200x1920
