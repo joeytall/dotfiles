@@ -8,10 +8,11 @@ fi
 # Add zsh-autocomplete
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 
-# Add Fortinet settings
-source $HOME/.fortinetrc
+# Add Amazon settings
+source $HOME/.amazonrc
 
 export PATH="${HOME}/bin":${PATH}
+export PATH=$PATH:~/Library/Python/2.7/bin
 export TERM="xterm-256color"
 
 export EDITOR=nvim
@@ -26,7 +27,7 @@ alias proj='cd ~/Projects'
 alias coca='cd ~/Projects/coca'
 alias vim='nvim'
 alias se="vim ~/.zshrc"
-alias ff="vim ~/.fortinetrc"
+alias aa="vim ~/.amazonrc"
 alias ss="source ~/.zshrc"
 alias vv="vim ~/.vimrc"
 alias vimplug="vim +PlugInstall +qall"

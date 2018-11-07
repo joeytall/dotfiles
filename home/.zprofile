@@ -75,3 +75,4 @@ if [[ ! -d "$TMPPREFIX" ]]; then
   mkdir -p "$TMPPREFIX"
 fi
 
+export PATH=$HOME/bin:$HOME/.toolbox/bin:$PATH
