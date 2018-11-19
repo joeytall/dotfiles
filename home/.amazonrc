@@ -1,1 +1,37 @@
-alias scd='ssh dev-dsk-lijoey-2b-f410abd1.us-west-2.amazon.com'
+alias scd='ssh dev-dsk-lijoey-2b-d7b69339.us-west-2.amazon.com'
+
+#ninja
+alias ninja='ninja-dev-sync'
+alias ninjaconfig='vim ~/.config/ninja-dev-sync.json'
+
+#shortcuts
+alias cont='cd ~/workplace/Contessa/src/'
+alias contconf='cd ~/workplace/Contessa/src/AWSMPContessaSellerChromeConfiguration'
+alias conttest='cd ~/workplace/Contessa/src/AWSMPContessaPlatformIntegrationTests'
+alias contwc='cd ~/workplace/Contessa/src/AWSMPContessaWebsiteContent'
+alias contcomp='cd ~/workplace/Contessa/src/AWSMPContessaPlatformComponents'
+
+alias ssl='cd ~/workplace/SSL/src/'
+alias sslfe='cd ~/workplace/SSL/src/AWSMPSSLFrontend'
+alias sslasset='cd ~/workplace/SSL/src/AWSMPSellerProductPortalAssets'
+alias ssltest='cd ~/workplace/SSL/src/AWSMPSellerProductPortalAPIIntegTests'
+alias sslbbtest='cd ~/workplace/SSL/src/AWSMPSellerProductPortalBlackBoxTests'
+alias sslwc='cd ~/workplace/SSL/src/AWSMPSellerProductPortalWebsiteContent'
+
+#brazil
+alias bb='brazil-build'
+
+alias bba='brazil-build apollo-pkg'
+alias bre='brazil-runtime-exec'
+alias brc='brazil-recursive-cmd'
+alias bws='brazil ws'
+alias bwsuse='bws use -p'
+alias bwscreate='bws create -n'
+alias brc=brazil-recursive-cmd
+alias bbr='brc brazil-build'
+alias bball='brc --allPackages'
+alias bbb='brc --allPackages brazil-build'
+alias bbra='bbr apollo-pkg'
+
+#auth
+alias auth='kinit -f && mwinit -o'

@@ -26,6 +26,7 @@ endfunction
 set clipboard=unnamedplus
 call plug#begin('~/.vim/plugged')
 
+Plug 'andreshazard/vim-freemarker'
 Plug 'MarcWeber/vim-addon-mw-utils'
 Plug 'Raimondi/delimitMate'
 Plug 'StanAngeloff/php.vim'
@@ -57,6 +58,7 @@ Plug 'moll/vim-node'
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'othree/html5.vim'
 Plug 'pangloss/vim-javascript'
+Plug 'mxw/vim-jsx'
 Plug 'posva/vim-vue'
 Plug 'python-mode/python-mode', {'branch': 'develop'}
 Plug 'rking/ag.vim'
@@ -181,6 +183,7 @@ autocmd BufNewFile,BufRead Gemfile.lock set filetype=ruby
 autocmd BufNewFile,BufRead *.aspx set filetype=javascript
 autocmd BufNewFile,BufRead *.ascx set filetype=javascript
 autocmd BufNewFile,BufRead *.asmx set filetype=aspnet
+autocmd BufNewFile,BufRead *.amazonrc set filetype=zsh
 
 "db.ext
 let g:dbext_default_profile_trap='type=pgsql:host=172.16.69.83:user=trapuser:dbname=trapdb:passwd=trapuser'
@@ -216,12 +219,12 @@ cabbr <expr> %% expand('%:p:h')
 
 map <F1> :EraseBadWhitespace <CR>
 map <F2> :TagbarToggle<CR>
-map <F3> :SVNBlame<CR>
-map <F4> :SVNLog<CR>
+map <F3> :Gblame<CR>
+map <F4> :Glog<CR>
 map <F5> :pwd<CR>
 
 "Find javascript"
-map <F6> /Index: <CR> zz
+map <F6> /--- <CR> zz
 map <F7> :GundoToggle <CR>
 map <F8> :NERDTreeToggle<CR>
 map <F10> :lclose<CR>
@@ -254,8 +257,8 @@ nmap =t :%! tidy -config ~/.tidyrc<CR>
 " map <C-K>c <c-_><c-_>
 
 "eslint"
-" let g:syntastic_javascript_checkers = ['']
-" let g:syntastic_javascript_checkers = ['eslint']
+let g:syntastic_javascript_checkers = ['']
+let g:syntastic_javascript_checkers = ['eslint']
 
 "Syntastic
 " set statusline+=%#warningmsg#
@@ -335,3 +338,5 @@ autocmd FileType python setlocal tabstop=2 shiftwidth=2
 
 let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
 
+"No New Line eol
+:set nofixendofline
