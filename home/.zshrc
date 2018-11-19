@@ -171,3 +171,6 @@ alias weather="curl wttr.in/vancouver"
 
 alias tmux="TERM=screen-256color-bce tmux"
 alias sysinfo="landscape-sysinfo"
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"
