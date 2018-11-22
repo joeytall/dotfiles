@@ -83,6 +83,10 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'vim-scripts/dbext.vim'
 Plug 'vim-syntastic/syntastic', { 'do': function('Installeslint') }
 Plug 'yaymukund/vim-rabl'
+Plug 'epilande/vim-es2015-snippets'
+Plug 'epilande/vim-react-snippets'
+Plug 'SirVer/ultisnips'
+
 
 call plug#end()
 
@@ -156,12 +160,13 @@ set undolevels=100
 set wildmode=longest,list
 set wildmenu
 
-"from Jared"
 let g:ctrlp_cmd = 'CtrlPMixed'
 let g:ctrlp_working_path_mode = '' " Stop messing with the path
 let g:ctrlp_match_window_bottom = 1
 let g:ctrlp_jump_to_buffer = 2 " Jump to tab AND buffer if already open
 let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git\|coverage\|vendor/bundle\|build\|**/*.pyc\|**/*.edited\|**/*.diff\|**/*.deb'
+
+let g:UltiSnipsExpandTrigger="<C-l>"
 
 let mapleader = ' '
 let g:airline_theme='onedark'
