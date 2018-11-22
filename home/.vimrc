@@ -86,6 +86,7 @@ Plug 'yaymukund/vim-rabl'
 Plug 'epilande/vim-es2015-snippets'
 Plug 'epilande/vim-react-snippets'
 Plug 'SirVer/ultisnips'
+Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 
 
 call plug#end()
@@ -217,8 +218,6 @@ map <silent> gC :Gcommit -a<CR>
 map <silent> gl :gitv<CR>
 map <silent> gs :Gstatus<CR>
 
-nmap <leader>p :!mkdir -p %:p:h<cr>
-
 "Expression mappings.
 cabbr <expr> %% expand('%:p:h')
 
@@ -290,6 +289,7 @@ let g:gist_post_private = 1
 let python_highlight_all = 1
 
 "vim tricks"
+nnoremap <Leader>` :Prettier<CR>
 nnoremap <Leader>e :e<CR>
 nnoremap <Leader>w :w<CR>
 nnoremap <Leader>q :q<CR>
