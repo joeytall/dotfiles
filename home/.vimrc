@@ -26,6 +26,7 @@ endfunction
 set clipboard=unnamedplus
 call plug#begin('~/.vim/plugged')
 
+Plug 'vim-perl/vim-perl', { 'for': 'perl', 'do': 'make clean carp dancer highlight-all-pragmas moose test-more try-tiny' }
 Plug 'andreshazard/vim-freemarker'
 Plug 'MarcWeber/vim-addon-mw-utils'
 Plug 'Raimondi/delimitMate'
@@ -184,6 +185,7 @@ autocmd BufNewFile,BufRead *.aspx set filetype=javascript
 autocmd BufNewFile,BufRead *.ascx set filetype=javascript
 autocmd BufNewFile,BufRead *.asmx set filetype=aspnet
 autocmd BufNewFile,BufRead *.amazonrc set filetype=zsh
+autocmd BufNewFile,BufRead Config set filetype=perl
 
 "db.ext
 let g:dbext_default_profile_trap='type=pgsql:host=172.16.69.83:user=trapuser:dbname=trapdb:passwd=trapuser'
