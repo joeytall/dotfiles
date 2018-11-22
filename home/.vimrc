@@ -84,6 +84,11 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'vim-scripts/dbext.vim'
 Plug 'vim-syntastic/syntastic', { 'do': function('Installeslint') }
 Plug 'yaymukund/vim-rabl'
+Plug 'epilande/vim-es2015-snippets'
+Plug 'epilande/vim-react-snippets'
+Plug 'SirVer/ultisnips'
+Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
+
 
 call plug#end()
 
@@ -157,12 +162,13 @@ set undolevels=100
 set wildmode=longest,list
 set wildmenu
 
-"from Jared"
 let g:ctrlp_cmd = 'CtrlPMixed'
 let g:ctrlp_working_path_mode = '' " Stop messing with the path
 let g:ctrlp_match_window_bottom = 1
 let g:ctrlp_jump_to_buffer = 2 " Jump to tab AND buffer if already open
 let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git\|coverage\|vendor/bundle\|build\|**/*.pyc\|**/*.edited\|**/*.diff\|**/*.deb'
+
+let g:UltiSnipsExpandTrigger="<C-l>"
 
 let mapleader = ' '
 let g:airline_theme='onedark'
@@ -213,8 +219,6 @@ map <silent> gc :Gcommit<CR>
 map <silent> gC :Gcommit -a<CR>
 map <silent> gl :gitv<CR>
 map <silent> gs :Gstatus<CR>
-
-nmap <leader>p :!mkdir -p %:p:h<cr>
 
 "Expression mappings.
 cabbr <expr> %% expand('%:p:h')
@@ -287,6 +291,7 @@ let g:gist_post_private = 1
 let python_highlight_all = 1
 
 "vim tricks"
+nnoremap <Leader>` :Prettier<CR>
 nnoremap <Leader>e :e<CR>
 nnoremap <Leader>w :w<CR>
 nnoremap <Leader>q :q<CR>

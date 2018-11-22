@@ -42,3 +42,5 @@ alias sslwc='cd ~/workplace/SSL/src/AWSMPSellerProductPortalWebsiteContent'
 
 alias ammp='cd ~/workplace/AMMP/src/AWSMPSellerPortalServlet'
 
+#auth
+alias auth='kinit -f && mwinit -o'
