@@ -1,11 +1,16 @@
-alias scd='ssh dev-dsk-lijoey-2b-d7b69339.us-west-2.amazon.com'
+alias scd='ssh dev-dsk-lijoey-2b-ab7d27b5.us-west-2.amazon.com'
 
 #ninja
 alias ninja='ninja-dev-sync'
 alias ninjaconfig='vim ~/.config/ninja-dev-sync.json'
 
+#cookie
+alias cookie='python ~/Documents/scripts/cookie.py'
+
 #brazil
 alias bb='brazil-build'
+alias bbs='bb server'
+alias bbr='bb release'
 
 alias bba='brazil-build apollo-pkg'
 alias bre='brazil-runtime-exec'
@@ -22,6 +27,9 @@ alias bbra='bbr apollo-pkg'
 #custom brazil
 alias bclean='bws --clean'
 alias bsync='bws --sync --md'
+alias bvs='bws use -vs'
+alias bshow='bws show'
+alias bplatform='brazil vs print -vs $1 | grep Platforms'
 
 #auth
 alias auth='kinit -f && mwinit -o'
@@ -39,8 +47,48 @@ alias sslasset='cd ~/workplace/SSL/src/AWSMPSellerProductPortalAssets'
 alias ssltest='cd ~/workplace/SSL/src/AWSMPSellerProductPortalAPIIntegTests'
 alias sslbbtest='cd ~/workplace/SSL/src/AWSMPSellerProductPortalBlackBoxTests'
 alias sslwc='cd ~/workplace/SSL/src/AWSMPSellerProductPortalWebsiteContent'
+alias sslmetrics='cd ~/workplace/SSL/src/AWSMPSellerProductPortalMetrics'
 
-alias ammp='cd ~/workplace/AMMP/src/AWSMPSellerPortalServlet'
+alias ammp='cd ~/workplace/AMMP/src/'
+alias ammpservlet='cd ~/workplace/AMMP/src/AWSMPSellerPortalServlet'
+alias ammpsupport='cd ~/workplace/AMMP/src/AWSMPSellerSupportAssets'
+alias ammpasset='cd ~/workplace/AMMP/src/AWSMPS2ManagementPortalWebsiteAssets'
+alias ammptest='cd ~/workplace/AMMP/src/AWSMPManagementPortalUITests'
+alias commonlib='cd ~/workplace/AMMP/src/AMMPCommonLib'
 
-#auth
-alias auth='kinit -f && mwinit -o'
+alias emtfe='cd ~/workplace/EMTFE/src/AWSMPCatalogAuthoringDevToolsWebsite'
+alias emtbe='cd ~/workplace/EMTBE/src/AWSMPCatalogAuthoringWorkflows'
+alias emtbetest='cd ~/workplace/EMTBE/src/AWSMPCatalogAuthoringWorkflowsIntegTests'
+
+alias pss='cd ~/workplace/PS/src/AWSMPProductService'
+alias pstest='cd ~/workplace/PS/src/AWSMPProductServiceIntegrationTests'
+
+alias pms='cd ~/workplace/PMS/src/AWSMPProductManagementService'
+alias pmstest='cd ~/workplace/PMS/src/AWSMPProductManagementServiceIntegTests'
+
+alias prepjobs='cd ~/workplace/PrepJobs/src/AWSMPAMIPrepJobs'
+alias sslscripts='cd ~/workplace/SSLScripts/src/AWSMPSSLScripts'
+
+alias proto='cd ~/workplace/SSLV2Prototype/src/AWSMPSellerSSLRenderingServiceProto'
+alias protoasset='cd ~/workplace/SSLV2Prototype/src/AWSMPSellerSSLRenderingServiceAssetsProto'
+
+alias lambda='cd ~/workplace/APILambda/src/AWSMPSellerAPILambda'
+alias wf='cd ~/workplace/APIWorkflow/src/AWSMPServerProductChangeWorkflowsLambda'
+alias mcd='cd ~/workplace/MCDConvertor/src/AWSMPProductMcdDocVersionConvertorIntegTests'
+
+alias seymour='cd ~/workplace/AWSMPSeymour/src/AWSMPSeymour'
+
+alias seawall='cd ~/workplace/Seawall/src/AWSMPSeawallStaticWebsite'
+alias seawalltest='cd ~/workplace/Seawall/src/AWSMPSeawallSeleniumTests'
+alias seawalllpt='cd ~/workplace/SeawallLpt/src/'
+alias ui1demo='cd ~/workplace/UI1demo/src/AWSMPSeawallStaticWebsite'
+
+alias autoforms='cd ~/workplace/Autoforms/src/AWSAutoForms'
+
+#others
+alias fixconflict='gk-fix-mv-conflicts'
+alias cc='gpu && cr'
+
+function cpa() {
+eval "scp 172.19.22.65:$2 ~/Downloads"
+}

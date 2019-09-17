@@ -70,6 +70,8 @@ alias clone="git clone"
 alias rb="git rebase -i"
 alias gpu="git pull"
 alias gcl="git clone"
+alias gcp="git cherry-pick"
+alias gcpc="git cherry-pick --continue"
 
 function rbh(){
   eval "git rebase -i HEAD~$1"
@@ -83,9 +85,9 @@ alias track="git branch -u origin/master"
 alias reset="git reset"
 alias reset1="git reset HEAD~1"
 alias reflog="git reflog"
-alias st="git stash"
+alias st="git stash --include-untracked"
 alias sts="git stash save"
-alias sta="git stash apply"
+alias stp="git stash pop"
 alias stl="git stash list"
 alias std="git stash drop"
 alias stc="git stash clear"
@@ -116,18 +118,9 @@ alias agrm="sudo apt-get remove"
 
 # InterfaceLift Downloader
 alias dw="downloadwallpaper"
-alias dw1080="interfacelift-downloader 1920x1080 Pictures/background/interfaceLift/1920x1080"
 function downloadwallpaper() {
-  interfacelift-downloader 3840x2160 ~/Pictures/background/interfaceLift/3840x2160
   interfacelift-downloader 3440x1440 ~/Pictures/background/interfaceLift/3440x1440
-  interfacelift-downloader 2560x1600 ~/Pictures/background/interfaceLift/2560x1600
   interfacelift-downloader 2560x1440 ~/Pictures/background/interfaceLift/2560x1440
-  interfacelift-downloader 2048x2048 ~/Pictures/background/interfaceLift/2048x2048
-  interfacelift-downloader 1920x1080 ~/Pictures/background/interfaceLift/1920x1080
-  interfacelift-downloader 1920x1200 ~/Pictures/background/interfaceLift/1920x1200
-  interfacelift-downloader 1200x1920 ~/Pictures/background/interfaceLift/1200x1920
-  interfacelift-downloader 1280x800 ~/Pictures/background/interfaceLift/1280x800
-  interfacelift-downloader 1440x900 ~/Pictures/background/interfaceLift/1440x900
 }
 
 function neovimsetup(){
@@ -174,3 +167,5 @@ alias sysinfo="landscape-sysinfo"
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
+export PATH="/usr/local/opt/node@8/bin:$PATH"
+export PATH="/usr/local/opt/node@10/bin:$PATH"

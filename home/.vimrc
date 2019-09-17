@@ -59,7 +59,7 @@ Plug 'moll/vim-node'
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'othree/html5.vim'
 Plug 'pangloss/vim-javascript'
-Plug 'mxw/vim-jsx'
+" Plug 'mxw/vim-jsx'
 Plug 'posva/vim-vue'
 Plug 'python-mode/python-mode', {'branch': 'develop'}
 Plug 'rking/ag.vim'
@@ -84,10 +84,9 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'vim-scripts/dbext.vim'
 Plug 'vim-syntastic/syntastic', { 'do': function('Installeslint') }
 Plug 'yaymukund/vim-rabl'
-Plug 'epilande/vim-es2015-snippets'
-Plug 'epilande/vim-react-snippets'
-Plug 'SirVer/ultisnips'
-Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
+" Plug 'epilande/vim-es2015-snippets'
+" Plug 'epilande/vim-react-snippets'
+" Plug 'SirVer/ultisnips'
 
 
 call plug#end()
@@ -291,7 +290,6 @@ let g:gist_post_private = 1
 let python_highlight_all = 1
 
 "vim tricks"
-nnoremap <Leader>` :Prettier<CR>
 nnoremap <Leader>e :e<CR>
 nnoremap <Leader>w :w<CR>
 nnoremap <Leader>q :q<CR>
@@ -347,3 +345,4 @@ let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
 
 "No New Line eol
 :set nofixendofline
+:set noeol
