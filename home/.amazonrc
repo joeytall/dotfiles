@@ -1,4 +1,4 @@
-alias scd='ssh dev-dsk-lijoey-2b-ab7d27b5.us-west-2.amazon.com'
+alias scd='ssh lijoey.aka.corp.amazon.com'
 
 #ninja
 alias ninja='ninja-dev-sync'
@@ -32,9 +32,20 @@ alias bshow='bws show'
 alias bplatform='brazil vs print -vs $1 | grep Platforms'
 
 #auth
+alias kinitkeychain='kinit -f -l90d --keychain'
 alias auth='kinit -f && mwinit -o'
 
 #shortcuts
+alias con='cd ~/workplace/Consensus/src/'
+alias rsrde='cd ~/workplace/RDE/src/RDE-ReviewService/'
+alias rs='cd ~/workplace/ReviewService/src/ReviewService/'
+alias rscommon='cd ~/workplace/ReviewService/src/ReviewCommons/'
+alias rsdao='cd ~/workplace/ReviewService/src/ReviewDAO/'
+alias rstest='cd ~/workplace/ReviewService/src/ReviewServiceTests/'
+alias rsfeold='cd ~/workplace/ReviewServiceWebsite/src/ReviewStaticWebsiteAssets'
+alias rsfe='cd ~/workplace/ReviewServiceWebsite/src/ReviewServiceFrontEnd'
+
+#seller-exp
 alias cont='cd ~/workplace/Contessa/src/'
 alias contconf='cd ~/workplace/Contessa/src/AWSMPContessaSellerChromeConfiguration'
 alias conttest='cd ~/workplace/Contessa/src/AWSMPContessaPlatformIntegrationTests'
@@ -42,18 +53,22 @@ alias contwc='cd ~/workplace/Contessa/src/AWSMPContessaWebsiteContent'
 alias contcomp='cd ~/workplace/Contessa/src/AWSMPContessaPlatformComponents'
 
 alias ssl='cd ~/workplace/SSL/src/'
-alias sslfe='cd ~/workplace/SSL/src/AWSMPSSLFrontend'
-alias sslasset='cd ~/workplace/SSL/src/AWSMPSellerProductPortalAssets'
 alias ssltest='cd ~/workplace/SSL/src/AWSMPSellerProductPortalAPIIntegTests'
-alias sslbbtest='cd ~/workplace/SSL/src/AWSMPSellerProductPortalBlackBoxTests'
 alias sslwc='cd ~/workplace/SSL/src/AWSMPSellerProductPortalWebsiteContent'
 alias sslmetrics='cd ~/workplace/SSL/src/AWSMPSellerProductPortalMetrics'
+alias sslcanary='cd ~/workplace/SSLCanary/src/AWSMPSellerProductPortalSecurityCanaries'
+alias ssllpt='cd ~/workplace/SSLLpt/src/AWSMPSellerProductPortalLpt'
+
+alias sslfe='cd ~/workplace/SSLFE/src/AWSMPSSLFrontend'
+alias sslasset='cd ~/workplace/SSLFE/src/AWSMPSellerProductPortalAssets'
+alias sslbbtest='cd ~/workplace/SSLFE/src/AWSMPSellerProductPortalBlackBoxTests'
 
 alias ammp='cd ~/workplace/AMMP/src/'
 alias ammpservlet='cd ~/workplace/AMMP/src/AWSMPSellerPortalServlet'
 alias ammpsupport='cd ~/workplace/AMMP/src/AWSMPSellerSupportAssets'
 alias ammpasset='cd ~/workplace/AMMP/src/AWSMPS2ManagementPortalWebsiteAssets'
 alias ammptest='cd ~/workplace/AMMP/src/AWSMPManagementPortalUITests'
+alias ammpcanary='cd ~/workplace/AMMPSecurityCanary/src/AWSMPSellerPortalSecurityCanaries'
 alias commonlib='cd ~/workplace/AMMP/src/AMMPCommonLib'
 
 alias emtfe='cd ~/workplace/EMTFE/src/AWSMPCatalogAuthoringDevToolsWebsite'
@@ -79,9 +94,10 @@ alias mcd='cd ~/workplace/MCDConvertor/src/AWSMPProductMcdDocVersionConvertorInt
 alias seymour='cd ~/workplace/AWSMPSeymour/src/AWSMPSeymour'
 
 alias seawall='cd ~/workplace/Seawall/src/AWSMPSeawallStaticWebsite'
-alias seawalltest='cd ~/workplace/Seawall/src/AWSMPSeawallSeleniumTests'
+alias seawallnew='cd ~/workplace/Seawall/src/AWSMPSeawallFrontend'
+alias seawalltest='cd ~/workplace/Seawall/src/AWSMPSeawallTests'
 alias seawalllpt='cd ~/workplace/SeawallLpt/src/'
-alias ui1demo='cd ~/workplace/UI1demo/src/AWSMPSeawallStaticWebsite'
+alias seawallmetrics='cd ~/workplace/SeawallInfrastructure/src/AWSMPSeawallMetricsInfrastructure'
 
 alias autoforms='cd ~/workplace/Autoforms/src/AWSAutoForms'
 

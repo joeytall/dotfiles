@@ -84,6 +84,7 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'vim-scripts/dbext.vim'
 Plug 'vim-syntastic/syntastic', { 'do': function('Installeslint') }
 Plug 'yaymukund/vim-rabl'
+Plug 'lepture/vim-jinja'
 " Plug 'epilande/vim-es2015-snippets'
 " Plug 'epilande/vim-react-snippets'
 " Plug 'SirVer/ultisnips'
