@@ -164,6 +164,8 @@ alias weather="curl wttr.in/vancouver"
 alias tmux="TERM=screen-256color-bce tmux"
 alias sysinfo="landscape-sysinfo"
 
+alias mackeyrepeat="defaults write -g InitialKeyRepeat -int 15 && defaults write -g KeyRepeat -int 1"
+
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
 export PATH="/usr/local/opt/node@8/bin:$PATH"

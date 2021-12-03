@@ -334,6 +334,7 @@ let g:pymode_rope= 0
 let g:pymode_rope_completion = 0
 let g:pymode_rope_lookup_project = 0
 let g:pymode_options_colorcolumn = 0
+let g:snipMate = { 'snippet_version' : 1 }
 
 "Eliminate delays on ESC
 set timeoutlen=1000 ttimeoutlen=0
