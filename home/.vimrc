@@ -31,7 +31,7 @@ Plug 'andreshazard/vim-freemarker'
 Plug 'MarcWeber/vim-addon-mw-utils'
 Plug 'Raimondi/delimitMate'
 Plug 'StanAngeloff/php.vim'
-Plug 'Valloric/YouCompleteMe', { 'do': function('BuildYCM') }
+" Plug 'Valloric/YouCompleteMe', { 'do': function('BuildYCM') }
 Plug 'ap/vim-css-color'
 Plug 'bitc/vim-bad-whitespace'
 Plug 'bling/vim-airline'

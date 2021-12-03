@@ -23,6 +23,7 @@ alias bbr='brc brazil-build'
 alias bball='brc --allPackages'
 alias bbb='brc --allPackages brazil-build'
 alias bbra='bbr apollo-pkg'
+alias bbcr='bb clean && bb release'
 
 #custom brazil
 alias bclean='bws --clean'
@@ -33,73 +34,24 @@ alias bplatform='brazil vs print -vs $1 | grep Platforms'
 
 #auth
 alias kinitkeychain='kinit -f -l90d --keychain'
-alias auth='kinit -f && mwinit -o'
+alias auth='kinit -f && mwinit -s'
 
 #shortcuts
-alias con='cd ~/workplace/Consensus/src/'
-alias rsrde='cd ~/workplace/RDE/src/RDE-ReviewService/'
-alias rs='cd ~/workplace/ReviewService/src/ReviewService/'
-alias rscommon='cd ~/workplace/ReviewService/src/ReviewCommons/'
-alias rsdao='cd ~/workplace/ReviewService/src/ReviewDAO/'
-alias rstest='cd ~/workplace/ReviewService/src/ReviewServiceTests/'
-alias rsfeold='cd ~/workplace/ReviewServiceWebsite/src/ReviewStaticWebsiteAssets'
-alias rsfe='cd ~/workplace/ReviewServiceWebsite/src/ReviewServiceFrontEnd'
-
-#seller-exp
-alias cont='cd ~/workplace/Contessa/src/'
-alias contconf='cd ~/workplace/Contessa/src/AWSMPContessaSellerChromeConfiguration'
-alias conttest='cd ~/workplace/Contessa/src/AWSMPContessaPlatformIntegrationTests'
-alias contwc='cd ~/workplace/Contessa/src/AWSMPContessaWebsiteContent'
-alias contcomp='cd ~/workplace/Contessa/src/AWSMPContessaPlatformComponents'
-
-alias ssl='cd ~/workplace/SSL/src/'
-alias ssltest='cd ~/workplace/SSL/src/AWSMPSellerProductPortalAPIIntegTests'
-alias sslwc='cd ~/workplace/SSL/src/AWSMPSellerProductPortalWebsiteContent'
-alias sslmetrics='cd ~/workplace/SSL/src/AWSMPSellerProductPortalMetrics'
-alias sslcanary='cd ~/workplace/SSLCanary/src/AWSMPSellerProductPortalSecurityCanaries'
-alias ssllpt='cd ~/workplace/SSLLpt/src/AWSMPSellerProductPortalLpt'
-
-alias sslfe='cd ~/workplace/SSLFE/src/AWSMPSSLFrontend'
-alias sslasset='cd ~/workplace/SSLFE/src/AWSMPSellerProductPortalAssets'
-alias sslbbtest='cd ~/workplace/SSLFE/src/AWSMPSellerProductPortalBlackBoxTests'
-
-alias ammp='cd ~/workplace/AMMP/src/'
-alias ammpservlet='cd ~/workplace/AMMP/src/AWSMPSellerPortalServlet'
-alias ammpsupport='cd ~/workplace/AMMP/src/AWSMPSellerSupportAssets'
-alias ammpasset='cd ~/workplace/AMMP/src/AWSMPS2ManagementPortalWebsiteAssets'
-alias ammptest='cd ~/workplace/AMMP/src/AWSMPManagementPortalUITests'
-alias ammpcanary='cd ~/workplace/AMMPSecurityCanary/src/AWSMPSellerPortalSecurityCanaries'
-alias commonlib='cd ~/workplace/AMMP/src/AMMPCommonLib'
-
-alias emtfe='cd ~/workplace/EMTFE/src/AWSMPCatalogAuthoringDevToolsWebsite'
-alias emtbe='cd ~/workplace/EMTBE/src/AWSMPCatalogAuthoringWorkflows'
-alias emtbetest='cd ~/workplace/EMTBE/src/AWSMPCatalogAuthoringWorkflowsIntegTests'
-
-alias pss='cd ~/workplace/PS/src/AWSMPProductService'
-alias pstest='cd ~/workplace/PS/src/AWSMPProductServiceIntegrationTests'
-
-alias pms='cd ~/workplace/PMS/src/AWSMPProductManagementService'
-alias pmstest='cd ~/workplace/PMS/src/AWSMPProductManagementServiceIntegTests'
-
-alias prepjobs='cd ~/workplace/PrepJobs/src/AWSMPAMIPrepJobs'
-alias sslscripts='cd ~/workplace/SSLScripts/src/AWSMPSSLScripts'
-
-alias proto='cd ~/workplace/SSLV2Prototype/src/AWSMPSellerSSLRenderingServiceProto'
-alias protoasset='cd ~/workplace/SSLV2Prototype/src/AWSMPSellerSSLRenderingServiceAssetsProto'
-
-alias lambda='cd ~/workplace/APILambda/src/AWSMPSellerAPILambda'
-alias wf='cd ~/workplace/APIWorkflow/src/AWSMPServerProductChangeWorkflowsLambda'
-alias mcd='cd ~/workplace/MCDConvertor/src/AWSMPProductMcdDocVersionConvertorIntegTests'
-
-alias seymour='cd ~/workplace/AWSMPSeymour/src/AWSMPSeymour'
-
-alias seawall='cd ~/workplace/Seawall/src/AWSMPSeawallStaticWebsite'
-alias seawallnew='cd ~/workplace/Seawall/src/AWSMPSeawallFrontend'
-alias seawalltest='cd ~/workplace/Seawall/src/AWSMPSeawallTests'
-alias seawalllpt='cd ~/workplace/SeawallLpt/src/'
-alias seawallmetrics='cd ~/workplace/SeawallInfrastructure/src/AWSMPSeawallMetricsInfrastructure'
-
-alias autoforms='cd ~/workplace/Autoforms/src/AWSAutoForms'
+alias rome='cd ~/workspace/RomeStaticWebsite/src/RomeStaticWebsite'
+alias rsrde='cd ~/workspace/RDE/src/RDE-ReviewService/'
+alias rs='cd ~/workspace/ReviewService/src/ReviewService/'
+alias rscommon='cd ~/workspace/ReviewService/src/ReviewCommons/'
+alias rsdao='cd ~/workspace/ReviewService/src/ReviewDAO/'
+alias rstest='cd ~/workspace/ReviewService/src/ReviewServiceTests/'
+alias rsfe='cd ~/workspace/ReviewServiceWebsite/src/ReviewServiceFrontEnd'
+alias rsfe3='cd ~/workspace/Polaris3.0/src/ReviewServiceFrontEnd'
+alias rsfesite='cd ~/workspace/ReviewServiceWebsite/src/ReviewStaticWebsite'
+alias rsfelpt='cd ~/workspace/ReviewStaticWebsiteLpt/src/ReviewStaticWebsiteLpt'
+alias rsfecdk='cd /Users/lijoey/workspace/ReviewStaticWebsiteCanary/src/ReviewStaticWebsiteCanaryCDK'
+alias rsfetest='cd ~/workspace/ReviewServiceWebsite/src/ReviewServiceFrontEndTests'
+alias rsconfig='cd ~/workspace/ReviewServiceConfig/src/ReviewServiceSDCConfigData'
+alias rsdatainfra='cd ~/workspace/ReviewDataPlaneInfrastructure/src/ReviewDataPlaneInfrastructure'
+alias sshtunnel='ssh -L 2009:localhost:2009 lijoey.aka.corp.amazon.com -f -N'
 
 #others
 alias fixconflict='gk-fix-mv-conflicts'
