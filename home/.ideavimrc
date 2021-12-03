@@ -1,0 +1,29 @@
+let mapleader = ' '
+nnoremap <Leader>w :w<CR>
+nnoremap <Leader>q :q<CR>
+nnoremap <Leader>wq :wq<CR>
+
+map <silent> <bs> <C-W>h
+map <silent> <C-J> <C-W>j
+map <silent> <C-K> <C-W>k
+map <silent> <C-H> <C-W>h
+map <silent> <C-L> <C-W>l
+" map <silent> <S-H> <C-W>H
+" map <silent> <S-L> <C-W>L
+" map <silent> <S-K> <C-W>K
+
+"No New Line eol
+set nofixendofline
+
+set smartcase
+set surround
+
+if !&scrolloff
+  set scrolloff=10       " Show next 3 lines while scrolling.
+endif
+if !&sidescrolloff
+  set sidescrolloff=5   " Show next 5 columns while side-scrolling.
+endif
+
+set relativenumber
+set number
