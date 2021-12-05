@@ -135,8 +135,7 @@ alias downloadwebsite="wget -r -p -U chrome"
 # Open file in Chrome
 alias chrome="open -a 'Google Chrome'"
 
-# CoffeeScript from coffee/ to js/
-alias coffeewatch="coffee -o js/ -cw coffee/*.coffee"
+alias hg="history 200 | grep"
 
 # Directory Shortcut, only works in Tero
 alias azzier="cd /Volumes/t119/Development/"
@@ -154,6 +153,7 @@ fancy-ctrl-z () {
 }
 zle -N fancy-ctrl-z
 bindkey '^Z' fancy-ctrl-z
+bindkey '^ ' autosuggest-accept
 
 # JSON resume
 alias updateresume="resume export resume.html --theme elegant && wkhtmltopdf resume.html resume.pdf"

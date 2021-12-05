@@ -8,5 +8,8 @@
   ignore = dirty
 [submodule "home/.zsh/zsh-syntax-highlighting"]
 	path = home/.zsh/zsh-syntax-highlighting
-	url = git://github.com/zsh-users/zsh-syntax-highlighting
+	url = https://github.com/zsh-users/zsh-syntax-highlighting
   ignore = dirty
+[submodule "home/home/.zsh/zsh-syntax-highlighting"]
+	path = home/home/.zsh/zsh-syntax-highlighting
+	url = https://github.com/zsh-users/zsh-syntax-highlighting
