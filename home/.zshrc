@@ -1,4 +1,11 @@
-ZSH_THEME="dracula"
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
+ZSH_THEME="powerlevel10k/powerlevel10k"
 
 # Source Prezto.
 if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
@@ -7,6 +14,7 @@ fi
 
 # Add zsh-autocomplete + syntax
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+# source ~/.zsh/zsh-autocomplete/zsh-autocomplete.plugin.zsh
 source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # Add Amazon settings
@@ -111,16 +119,21 @@ alias np="npm prune"
 alias ns="npm start"
 alias nu="npm update"
 
+# Mac
+alias debounce="cd ~/projects/debounce-mac-master && ./debounce"
+
 # Ubuntu
 alias agi="sudo apt-get install"
 alias agup="sudo apt-get update && apt-get upgrade"
 alias agrm="sudo apt-get remove"
 
+alias python="/Users/lijoey/.pyenv/versions/3.7.13/bin/python"
+
 # InterfaceLift Downloader
 alias dw="downloadwallpaper"
 function downloadwallpaper() {
-  interfacelift-downloader 3440x1440 ~/Pictures/background/interfaceLift/3440x1440
-  interfacelift-downloader 2560x1440 ~/Pictures/background/interfaceLift/2560x1440
+  interfacelift-downloader 5120x1440 ~/Pictures/wallpaper/interfaceLift/5120x1440
+  interfacelift-downloader 3840x2160 ~/Pictures/wallpaper/interfaceLift/3840x2160
 }
 
 function neovimsetup(){
@@ -160,7 +173,7 @@ alias updateresume="resume export resume.html --theme elegant && wkhtmltopdf res
 alias postresume="resume publish --theme elegant"
 
 #Fun fun Fun
-alias weather="curl wttr.in/vancouver"
+alias weather="curl 'wttr.in/vancouver?m'"
 
 alias tmux="TERM=screen-256color-bce tmux"
 alias sysinfo="landscape-sysinfo"
@@ -174,3 +187,8 @@ export PATH="/usr/local/opt/node@10/bin:$PATH"
 
 export PATH=$HOME/.toolbox/bin:$PATH
 export PATH="/usr/local/opt/curl-openssl/bin:$PATH"
+export JAVA_TOOLS_OPTIONS="-Dlog4j2.formatMsgNoLookups=true"
+source ~/powerlevel10k/powerlevel10k.zsh-theme
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh

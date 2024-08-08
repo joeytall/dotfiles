@@ -7,6 +7,8 @@ alias ninjaconfig='vim ~/.config/ninja-dev-sync.json'
 #cookie
 alias cookie='python ~/Documents/scripts/cookie.py'
 
+alias adaa='ada credentials update --account 301064885133 --role admin'
+
 #brazil
 alias bb='brazil-build'
 alias bbs='bb server'
@@ -31,32 +33,53 @@ alias bsync='bws --sync --md'
 alias bvs='bws use -vs'
 alias bshow='bws show'
 alias bplatform='brazil vs print -vs $1 | grep Platforms'
+function checkversionset(){
+  eval "bws use --vs $1 && brazil vs print -vs $1 | grep -E `^ +Log4j-core-`"
+}
+
 
 #auth
 alias kinitkeychain='kinit -f -l90d --keychain'
-alias auth='kinit -f && mwinit -s'
+alias auth='kinit -f && mwinit -s && scp ~/.midway/cookie lijoey@lijoey.aka.corp.amazon.com:/home/lijoey/.midway/'
 
 #shortcuts
 alias rome='cd ~/workspace/RomeStaticWebsite/src/RomeStaticWebsite'
+alias romedns='cd ~/workspace/RomeDnsDelegation/src/RomeDnsDelegationCDK'
+alias romeaccounts='cd ~/workspace/RomeAccounts/src/RomeAccountsGeneratorCDK'
+alias romeconfig='cd ~/workspace/RomeConfig/src/RomeSDCConfigData'
+alias romeapidocs='cd ~/workspace/RomeApiDocs/src/RomeApiDocs'
+alias romeconsole='cd ~/workspace/RomeConsole/src/RomeConsole'
+alias romeconsolecanary='cd ~/workspace/RomeConsoleCanary/src/RomeConsoleCanaryCDK'
+alias romeconsoletests='cd ~/workspace/RomeConsole/src/RomeConsoleTests'
+alias romeconsolecdk='cd ~/workspace/RomeConsole/src/RomeConsoleCDK'
+alias romedataplane='cd ~/workspace/RomeDataPlaneCDK/src/RomeDataPlaneCDK'
+alias romeglue='cd ~/workspace/RomeDataPlaneCDK/src/RomeDataPlaneGlueScripts'
+alias romecdk='cd ~/workspace/RomeCDK/src/RomeCDK'
+alias romelambda='cd ~/workspace/RomeCDK/src/RomeLambda'
+alias romemodel='cd ~/workspace/RomeCDK/src/RomeLambdaModel'
+alias romelambdatests='cd ~/workspace/RomeCDK/src/RomeLambdaTests'
 alias rsrde='cd ~/workspace/RDE/src/RDE-ReviewService/'
 alias rs='cd ~/workspace/ReviewService/src/ReviewService/'
 alias rscommon='cd ~/workspace/ReviewService/src/ReviewCommons/'
 alias rsdao='cd ~/workspace/ReviewService/src/ReviewDAO/'
 alias rstest='cd ~/workspace/ReviewService/src/ReviewServiceTests/'
-alias rsfe='cd ~/workspace/ReviewServiceWebsite/src/ReviewServiceFrontEnd'
-alias rsfe3='cd ~/workspace/Polaris3.0/src/ReviewServiceFrontEnd'
-alias rsfesite='cd ~/workspace/ReviewServiceWebsite/src/ReviewStaticWebsite'
+alias rsfe='cd ~/workspace/ReviewStaticWebsite/src/ReviewServiceFrontEnd'
+alias rsfesite='cd ~/workspace/ReviewStaticWebsite/src/ReviewStaticWebsite'
 alias rsfelpt='cd ~/workspace/ReviewStaticWebsiteLpt/src/ReviewStaticWebsiteLpt'
 alias rsfecdk='cd /Users/lijoey/workspace/ReviewStaticWebsiteCanary/src/ReviewStaticWebsiteCanaryCDK'
-alias rsfetest='cd ~/workspace/ReviewServiceWebsite/src/ReviewServiceFrontEndTests'
+alias rsfetest='cd ~/workspace/ReviewStaticWebsite/src/ReviewServiceFrontEndTests'
 alias rsconfig='cd ~/workspace/ReviewServiceConfig/src/ReviewServiceSDCConfigData'
 alias rsdatainfra='cd ~/workspace/ReviewDataPlaneInfrastructure/src/ReviewDataPlaneInfrastructure'
 alias sshtunnel='ssh -L 2009:localhost:2009 lijoey.aka.corp.amazon.com -f -N'
 
 #others
+alias emaillookup='brazil-build cdk synth --plugin="@amzn/isengard-cdk-context-provider"'
 alias fixconflict='gk-fix-mv-conflicts'
 alias cc='gpu && cr'
 
 function cpa() {
-eval "scp 172.19.22.65:$2 ~/Downloads"
+  eval "scp 172.19.22.65:$2 ~/Downloads"
 }
+export DEV_ACCOUNT_ID='004940850951'
+export USER='lijoey'
+

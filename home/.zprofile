@@ -76,3 +76,5 @@ if [[ ! -d "$TMPPREFIX" ]]; then
 fi
 
 export PATH=$HOME/bin:$HOME/.toolbox/bin:$PATH
+export JAVA_TOOLS_OPTIONS="-DLog4j2.formatMsgNoLookups=true"
+export JAVA_TOOLS_OPTIONS="-Dlog4j2.formatMsgNoLookups=true"
