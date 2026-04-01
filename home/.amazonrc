@@ -8,6 +8,7 @@ alias ninjaconfig='vim ~/.config/ninja-dev-sync.json'
 alias cookie='python ~/Documents/scripts/cookie.py'
 
 alias adaa='ada credentials update --account 301064885133 --role admin'
+alias adaexp='ada credentials update --account 640168421927 --role admin'
 
 #brazil
 alias bb='brazil-build'
@@ -40,7 +41,7 @@ function checkversionset(){
 
 #auth
 alias kinitkeychain='kinit -f -l90d --keychain'
-alias auth='kinit -f && mwinit -s && scp ~/.midway/cookie lijoey@lijoey.aka.corp.amazon.com:/home/lijoey/.midway/'
+alias auth='rm -rf ~/.midway/cookie &&  mwinit -s -f && scp ~/.midway/cookie lijoey@lijoey.aka.corp.amazon.com:/home/lijoey/.midway/'
 
 #shortcuts
 alias rome='cd ~/workspace/RomeStaticWebsite/src/RomeStaticWebsite'
@@ -52,14 +53,19 @@ alias romeconsole='cd ~/workspace/RomeConsole/src/RomeConsole'
 alias romeconsolecanary='cd ~/workspace/RomeConsoleCanary/src/RomeConsoleCanaryCDK'
 alias romeconsoletests='cd ~/workspace/RomeConsole/src/RomeConsoleTests'
 alias romeconsolecdk='cd ~/workspace/RomeConsole/src/RomeConsoleCDK'
-alias romedataplane='cd ~/workspace/RomeDataPlaneCDK/src/RomeDataPlaneCDK'
-alias romeglue='cd ~/workspace/RomeDataPlaneCDK/src/RomeDataPlaneGlueScripts'
+alias romedataplane='cd ~/workspace/RomeDataPlane/src/RomeDataPlaneCDK'
+alias romeglue='cd ~/workspace/RomeDataPlane/src/RomeDataPlaneGlueScripts'
 alias romecdk='cd ~/workspace/RomeCDK/src/RomeCDK'
 alias romelambda='cd ~/workspace/RomeCDK/src/RomeLambda'
 alias romemodel='cd ~/workspace/RomeCDK/src/RomeLambdaModel'
 alias romelambdatests='cd ~/workspace/RomeCDK/src/RomeLambdaTests'
-alias rsrde='cd ~/workspace/RDE/src/RDE-ReviewService/'
-alias rs='cd ~/workspace/ReviewService/src/ReviewService/'
+
+# Medic
+alias rs='cd /Users/lijoey/workspace/ASBXMedicReportingService/src'
+alias mediclive='cd /Users/lijoey/workspace/ASBXMedicLive/src'
+alias medicmfe='cd /Users/lijoey/workspace/ASBXMedicMicroFrontEnd/src/ASBXMedicTicketingAssets'
+alias medicconsole='cd /Users/lijoey/workspace/ASBXMedicConsoleCDK/src/ASBXMedicConsoleUI'
+
 alias rscommon='cd ~/workspace/ReviewService/src/ReviewCommons/'
 alias rsdao='cd ~/workspace/ReviewService/src/ReviewDAO/'
 alias rstest='cd ~/workspace/ReviewService/src/ReviewServiceTests/'
@@ -70,8 +76,28 @@ alias rsfecdk='cd /Users/lijoey/workspace/ReviewStaticWebsiteCanary/src/ReviewSt
 alias rsfetest='cd ~/workspace/ReviewStaticWebsite/src/ReviewServiceFrontEndTests'
 alias rsconfig='cd ~/workspace/ReviewServiceConfig/src/ReviewServiceSDCConfigData'
 alias rsdatainfra='cd ~/workspace/ReviewDataPlaneInfrastructure/src/ReviewDataPlaneInfrastructure'
-alias sshtunnel='ssh -L 2009:localhost:2009 lijoey.aka.corp.amazon.com -f -N'
 
+alias kk='kiro-cli chat --agent medic-dev'
+alias romedev='kiro-cli chat --agent rome-dev'
+
+function newApp(){
+  export AWS_REGION=us-east-1 && ./bin/medic-ops-tools app generate-template --stage prod --name $1
+}
+
+function onboardApp(){
+  export AWS_REGION=us-east-1 && ./bin/medic-ops-tools app onboard --stage prod --name $1
+}
+
+alias sshtunnel='ssh -L 9000:lijoey.aka.corp.amazon.com:9000 lijoey.aka.corp.amazon.com -f -N'
+function sshTunnel(){
+   ssh -L $1\:lijoey.aka.corp.amazon.com:$1 lijoey.aka.corp.amazon.com -f -N
+}
+
+function killTunnels() {
+    pkill -f "ssh -L"
+    echo "All SSH tunnels have been closed."
+}
+alias buildall='brazil-recursive-cmd --allPackages brazil-build'
 #others
 alias emaillookup='brazil-build cdk synth --plugin="@amzn/isengard-cdk-context-provider"'
 alias fixconflict='gk-fix-mv-conflicts'
@@ -82,4 +108,12 @@ function cpa() {
 }
 export DEV_ACCOUNT_ID='004940850951'
 export USER='lijoey'
+export QUIP_API_TOKEN='TkdjOU1BTWVwVDI=|1779693055|KLgLyWfwxlPf3NRTRi6WgFffKtrhll4M7zjc/Nd+UtM='
 
+alias onboard-app='f() { cout "$1" && ./bin/medic-ops-tools app onboard --stage prod --name "$1" && ./bin/medic-ops-tools event put-simt-proxy --app-name="$1" --get-event }; f'
+alias gbco='f() { cout mainline && git branch "$1" && git checkout "$1" }; f'
+
+
+# Claude Code Bedrock Settings
+export CLAUDE_CODE_USE_BEDROCK=1
+export AWS_REGION=us-west-2

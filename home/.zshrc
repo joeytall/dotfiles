@@ -1,3 +1,7 @@
+
+# Kiro CLI pre block. Keep at the top of this file.
+[[ -f "${HOME}/Library/Application Support/kiro-cli/shell/zshrc.pre.zsh" ]] && builtin source "${HOME}/Library/Application Support/kiro-cli/shell/zshrc.pre.zsh"
+
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
@@ -5,12 +9,20 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+
 ZSH_THEME="powerlevel10k/powerlevel10k"
+
+typeset -g POWERLEVEL9K_INSTANT_PROMPT=quiet
 
 # Source Prezto.
 if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
+
+export CLICOLOR=1
 
 # Add zsh-autocomplete + syntax
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
@@ -23,6 +35,21 @@ source $HOME/.amazonrc
 export PATH="${HOME}/bin":${PATH}
 export PATH=$PATH:~/Library/Python/2.7/bin
 export TERM="xterm-256color"
+
+#set history size
+export HISTSIZE=10000
+#save history after logout
+export SAVEHIST=10000
+#history file
+export HISTFILE=~/.zsh_history
+#append into history file
+setopt INC_APPEND_HISTORY
+#save only one command if 2 common are same and consistent
+setopt HIST_IGNORE_DUPS
+#add timestamp for each entry
+setopt EXTENDED_HISTORY
+
+alias hg='history 0 | fzf -e'
 
 export EDITOR=nvim
 export SVN_EDITOR=nvim
@@ -42,7 +69,6 @@ alias vv="vim ~/.vimrc"
 alias vimplug="vim +PlugInstall +qall"
 alias sshon="sudo systemsetup -setremotelogin on"
 alias sshoff="sudo systemsetup -setremotelogin off"
-alias kk="rm -rf /root/.ssh/known_hosts"
 alias rr="rm -rf *.pyc"
 
 # Homesick Commands
@@ -106,6 +132,7 @@ alias branch="git branch -a"
 alias renamebranch="git branch -m"
 alias bd="git branch -D"
 alias workflow='git log --since="08:30:00" --format="%s%n%b" --author="$(git config --global user.name)" | grep "^[^(Change-id)]"'
+alias hd="cd ~/projects/plumwood-demo"
 
 # Brew
 alias bi="brew install"
@@ -148,8 +175,6 @@ alias downloadwebsite="wget -r -p -U chrome"
 # Open file in Chrome
 alias chrome="open -a 'Google Chrome'"
 
-alias hg="history 200 | grep"
-
 # Directory Shortcut, only works in Tero
 alias azzier="cd /Volumes/t119/Development/"
 alias samplexml="cd /Volumes/Telerik/UI\ for\ ASP.NET\ AJAX\ Q1\ 2014/Live\ Demos/App_Data"
@@ -180,15 +205,39 @@ alias sysinfo="landscape-sysinfo"
 
 alias mackeyrepeat="defaults write -g InitialKeyRepeat -int 15 && defaults write -g KeyRepeat -int 1"
 
+alias killdock="defaults write com.apple.dock appswitcher-all-displays -bool true && killall Dock"
+
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
 export PATH="/usr/local/opt/node@8/bin:$PATH"
 export PATH="/usr/local/opt/node@10/bin:$PATH"
 
-export PATH=$HOME/.toolbox/bin:$PATH
 export PATH="/usr/local/opt/curl-openssl/bin:$PATH"
 export JAVA_TOOLS_OPTIONS="-Dlog4j2.formatMsgNoLookups=true"
-source ~/powerlevel10k/powerlevel10k.zsh-theme
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+source /opt/homebrew/share/powerlevel10k/powerlevel10k.zsh-theme
+
+export PATH=$HOME/.toolbox/bin:$PATH
+set -o emacs
+setopt autocd
+export PATH="/opt/homebrew/opt/node@18/bin:$PATH"
+
+zstyle ':completion:*' menu select
+
+export HISTTIMEFORMAT="%F %T "
+
+
+# Kiro CLI post block. Keep at the bottom of this file.
+[[ -f "${HOME}/Library/Application Support/kiro-cli/shell/zshrc.post.zsh" ]] && builtin source "${HOME}/Library/Application Support/kiro-cli/shell/zshrc.post.zsh"
+
+# Added by AIM CLI
+export PATH="/Users/lijoey/.aim/mcp-servers:$PATH"
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
