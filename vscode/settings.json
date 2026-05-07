@@ -1,0 +1,7 @@
+{
+    "chat.viewSessions.orientation": "stacked",
+    "workbench.iconTheme": "material-icon-theme",
+    "workbench.editor.showTabs": "single",
+    "workbench.colorTheme": "One Dark Pro",
+    "editor.fontSize": 14
+}

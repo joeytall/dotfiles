@@ -2,20 +2,6 @@
 # Kiro CLI pre block. Keep at the top of this file.
 [[ -f "${HOME}/Library/Application Support/kiro-cli/shell/zshrc.pre.zsh" ]] && builtin source "${HOME}/Library/Application Support/kiro-cli/shell/zshrc.pre.zsh"
 
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
-
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
-
-ZSH_THEME="powerlevel10k/powerlevel10k"
-
-typeset -g POWERLEVEL9K_INSTANT_PROMPT=quiet
 
 # Source Prezto.
 if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
@@ -73,7 +59,7 @@ alias rr="rm -rf *.pyc"
 
 # Homesick Commands
 alias hscd="cd ~/.homesick/repos/dotfiles"
-alias hslink="homesick symlink dotfiles"
+alias hslink="homeshick symlink dotfiles"
 
 # SVN commands
 alias sdf="svn diff --summarize"
@@ -215,9 +201,7 @@ export PATH="/usr/local/opt/node@10/bin:$PATH"
 export PATH="/usr/local/opt/curl-openssl/bin:$PATH"
 export JAVA_TOOLS_OPTIONS="-Dlog4j2.formatMsgNoLookups=true"
 
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-source /opt/homebrew/share/powerlevel10k/powerlevel10k.zsh-theme
+eval "$(starship init zsh)"
 
 export PATH=$HOME/.toolbox/bin:$PATH
 set -o emacs

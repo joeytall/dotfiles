@@ -1,38 +1,87 @@
-Dotfiles
-========
+# dotfiles
 
-###To copy:
+Personal dotfiles for macOS, managed with [homeshick](https://github.com/andsens/homeshick).
 
-1.gem install homesick
+## What's included
 
-2.homesick clone joeytall/dotfiles
+- **zsh** — zprezto + zsh-autosuggestions + zsh-syntax-highlighting
+- **Starship** — terminal prompt (gruvbox-rainbow preset)
+- **Vim** — vim-plug based config, shared with Neovim
+- **VS Code** — settings, keybindings, extensions (see `vscode/`)
+- **Git** — global config and ignore rules
+- **SSH** — config template
 
-3.homesick symlink dotfiles
+## Setup on a new Mac
 
-GG
+### 1. Prerequisites
 
-##For NeoVim
-mkdir -p ${XDG_CONFIG_HOME:=$HOME/.config}
+```bash
+# Install Homebrew if not already installed
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
-ln -s ~/.vim $XDG_CONFIG_HOME/nvim
+# Install dependencies
+brew install homeshick starship gh
+brew install --cask font-meslo-lg-nerd-font visual-studio-code
+```
 
-ln -s ~/.vimrc $XDG_CONFIG_HOME/nvim/init.vim
+### 2. Clone and symlink dotfiles
 
-vimplug
+```bash
+mkdir -p ~/.homesick/repos
+gh repo clone joeytall/dotfiles ~/.homesick/repos/dotfiles -- --recurse-submodules
 
-or simply run neovimsetup
+# Fix zsh-autosuggestions (uses deprecated git:// protocol)
+rm -rf ~/.homesick/repos/dotfiles/home/.zsh/zsh-autosuggestions
+rm -rf ~/.homesick/repos/dotfiles/home/.zsh/zsh-syntax-highlighting
+git clone https://github.com/zsh-users/zsh-autosuggestions ~/.homesick/repos/dotfiles/home/.zsh/zsh-autosuggestions
+git clone https://github.com/zsh-users/zsh-syntax-highlighting ~/.homesick/repos/dotfiles/home/.zsh/zsh-syntax-highlighting
 
-##YCM
-sudo easy_install gevent==1.1rc1
+# Symlink to home directory
+source /opt/homebrew/opt/homeshick/homeshick.sh
+homeshick symlink dotfiles
 
-sudo pip install neovim
+# Fix zsh plugin symlinks (homeshick doesn't follow submodule dirs)
+rm -rf ~/.zsh/zsh-autosuggestions ~/.zsh/zsh-syntax-highlighting
+ln -s ~/.homesick/repos/dotfiles/home/.zsh/zsh-autosuggestions ~/.zsh/zsh-autosuggestions
+ln -s ~/.homesick/repos/dotfiles/home/.zsh/zsh-syntax-highlighting ~/.zsh/zsh-syntax-highlighting
+```
 
-###To setup:
+### 3. VS Code
 
-1.gem install homesick
+```bash
+~/.homesick/repos/dotfiles/vscode/install.sh
+```
 
-2.homesick generate ~/dotfiles
+Installs all extensions and restores settings/keybindings.
 
-3.put dotfiles under home and push to github
+### 4. VS Code font
 
-4.then go back to To copy!
+Set the terminal font to **MesloLGS Nerd Font** in iTerm2:
+- iTerm2 → Preferences → Profiles → Text → Font → MesloLGS Nerd Font
+
+### 5. Neovim (optional)
+
+```bash
+neovimsetup   # defined in .zshrc, links .vim and .vimrc into nvim config
+```
+
+## Updating VS Code config
+
+After changing VS Code settings or installing new extensions, run:
+
+```bash
+cp ~/Library/Application\ Support/Code/User/settings.json ~/.homesick/repos/dotfiles/vscode/settings.json
+cp ~/Library/Application\ Support/Code/User/keybindings.json ~/.homesick/repos/dotfiles/vscode/keybindings.json
+code --list-extensions > ~/.homesick/repos/dotfiles/vscode/extensions.txt
+```
+
+Then commit and push.
+
+## Key aliases
+
+| Alias | Command |
+|-------|---------|
+| `hscd` | cd into dotfiles repo |
+| `hslink` | re-symlink dotfiles |
+| `ss` | reload zshrc |
+| `se` | edit zshrc |
