@@ -6,7 +6,7 @@ Personal dotfiles for macOS, managed with [homeshick](https://github.com/andsens
 
 - **zsh** — zprezto + zsh-autosuggestions + zsh-syntax-highlighting
 - **Starship** — terminal prompt (gruvbox-rainbow preset)
-- **Vim** — vim-plug based config, shared with Neovim
+- **Neovim** — lazy.nvim based config (`~/.config/nvim/init.lua`) with Treesitter, LSP, Telescope, and more
 - **VS Code** — settings, keybindings, extensions (see `vscode/`)
 - **Git** — global config and ignore rules
 - **SSH** — config template
@@ -62,8 +62,26 @@ Set the terminal font to **MesloLGS Nerd Font** in iTerm2:
 ### 5. Neovim (optional)
 
 ```bash
-neovimsetup   # defined in .zshrc, links .vim and .vimrc into nvim config
+brew install neovim node npm ripgrep ctags
+neovimsetup   # installs all lazy.nvim plugins headlessly
 ```
+
+The config lives at `~/.config/nvim/init.lua` (symlinked from dotfiles). Plugins are managed by [lazy.nvim](https://github.com/folke/lazy.nvim) and install automatically on first launch.
+
+**Key plugins:** Treesitter · nvim-lspconfig · nvim-cmp · Telescope · nvim-tree · lualine · LuaSnip
+
+**To enable LSP servers**, install the server and uncomment it in `init.lua`:
+```bash
+# Python
+brew install pyright
+# TypeScript
+npm install -g typescript-language-server typescript
+# Ruby
+gem install ruby-lsp
+```
+Then uncomment the corresponding `lspconfig.<server>.setup{}` lines in `init.lua`.
+
+**To update plugins:** run `vimplug` or `:Lazy sync` inside Neovim.
 
 ## Updating VS Code config
 
@@ -85,3 +103,5 @@ Then commit and push.
 | `hslink` | re-symlink dotfiles |
 | `ss` | reload zshrc |
 | `se` | edit zshrc |
+| `vimplug` | sync Neovim plugins (`Lazy sync`) |
+| `neovimsetup` | install Neovim plugins on a new machine |
