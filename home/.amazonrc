@@ -114,6 +114,6 @@ alias onboard-app='f() { cout "$1" && ./bin/medic-ops-tools app onboard --stage 
 alias gbco='f() { cout mainline && git branch "$1" && git checkout "$1" }; f'
 
 
-# Claude Code Bedrock Settings
-export CLAUDE_CODE_USE_BEDROCK=1
-export AWS_REGION=us-west-2
+# Claude Code Bedrock Settings (disabled — using Pro subscription instead)
+# export CLAUDE_CODE_USE_BEDROCK=1
+# export AWS_REGION=us-west-2
