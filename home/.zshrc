@@ -52,7 +52,7 @@ alias se="vim ~/.zshrc"
 alias aa="vim ~/.amazonrc"
 alias ss="source ~/.zshrc"
 alias vv="vim ~/.vimrc"
-alias vimplug="vim +PlugInstall +qall"
+alias vimplug="nvim --headless '+Lazy! sync' +qa"
 alias sshon="sudo systemsetup -setremotelogin on"
 alias sshoff="sudo systemsetup -setremotelogin off"
 alias rr="rm -rf *.pyc"
@@ -150,10 +150,8 @@ function downloadwallpaper() {
 }
 
 function neovimsetup(){
-  mkdir -p ${XDG_CONFIG_HOME:=$HOME/.config}
-  ln -s ~/.vim $XDG_CONFIG_HOME/nvim
-  ln -s ~/.vimrc $XDG_CONFIG_HOME/nvim/init.vim
-  vimplug
+  # init.lua is already symlinked by homeshick; just install plugins
+  nvim --headless "+Lazy! sync" +qa
 }
 
 alias downloadwebsite="wget -r -p -U chrome"
